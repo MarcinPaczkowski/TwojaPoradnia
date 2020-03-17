@@ -1,18 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-import './style.scss';
-import Helmet from './helmet';
-import Header from './header';
-import Midsection from './midsection';
-import Footer from './footer';
+const Layout = ({ children }) => <div>Hello test :)</div>
 
-const Layout = ({ children }) => (
-	<div>
-		<Helmet />
-		<Header />
-		<Midsection />
-		<Footer />
-	</div>
-);
-
-export default Layout;
+export default Layout
