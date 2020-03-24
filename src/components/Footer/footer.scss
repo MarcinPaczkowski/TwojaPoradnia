@@ -1,0 +1,10 @@
+.footer {
+  display: grid;
+  grid-template-rows: 50px;
+  grid-row: 1;
+
+  &__text {
+    justify-self: center;
+    align-self: center;
+  }
+}

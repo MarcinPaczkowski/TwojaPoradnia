@@ -1,2 +1,7 @@
 @import './variables.scss';
-@import '~bulma/bulma.sass';
+@import './reset.scss';
+@import '../components/Layout/layout.scss';
+@import '../components/Footer/footer.scss';
+@import '../components/Navbar/navbar.scss';
+
+@import '../components/Zones/zones.scss';

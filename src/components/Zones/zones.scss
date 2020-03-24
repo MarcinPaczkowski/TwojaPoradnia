@@ -1,0 +1,25 @@
+.zones {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: 50px 1fr 1fr 50px;
+
+  &__background {
+    grid-column: 1 / 4;
+    grid-row: 1 / 5;
+    background-color: springgreen;
+  }
+
+  &__first {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: violet;
+    height: 300px;
+  }
+
+  &__second {
+    grid-column: 2;
+    grid-row: 3;
+    background-color: burlywood;
+    height: 300px;
+  }
+}

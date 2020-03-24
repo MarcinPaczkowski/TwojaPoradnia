@@ -1,7 +1,6 @@
 import React from 'react';
+import Zones from '../components/Zones/zones';
 
-import Layout from '../components/layout';
-
-const IndexPage = () => <Layout />;
+const IndexPage = () => <Zones />;
 
 export default IndexPage;
