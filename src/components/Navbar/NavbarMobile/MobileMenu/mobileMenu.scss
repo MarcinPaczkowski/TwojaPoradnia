@@ -1,0 +1,41 @@
+@import '../../../../styles/variables.scss';
+
+.mobile-menu {
+  position: fixed;
+  width: 100%;
+  z-index: 110;
+  background: $nav-background;
+  display: grid;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: scroll;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px auto auto auto;
+  grid-row-gap: 30px;
+
+  align-self: center;
+  justify-self: center;
+
+  &__links {
+    grid-row: 2;
+    display: grid;
+    align-self: center;
+    justify-self: center;
+    grid-gap: 20px;
+  }
+
+  &__social-media {
+    grid-row: 3;
+    align-self: center;
+    justify-self: center;
+  }
+
+  &__contact {
+    grid-row: 4;
+    align-self: center;
+    justify-self: center;
+    margin-bottom: 40px;
+  }
+}

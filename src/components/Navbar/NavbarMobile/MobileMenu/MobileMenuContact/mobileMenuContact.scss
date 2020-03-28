@@ -1,0 +1,9 @@
+.mobile-menu-contact {
+  display: grid;
+  row-gap: 15px;
+
+  &__item {
+    align-self: center;
+    justify-self: center;
+  }
+}

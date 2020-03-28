@@ -1,0 +1,11 @@
+@import '../../../../../styles/variables.scss';
+
+.mobile-menu-link {
+  align-self: center;
+  justify-self: center;
+  color: $nav-item-color;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './zones.scss';
 import Layout from '../layout/layout';
 
 const Zones = () => (
