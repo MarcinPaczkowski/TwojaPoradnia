@@ -18,6 +18,12 @@
   align-self: center;
   justify-self: center;
 
+  &__logo {
+    grid-row: 1;
+    height: 60px;
+    padding: 10px 25px;
+  }
+
   &__links {
     grid-row: 2;
     display: grid;

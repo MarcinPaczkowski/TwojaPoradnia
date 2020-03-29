@@ -3,6 +3,11 @@ import './mobileMenu.scss';
 import MobileMenuLink from './MobileMenuLink/mobileMenuLink';
 import MobileMenuSocialMedia from './MobileMenuSocialMedia/mobileMenuSocialMedia';
 import MobileMenuContact from './MobileMenuContact/mobileMenuContact';
+import ImageWithLink from '../../../Shared/ImageWithLink/imageWithLink';
+import { getRoutingData } from '../../../../services/routingService';
+import { getSocialMedias } from '../../../../services/socialMediaService';
+import { getContactData } from '../../../../services/contactService';
+import logo from '../../../../images/logo1.png';
 
 const MobileMenu = ({ isActive }) => {
   const [routings, setRoutings] = useState([]);
@@ -10,30 +15,13 @@ const MobileMenu = ({ isActive }) => {
   const [contact, setContact] = useState({});
 
   useEffect(() => {
-    const routings = [
-      { name: 'Zajęcia', link: 'www.google.pl' },
-      { name: 'Blog', link: 'www.google.pl' },
-      { name: 'O nas', link: 'www.google.pl' },
-      { name: 'Zajęcia', link: 'www.google.pl' },
-      { name: 'Blog', link: 'www.google.pl' },
-      { name: 'O nas', link: 'www.google.pl' },
-      { name: 'Zajęcia', link: 'www.google.pl' },
-      { name: 'Blog', link: 'www.google.pl' },
-      { name: 'O nas', link: 'www.google.pl' },
-    ];
+    const routings = getRoutingData();
     setRoutings(routings);
 
-    const socialMedias = [
-      { name: 'facebook', link: 'www.facebook.pl' },
-      { name: 'instagram', link: 'www.instagram.com' },
-      { name: 'youtube', link: 'www.youtube.pl' },
-    ];
+    const socialMedias = getSocialMedias();
     setSocialMedias(socialMedias);
 
-    const contact = {
-      email: 'paczkowska.malgorzata@outlook.com',
-      phone: '+48 515 515 515',
-    };
+    const contact = getContactData();
     setContact(contact);
   }, []);
 
@@ -41,8 +29,13 @@ const MobileMenu = ({ isActive }) => {
     return null;
   }
 
+  const imageData = { link: '/', src: logo, alt: 'Twoja Poradnia Logo' };
+
   return (
     <div className="mobile-menu">
+      <div className="mobile-menu__logo">
+        <ImageWithLink imageData={imageData}></ImageWithLink>
+      </div>
       <div className="mobile-menu__links">
         {routings.map((r, i) => (
           <MobileMenuLink key={`${r.name}${i}`} routing={r}></MobileMenuLink>
