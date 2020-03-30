@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .navbar-elements {
   height: 100%;
   display: grid;
@@ -11,6 +13,12 @@
   }
 
   &__links {
-    grid-column: 2;
+    grid-column: unset;
+    display: none;
+
+    @media screen and (min-width: $min-desktop-width) {
+      display: block;
+      grid-column: 2;
+    }
   }
 }
