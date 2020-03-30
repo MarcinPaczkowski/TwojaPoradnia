@@ -12,7 +12,7 @@
   transition: background 0.3s ease-in-out;
 
   @media screen and (min-width: $min-desktop-width) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto 1fr;
   }
 
   &__sticky {
@@ -21,6 +21,10 @@
 
   &__elements {
     grid-column: 1;
+
+    @media screen and (min-width: $min-desktop-width) {
+      grid-column: 2;
+    }
   }
 
   &__mobile {
