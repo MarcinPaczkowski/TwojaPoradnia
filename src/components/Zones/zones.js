@@ -6,8 +6,10 @@ const Zones = () => (
   <Layout>
     <div className="zones">
       <div className="zones__background"></div>
-      <div className="zones__first"></div>
-      <div className="zones__second"></div>
+      <div className="zones__items">
+        <div className="zones__items--item"></div>
+        <div className="zones__items--item"></div>
+      </div>
     </div>
   </Layout>
 );

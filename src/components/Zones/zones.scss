@@ -1,25 +1,42 @@
+@import '../../styles/variables.scss';
+
 .zones {
   display: grid;
-  grid-template-columns: 50px 1fr 50px;
-  grid-template-rows: 50px 1fr 1fr 50px;
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows: 20px 1fr 20px;
+
+  @media screen and (min-width: $min-desktop-width) {
+    grid-template-columns: 1fr 1200px 1fr;
+  }
 
   &__background {
-    grid-column: 1 / 4;
-    grid-row: 1 / 5;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
     background-color: springgreen;
+
+    @media screen and (min-width: $min-desktop-width) {
+      grid-column: 2;
+    }
   }
 
-  &__first {
+  &__items {
     grid-column: 2;
     grid-row: 2;
-    background-color: violet;
-    height: 300px;
-  }
+    display: grid;
+    grid-auto-flow: row;
+    row-gap: 50px;
+    column-gap: unset;
 
-  &__second {
-    grid-column: 2;
-    grid-row: 3;
-    background-color: burlywood;
-    height: 300px;
+    @media screen and (min-width: $min-desktop-width) {
+      grid-auto-flow: column;
+      row-gap: unset;
+      column-gap: 20px;
+      margin: 0 20px;
+    }
+
+    &--item {
+      background-color: violet;
+      height: 300px;
+    }
   }
 }
