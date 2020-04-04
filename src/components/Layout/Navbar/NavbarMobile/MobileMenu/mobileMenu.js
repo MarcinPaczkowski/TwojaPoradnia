@@ -3,11 +3,11 @@ import './mobileMenu.scss';
 import MobileMenuLink from './MobileMenuLink/mobileMenuLink';
 import MobileMenuSocialMedia from './MobileMenuSocialMedia/mobileMenuSocialMedia';
 import MobileMenuContact from './MobileMenuContact/mobileMenuContact';
-import ImageLink from '../../../Shared/ImageLink/imageLink';
-import { getRoutingData } from '../../../../services/routingService';
-import { getSocialMedias } from '../../../../services/socialMediaService';
-import { getContactData } from '../../../../services/contactService';
-import logo from '../../../../images/logo1.png';
+import ImageLink from '../../../../Shared/ImageLink/imageLink';
+import { getRoutingData } from '../../../../../services/routingService';
+import { getSocialMedias } from '../../../../../services/socialMediaService';
+import { getContactData } from '../../../../../services/contactService';
+import logo from '../../../../../images/logo1.png';
 
 const MobileMenu = ({ isActive }) => {
   const [routings, setRoutings] = useState([]);

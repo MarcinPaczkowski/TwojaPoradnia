@@ -1,8 +1,8 @@
 import React from 'react';
 import './navbarElements.scss';
-import ImageLink from '../../Shared/ImageLink/imageLink';
+import ImageLink from '../../../Shared/ImageLink/imageLink';
 import NavbarLinks from './NavbarLinks/navbarLinks';
-import logo from '../../../images/logo1.png';
+import logo from '../../../../images/logo1.png';
 
 const NavbarElements = () => {
   const imageData = { link: '/', src: logo, alt: 'Twoja Poradnia Logo' };
