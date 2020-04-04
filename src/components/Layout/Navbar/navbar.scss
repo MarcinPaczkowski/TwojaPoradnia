@@ -1,0 +1,40 @@
+@import '../../../styles/variables.scss';
+
+.navbar {
+  display: grid;
+  grid-template-rows: 80px;
+  grid-row: 1;
+  grid-template-columns: 1fr 80px;
+  background: rgba(0, 0, 0, 0);
+  position: fixed;
+  width: 100%;
+  z-index: 12;
+  transition: background 0.3s ease-in-out;
+
+  @media screen and (min-width: $min-desktop-width) {
+    grid-template-columns: 1fr 1200px 1fr;
+  }
+
+  &__sticky {
+    background-color: $nav-background;
+  }
+
+  &__elements {
+    grid-column: 1;
+
+    @media screen and (min-width: $min-desktop-width) {
+      grid-column: 2;
+    }
+  }
+
+  &__mobile {
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
+
+    @media screen and (min-width: $min-desktop-width) {
+      display: none;
+      grid-column: unset;
+    }
+  }
+}

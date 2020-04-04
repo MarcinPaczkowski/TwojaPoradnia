@@ -1,0 +1,9 @@
+.footer {
+  display: grid;
+  height: 100%;
+
+  &__text {
+    justify-self: center;
+    align-self: center;
+  }
+}
