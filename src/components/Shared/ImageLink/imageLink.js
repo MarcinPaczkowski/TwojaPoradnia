@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import './imageLink.scss';
 
 const ImageLink = ({ imageData: { link, src, alt } }) => (
-  <a className="image-link" href={link}>
+  <Link className="image-link" to={link}>
     <img className="image-link__img" src={src} alt={alt} />
-  </a>
+  </Link>
 );
 
 export default ImageLink;

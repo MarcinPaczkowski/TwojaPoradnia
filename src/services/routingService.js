@@ -2,7 +2,7 @@ const getRoutingData = () => {
   const routings = [
     { name: 'Zajęcia', link: '/zajecia' },
     { name: 'Blog', link: '/blog' },
-    { name: 'O nas', link: '/o-nas' },
+    { name: 'O mnie', link: '/o-mnie' },
   ];
 
   return routings;

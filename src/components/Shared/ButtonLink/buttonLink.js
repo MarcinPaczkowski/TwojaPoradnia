@@ -1,13 +1,11 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import './buttonLink.scss';
 
-const ImageLink = ({ url, children }) => {
-  // console.log(props);
-  return (
-    <a className="button-link" href={url}>
-      {children}
-    </a>
-  );
-};
+const ImageLink = ({ url, children }) => (
+  <Link className="button-link" to={url}>
+    {children}
+  </Link>
+);
 
 export default ImageLink;
