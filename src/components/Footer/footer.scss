@@ -1,7 +1,6 @@
 .footer {
   display: grid;
-  grid-template-rows: 50px;
-  grid-row: 1;
+  height: 100%;
 
   &__text {
     justify-self: center;

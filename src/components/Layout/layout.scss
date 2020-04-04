@@ -1,10 +1,8 @@
 @import '../../styles/variables.scss';
 
 .layout {
-  font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
-
   display: grid;
-  grid-template-rows: auto 80px 100vh auto;
+  grid-template-rows: 80px auto 80px;
   grid-template-columns: 1fr;
 
   &__navbar {
@@ -14,13 +12,13 @@
 
   &__content {
     background-color: rebeccapurple;
-    grid-row: 3;
+    grid-row: 2;
     grid-column: 1;
   }
 
   &__footer {
     background-color: salmon;
-    grid-row: 4;
+    grid-row: 3;
     grid-column: 1;
   }
 }

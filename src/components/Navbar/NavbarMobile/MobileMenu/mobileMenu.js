@@ -3,7 +3,7 @@ import './mobileMenu.scss';
 import MobileMenuLink from './MobileMenuLink/mobileMenuLink';
 import MobileMenuSocialMedia from './MobileMenuSocialMedia/mobileMenuSocialMedia';
 import MobileMenuContact from './MobileMenuContact/mobileMenuContact';
-import ImageWithLink from '../../../Shared/ImageWithLink/imageWithLink';
+import ImageLink from '../../../Shared/ImageLink/imageLink';
 import { getRoutingData } from '../../../../services/routingService';
 import { getSocialMedias } from '../../../../services/socialMediaService';
 import { getContactData } from '../../../../services/contactService';
@@ -34,7 +34,7 @@ const MobileMenu = ({ isActive }) => {
   return (
     <div className="mobile-menu">
       <div className="mobile-menu__logo">
-        <ImageWithLink imageData={imageData}></ImageWithLink>
+        <ImageLink imageData={imageData}></ImageLink>
       </div>
       <div className="mobile-menu__links">
         {routings.map((r, i) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import './navbarElements.scss';
-import ImageWithLink from '../../Shared/ImageWithLink/imageWithLink';
+import ImageLink from '../../Shared/ImageLink/imageLink';
 import NavbarLinks from './NavbarLinks/navbarLinks';
 import logo from '../../../images/logo1.png';
 
@@ -9,7 +9,7 @@ const NavbarElements = () => {
   return (
     <div className="navbar-elements">
       <div className="navbar-elements__logo">
-        <ImageWithLink imageData={imageData}></ImageWithLink>
+        <ImageLink imageData={imageData}></ImageLink>
       </div>
       <div className="navbar-elements__links">
         <NavbarLinks></NavbarLinks>

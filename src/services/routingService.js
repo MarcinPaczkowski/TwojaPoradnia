@@ -1,14 +1,8 @@
 const getRoutingData = () => {
   const routings = [
-    { name: 'Zajęcia', link: 'www.google.pl' },
-    { name: 'Blog', link: 'www.google.pl' },
-    { name: 'O nas', link: 'www.google.pl' },
-    { name: 'Zajęcia', link: 'www.google.pl' },
-    { name: 'Blog', link: 'www.google.pl' },
-    { name: 'O nas', link: 'www.google.pl' },
-    { name: 'Zajęcia', link: 'www.google.pl' },
-    { name: 'Blog', link: 'www.google.pl' },
-    { name: 'O nas', link: 'www.google.pl' },
+    { name: 'Zajęcia', link: '/zajecia' },
+    { name: 'Blog', link: '/blog' },
+    { name: 'O nas', link: '/o-nas' },
   ];
 
   return routings;

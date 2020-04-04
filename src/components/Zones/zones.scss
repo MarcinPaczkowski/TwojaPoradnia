@@ -24,7 +24,7 @@
     grid-row: 2;
     display: grid;
     grid-auto-flow: row;
-    row-gap: 50px;
+    row-gap: 20px;
     column-gap: unset;
 
     @media screen and (min-width: $min-desktop-width) {
@@ -35,8 +35,8 @@
     }
 
     &--item {
+      padding: 25px;
       background-color: violet;
-      height: 300px;
     }
   }
 }
