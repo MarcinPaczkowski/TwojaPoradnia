@@ -22,10 +22,13 @@ const Navbar = () => {
     };
   }, []);
 
-  const navbarClasses = isSticky ? 'navbar navbar__sticky' : 'navbar';
+  const navbarBackgroundClasses = isSticky
+    ? 'navbar__background navbar__sticky'
+    : 'navbar__background';
 
   return (
-    <nav className={navbarClasses}>
+    <nav className="navbar">
+      <div className={navbarBackgroundClasses}></div>
       <div className="navbar__elements">
         <NavbarElements></NavbarElements>
       </div>

@@ -1,10 +1,11 @@
 import React from 'react';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
+import AboutMe from '../components/AboutMe/aboutMe';
 
 const AboutPage = () => (
   <Layout>
-    <p>O mnie</p>
+    <AboutMe></AboutMe>
   </Layout>
 );
 

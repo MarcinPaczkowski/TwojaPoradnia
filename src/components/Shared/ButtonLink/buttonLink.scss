@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .button-link {
   padding: 10px 20px;
   border-radius: 100px;
@@ -5,12 +7,12 @@
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  background-color: red;
+  background-color: $blue;
+  color: $primary-gray-blue;
   transition: all 0.2s ease-in-out;
-  opacity: 0.8;
+  border: 1px solid $primary-gray-blue;
 
   &:hover {
-    opacity: 1;
     transform: scale(1.1);
   }
 }

@@ -1,9 +1,16 @@
+@import '../../../styles/variables.scss';
+
 .footer {
   display: grid;
   height: 100%;
+  background-color: $blue;
+  border-top: 1px solid $secondary-black-blue;
 
   &__text {
     justify-self: center;
     align-self: center;
+    color: $primary-black-blue;
+    text-align: center;
+    line-height: 25px;
   }
 }
