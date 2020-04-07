@@ -7,6 +7,7 @@ const AboutMeContent = ({ content }) => {
     i % 2 ? (
       <div key={`AboutArticle${i}`} className="about-me-content">
         <div className="about-me-content__odd">
+          <div className="about-me-content__odd--background"></div>
           <div className="about-me-content__odd--image"></div>
           <div className="about-me-content__odd--article">
             <Article content={c}></Article>
