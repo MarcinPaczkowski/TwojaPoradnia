@@ -3,7 +3,9 @@ import './footer.scss';
 
 const Footer = () => (
   <div className="footer">
-    <p className="footer__text">© Twoja Poradnia | Małgorzata Paczkowska</p>
+    <p className="footer__text">
+      © Twoja Pedagogiczna Pora Dnia | Małgorzata Paczkowska
+    </p>
   </div>
 );
 

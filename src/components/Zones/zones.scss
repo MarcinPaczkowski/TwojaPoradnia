@@ -7,16 +7,14 @@
 
   @media screen and (min-width: $min-desktop-width) {
     grid-template-columns: 1fr 1200px 1fr;
+    min-height: 500px;
+    height: calc(100vh - 160px);
   }
 
   &__background {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
-    background-color: springgreen;
-
-    @media screen and (min-width: $min-desktop-width) {
-      grid-column: 2;
-    }
+    background-image: linear-gradient(to bottom, $secondary-white-blue, $blue);
   }
 
   &__items {
@@ -36,7 +34,6 @@
 
     &--item {
       padding: 25px;
-      background-color: violet;
     }
   }
 }
