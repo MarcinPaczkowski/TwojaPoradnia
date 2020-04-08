@@ -5,20 +5,28 @@ import NavbarMobile from './NavbarMobile/navbarMobile';
 
 const Navbar = () => {
   const STICKY_MENU_OFFSET = 80;
+  const MIN_DESKTOP_WIDTH = 1201;
 
   const [isSticky, setIsSticky] = useState(0);
+  const [isMobile, setIsMobile] = useState(
+    window.screen.width < MIN_DESKTOP_WIDTH
+  );
 
   const isStickyHandler = () => {
     setIsSticky(window.scrollY >= STICKY_MENU_OFFSET);
   };
 
+  const isMobileHandler = () => {
+    setIsMobile(window.screen.width < MIN_DESKTOP_WIDTH);
+  };
+
   useEffect(() => {
-    const watchScroll = () => {
-      window.addEventListener('scroll', isStickyHandler);
-    };
-    watchScroll();
+    window.addEventListener('scroll', isStickyHandler);
+    window.addEventListener('resize', isMobileHandler);
+
     return () => {
       window.removeEventListener('scroll', isStickyHandler);
+      window.removeEventListener('resize', isMobileHandler);
     };
   }, []);
 
@@ -32,9 +40,11 @@ const Navbar = () => {
       <div className="navbar__elements">
         <NavbarElements></NavbarElements>
       </div>
-      <div className="navbar__mobile">
-        <NavbarMobile></NavbarMobile>
-      </div>
+      {isMobile ? (
+        <div className="navbar__mobile">
+          <NavbarMobile></NavbarMobile>
+        </div>
+      ) : null}
     </nav>
   );
 };

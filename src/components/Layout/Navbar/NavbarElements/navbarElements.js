@@ -11,7 +11,6 @@ const NavbarElements = () => {
 
   useEffect(() => {
     const routings = getRoutingData();
-    console.log(routings);
     setLeftRoutings(routings.filter(r => r.isLeft));
     setRightRoutings(routings.filter(r => !r.isLeft));
   }, []);
