@@ -3,7 +3,6 @@ import './navbarLinks.scss';
 import NavbarLink from './NavbarLink/navbarLink';
 
 const NavbarLinks = ({ routings }) => {
-  console.log(routings);
   return (
     <div className="navbar-links">
       {routings.map((r, i) => (
