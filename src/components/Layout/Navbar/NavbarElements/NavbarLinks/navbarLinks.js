@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './navbarLinks.scss';
 import NavbarLink from './NavbarLink/navbarLink';
-import { getRoutingData } from '../../../../../services/routingService';
 
-const NavbarLinks = () => {
-  const [routings, setRoutings] = useState([]);
-
-  useEffect(() => {
-    const routings = getRoutingData();
-    setRoutings(routings);
-  }, []);
+const NavbarLinks = ({ routings }) => {
   return (
     <div className="navbar-links">
       {routings.map((r, i) => (
