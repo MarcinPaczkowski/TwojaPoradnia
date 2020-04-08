@@ -8,4 +8,4 @@ const getSocialMedias = () => {
   return socialMedias;
 };
 
-export { getSocialMedias };
+export default getSocialMedias;

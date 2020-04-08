@@ -7,4 +7,4 @@ const getContactData = () => {
   return contact;
 };
 
-export { getContactData };
+export default getContactData;
