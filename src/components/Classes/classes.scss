@@ -1,0 +1,22 @@
+.classes {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows: 20px 1fr 20px;
+
+  @media screen and (min-width: $min-desktop-width) {
+    grid-template-columns: 1fr 1200px 1fr;
+    min-height: 500px;
+  }
+
+  &__banner {
+  }
+
+  &__information {
+  }
+
+  &__tiles {
+  }
+
+  &__details {
+  }
+}
