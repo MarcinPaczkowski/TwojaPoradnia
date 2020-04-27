@@ -8,9 +8,9 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   background-color: $blue;
-  color: $primary-gray-blue;
+  color: $light-gray;
   transition: all 0.2s ease-in-out;
-  border: 1px solid $primary-gray-blue;
+  border: 1px solid $light-gray;
 
   &:hover {
     transform: scale(1.1);
