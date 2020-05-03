@@ -3,8 +3,9 @@ import './navbar.scss';
 import NavbarElements from './NavbarElements/navbarElements';
 import NavbarMobile from './NavbarMobile/navbarMobile';
 
-const Navbar = () => {
-  const STICKY_MENU_OFFSET = 80;
+const Navbar = ({ isHome }) => {
+  const STICKY_MENU_MOBILE_OFFSET = 80;
+  const STICKY_MENU_OFFSET = 120;
   const MIN_DESKTOP_WIDTH = 1201;
 
   const [isSticky, setIsSticky] = useState(0);
@@ -13,7 +14,11 @@ const Navbar = () => {
   );
 
   const isStickyHandler = () => {
-    setIsSticky(window.scrollY >= STICKY_MENU_OFFSET);
+    let offset = isMobile ? STICKY_MENU_MOBILE_OFFSET : STICKY_MENU_OFFSET;
+    if (isHome) {
+      offset = window.innerHeight - offset;
+    }
+    setIsSticky(window.scrollY >= offset);
   };
 
   const isMobileHandler = () => {

@@ -1,0 +1,57 @@
+@import '../../../styles/variables.scss';
+
+.welcome {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 80px 1fr;
+  height: 100vh;
+  overflow: hidden;
+
+  @media screen and (min-width: $min-desktop-width) {
+    grid-template-rows: 120px 1fr;
+  }
+
+  &__background {
+    width: 100%;
+    height: 100vh;
+    grid-column: -1 / 1;
+    grid-row: -1 / 1;
+    object-fit: cover;
+  }
+
+  &__content {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    margin: 20px;
+    display: grid;
+    text-align: left;
+    row-gap: 20px;
+
+    &--title {
+      font-size: 30px;
+      align-self: end;
+      font-weight: 700;
+      color: $black;
+      -webkit-text-fill-color: $black;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: $light-blue;
+
+      @media screen and (min-width: $min-desktop-width) {
+        font-size: 45px;
+      }
+    }
+
+    &--desc {
+      font-size: 18px;
+      align-self: start;
+      color: $black;
+      -webkit-text-fill-color: $light-gray;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: $black;
+
+      @media screen and (min-width: $min-desktop-width) {
+        font-size: 25px;
+      }
+    }
+  }
+}
