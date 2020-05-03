@@ -1,9 +1,10 @@
-@import '../../styles//variables.scss';
+@import '../../styles/variables.scss';
 
 .home {
   display: grid;
   grid-template-columns: 20px 1fr 20px;
-  grid-template-rows: 1fr 1fr 20px;
+  grid-template-rows: auto auto 20px;
+  row-gap: 50px;
 
   @media screen and (min-width: $min-desktop-width) {
     grid-template-columns: 1fr 1200px 1fr;
@@ -12,6 +13,10 @@
   &__welcome {
     grid-column: -1 / 1;
     grid-row: 1;
-    display: grid;
+  }
+
+  &__about-me {
+    grid-column: 2;
+    grid-row: 2;
   }
 }
