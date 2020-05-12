@@ -2,17 +2,17 @@
 
 .button-link {
   padding: 10px 20px;
-  border-radius: 100px;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  background-color: $blue;
-  color: $light-gray;
+  color: $dark-blue;
   transition: all 0.2s ease-in-out;
-  border: 1px solid $light-gray;
+  border: 1px solid $dark-blue;
 
   &:hover {
-    transform: scale(1.1);
+    border: 1px solid $white;
+    background-color: $dark-blue;
+    color: $white;
   }
 }

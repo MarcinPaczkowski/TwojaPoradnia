@@ -1,17 +1,19 @@
 import React from 'react';
 import './welcome.scss';
-import backgroundImage from '../../../images/testBgr.jpg';
 
-const Welcome = ({ welcome }) => {
+const Welcome = ({
+  welcome: { backgroundImageLink, backgroundImageAlt, title, description },
+}) => {
   return (
     <div className="welcome">
       <img
         className="welcome__background"
-        src={welcome.backgroundImageLink}
+        src={backgroundImageLink}
+        alt={backgroundImageAlt}
       ></img>
       <div className="welcome__content">
-        <h1 className="welcome__content--title">{welcome.title}</h1>
-        <p className="welcome__content--desc">{welcome.description}</p>
+        <h1 className="welcome__content--title">{title}</h1>
+        <p className="welcome__content--desc">{description}</p>
       </div>
     </div>
   );

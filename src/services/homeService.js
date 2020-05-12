@@ -1,14 +1,37 @@
-import backgroundImage from '../images/testBgr.jpg';
+import welcomeBackgroundImage from '../images/testBgr.jpg';
+import aboutMeImage from '../images/stockPhoto.jpg';
 
-const getWelcomeData = () => {
+const getHomeData = () => {
   const welcome = {
-    backgroundImageLink: backgroundImage,
+    backgroundImageLink: welcomeBackgroundImage,
+    backgroundImageAlt: 'Tło strony głównej',
     title: 'Zadbam o Ciebie i Twoją rodzinę',
     description:
       'Opowiedz mi o swoich problemach i razem znajdźmy ich rozwiązanie!',
   };
 
-  return welcome;
+  const aboutMe = {
+    imageLink: aboutMeImage,
+    imageAlt: 'Małgorzata Paczkowska zdjęcie',
+    header: 'Poznajmy się!',
+    title: 'Cześć, jestem Gosia!',
+    paragraphs: [
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, optio.',
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, iste tempore fugiat eveniet totam est sit consequuntur hic tenetur sint dignissimos! Perferendis cumque maiores deserunt in optio voluptatibus accusamus unde?',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui tempore, ipsa nulla laudantium reiciendis sed rem labore doloremque veniam exercitationem?',
+    ],
+    buttons: [
+      {
+        url: '/o-mnie',
+        text: 'Więcej o mnie',
+      },
+    ],
+  };
+
+  return {
+    welcome,
+    aboutMe,
+  };
 };
 
-export default getWelcomeData;
+export default getHomeData;
