@@ -1,12 +1,14 @@
 import React from 'react';
 import Layout from '../components/Layout/layout';
-import Zones from '../components/Zones/zones';
+import Home from '../components/Home/home';
 import '../styles/style.scss';
 
-const IndexPage = () => (
-  <Layout>
-    <Zones />
-  </Layout>
-);
+const IndexPage = () => {
+  return (
+    <Layout isHome={true}>
+      <Home />
+    </Layout>
+  );
+};
 
 export default IndexPage;

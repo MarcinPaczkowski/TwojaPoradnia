@@ -1,0 +1,75 @@
+@import '../../../styles/variables.scss';
+
+.section {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+  row-gap: 50px;
+
+  @media screen and (min-width: $min-desktop-width) {
+    grid-template-columns: 3fr 5fr;
+    grid-template-rows: 1fr;
+    row-gap: unset;
+  }
+
+  &--reversed {
+    @media screen and (min-width: $min-desktop-width) {
+      grid-template-columns: 5fr 3fr;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-height: 360px;
+    grid-column: 1;
+    grid-row: 1;
+    object-fit: cover;
+
+    @media screen and (min-width: $min-desktop-width) {
+      grid-column: 1;
+      grid-row: 1;
+      place-self: center;
+    }
+
+    &--reversed {
+      @media screen and (min-width: $min-desktop-width) {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+  }
+
+  &__content {
+    border: 2px solid $black;
+    width: 100%;
+    display: grid;
+    position: relative;
+
+    @media screen and (min-width: $min-desktop-width) {
+      grid-column: 2;
+      grid-row: 1;
+      width: calc(100% + 40px);
+      margin-left: -40px;
+      min-height: 440px;
+    }
+
+    &--reversed {
+      @media screen and (min-width: $min-desktop-width) {
+        grid-column: 1;
+        grid-row: 1;
+        margin-left: 0px;
+      }
+    }
+
+    &--wrapper {
+      justify-self: center;
+      margin-top: -16px;
+      margin-left: 0;
+
+      @media screen and (min-width: $min-desktop-width) {
+        justify-self: start;
+        margin-left: 100px;
+      }
+    }
+  }
+}

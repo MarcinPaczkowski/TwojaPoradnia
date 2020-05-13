@@ -5,6 +5,14 @@
   grid-template-rows: 80px auto 80px;
   grid-template-columns: 1fr;
 
+  @media screen and (min-width: $min-desktop-width) {
+    grid-template-rows: 120px auto 80px;
+  }
+
+  &--home {
+    grid-template-rows: 0 auto 80px;
+  }
+
   &__navbar {
     grid-row: 1;
     grid-column: 1;

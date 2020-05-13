@@ -1,6 +1,6 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 
 export default () => (
   <StaticQuery
@@ -10,7 +10,6 @@ export default () => (
           siteMetadata {
             title
             author
-            imageUrl
             description
             keywords
           }
@@ -37,4 +36,4 @@ export default () => (
       </Helmet>
     )}
   />
-)
+);

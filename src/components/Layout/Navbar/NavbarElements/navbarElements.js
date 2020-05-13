@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import './navbarElements.scss';
 import ImageLink from '../../../Shared/ImageLink/imageLink';
 import NavbarLinks from './NavbarLinks/navbarLinks';
-import logo from '../../../../images/logo.png';
 import getRoutingData from '../../../../services/routingService';
 
 const NavbarElements = () => {
@@ -11,14 +11,27 @@ const NavbarElements = () => {
 
   useEffect(() => {
     const routings = getRoutingData();
-    console.log(routings);
     setLeftRoutings(routings.filter(r => r.isLeft));
     setRightRoutings(routings.filter(r => !r.isLeft));
   }, []);
 
+  const { logo } = useStaticQuery(
+    graphql`
+      query {
+        logo: file(relativePath: { eq: "logo.png" }) {
+          childImageSharp {
+            fixed(width: 100, height: 80) {
+              ...GatsbyImageSharpFixed_noBase64
+            }
+          }
+        }
+      }
+    `
+  );
+
   const imageData = {
     link: '/',
-    src: logo,
+    src: logo.childImageSharp.fixed,
     alt: 'Twoja Pedagogiczna Pora Dnia Logo',
   };
 
