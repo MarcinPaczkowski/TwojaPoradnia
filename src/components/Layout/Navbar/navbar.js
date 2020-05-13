@@ -10,7 +10,9 @@ const Navbar = ({ isHome }) => {
 
   const [isSticky, setIsSticky] = useState(0);
   const [isMobile, setIsMobile] = useState(
-    window.screen.width < MIN_DESKTOP_WIDTH
+    window === undefined || window === null
+      ? false
+      : window.screen.width < MIN_DESKTOP_WIDTH
   );
 
   const isStickyHandler = () => {
