@@ -9,11 +9,7 @@ const Navbar = ({ isHome }) => {
   const MIN_DESKTOP_WIDTH = 1201;
 
   const [isSticky, setIsSticky] = useState(0);
-  const [isMobile, setIsMobile] = useState(
-    window === undefined || window === null
-      ? false
-      : window.screen.width < MIN_DESKTOP_WIDTH
-  );
+  const [isMobile, setIsMobile] = useState(false);
 
   const isStickyHandler = () => {
     let offset = isMobile ? STICKY_MENU_MOBILE_OFFSET : STICKY_MENU_OFFSET;
@@ -28,6 +24,7 @@ const Navbar = ({ isHome }) => {
   };
 
   useEffect(() => {
+    setIsMobile(window.screen.width < MIN_DESKTOP_WIDTH);
     window.addEventListener('scroll', isStickyHandler);
     window.addEventListener('resize', isMobileHandler);
 
