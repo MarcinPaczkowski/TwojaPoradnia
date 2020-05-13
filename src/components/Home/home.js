@@ -47,13 +47,18 @@ const Home = () => {
   ) : null;
 
   const aboutMe = homeData?.aboutMe ? (
-    <Section content={homeData.aboutMe} />
+    <Section content={homeData.aboutMe} isImageOnLeft={true} />
+  ) : null;
+
+  const aboutMeReversed = homeData?.aboutMe ? (
+    <Section content={homeData.aboutMe} isImageOnLeft={false} />
   ) : null;
 
   return (
     <div className="home">
       <div className="home__welcome">{welcome}</div>
       <div className="home__about-me">{aboutMe}</div>
+      <div className="home__test">{aboutMeReversed}</div>
     </div>
   );
 };

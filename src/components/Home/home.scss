@@ -3,7 +3,7 @@
 .home {
   display: grid;
   grid-template-columns: 20px 1fr 20px;
-  grid-template-rows: auto auto 20px;
+  grid-template-rows: auto auto auto 20px;
   row-gap: 50px;
 
   @media screen and (min-width: $min-desktop-width) {
@@ -18,5 +18,10 @@
   &__about-me {
     grid-column: 2;
     grid-row: 2;
+  }
+
+  &__test {
+    grid-column: 2;
+    grid-row: 3;
   }
 }
