@@ -30,6 +30,7 @@
     border: 2px solid $black;
     width: 100%;
     display: grid;
+    position: relative;
 
     @media screen and (min-width: $min-desktop-width) {
       grid-column: 2;

@@ -1,15 +1,18 @@
 import React from 'react';
+import Img from 'gatsby-image/withIEPolyfill';
 import './section.scss';
 import SectionContent from './SectionContent/sectionContent';
 
 const Section = ({ content }) => {
   return (
     <div className="section">
-      <img
+      <Img
         className="section__image"
-        src={content.imageLink}
+        objectFit="cover"
+        objectPosition="50% 50%"
+        fluid={content.image}
         alt={content.imageAlt}
-      ></img>
+      ></Img>
       <div className="section__content">
         <div className="section__content--wrapper">
           <SectionContent content={content} />

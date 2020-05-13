@@ -12,11 +12,13 @@
   }
 
   &__background {
-    width: 100%;
-    height: 100vh;
     grid-column: -1 / 1;
     grid-row: -1 / 1;
-    object-fit: cover;
+
+    &--image {
+      width: 100%;
+      height: 100vh;
+    }
   }
 
   &__content {
@@ -26,6 +28,7 @@
     display: grid;
     text-align: left;
     row-gap: 20px;
+    position: relative;
 
     &--title {
       font-size: 30px;

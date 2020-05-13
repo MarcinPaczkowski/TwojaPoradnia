@@ -1,9 +1,5 @@
-import welcomeBackgroundImage from '../images/testBgr.jpg';
-import aboutMeImage from '../images/stockPhoto.jpg';
-
-const getHomeData = () => {
+export const getHomeData = () => {
   const welcome = {
-    backgroundImageLink: welcomeBackgroundImage,
     backgroundImageAlt: 'Tło strony głównej',
     title: 'Zadbam o Ciebie i Twoją rodzinę',
     description:
@@ -11,7 +7,6 @@ const getHomeData = () => {
   };
 
   const aboutMe = {
-    imageLink: aboutMeImage,
     imageAlt: 'Małgorzata Paczkowska zdjęcie',
     header: 'Poznajmy się!',
     title: 'Cześć, jestem Gosia!',
@@ -33,5 +28,3 @@ const getHomeData = () => {
     aboutMe,
   };
 };
-
-export default getHomeData;

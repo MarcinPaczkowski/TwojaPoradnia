@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import './mobileMenu.scss';
 import MobileMenuLink from './MobileMenuLink/mobileMenuLink';
 import MobileMenuSocialMedia from './MobileMenuSocialMedia/mobileMenuSocialMedia';
@@ -25,11 +26,29 @@ const MobileMenu = ({ isActive }) => {
     setContact(contact);
   }, []);
 
+  const { logo } = useStaticQuery(
+    graphql`
+      query {
+        logo: file(relativePath: { eq: "logo.png" }) {
+          childImageSharp {
+            fixed(width: 100, height: 80) {
+              ...GatsbyImageSharpFixed_noBase64
+            }
+          }
+        }
+      }
+    `
+  );
+
   if (!isActive) {
     return null;
   }
 
-  const imageData = { link: '/', src: logo, alt: 'Twoja Poradnia Logo' };
+  const imageData = {
+    link: '/',
+    src: logo.childImageSharp.fixed,
+    alt: 'Twoja Poradnia Logo',
+  };
 
   return (
     <div className="mobile-menu">
