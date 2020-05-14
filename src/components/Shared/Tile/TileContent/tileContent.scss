@@ -1,0 +1,26 @@
+.tile-content {
+  display: grid;
+  padding: 15px;
+  grid-template-rows: 2fr 1fr;
+
+  &__wrapper {
+    &--title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    &--description {
+      font-size: 16px;
+      line-height: 20px;
+      text-align: justify;
+    }
+  }
+
+  &__link {
+    align-self: end;
+    justify-self: center;
+
+    margin: 15px 0;
+  }
+}

@@ -25,6 +25,18 @@ module.exports = [
     component: path.resolve(`src/containers/children.js`),
   },
   {
+    path: '/materialy',
+    component: path.resolve(`src/containers/materials.js`),
+  },
+  {
+    path: '/rezerwacja',
+    component: path.resolve(`src/containers/booking.js`),
+  },
+  {
+    path: '/kontakt',
+    component: path.resolve(`src/containers/contact.js`),
+  },
+  {
     path: '/404/',
     component: path.resolve(`src/containers/404.js`),
   },
