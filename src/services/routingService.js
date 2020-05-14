@@ -17,7 +17,7 @@ const getRoutingData = () => {
     },
     {
       name: 'Rodzice',
-      link: '/strefa-rodzica',
+      link: '/rodzice',
       order: 4,
       isActive: true,
       isLeft: true,
@@ -25,7 +25,7 @@ const getRoutingData = () => {
 
     {
       name: 'Dzieci',
-      link: '/strefa-dziecka',
+      link: '/dzieci',
       order: 1,
       isActive: true,
       isLeft: false,
