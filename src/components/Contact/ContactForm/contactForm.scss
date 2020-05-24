@@ -1,0 +1,19 @@
+@import '../../../styles/variables.scss';
+
+.contact-form {
+  display: grid;
+  grid-row-gap: 40px;
+
+  &__title {
+    font-size: 50px;
+    text-align: center;
+
+    @media screen and (min-width: $min-desktop-width) {
+      text-align: left;
+    }
+  }
+
+  &__form {
+    display: grid;
+  }
+}
