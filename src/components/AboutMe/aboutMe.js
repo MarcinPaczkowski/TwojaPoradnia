@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './aboutMe.scss';
-import { getAboutMeContent } from './aboutMeService';
+import { getAboutMeContent } from '../../services/aboutMeService';
 import AboutMeContent from './AboutMeContent/aboutMeContent';
 
 const AboutMe = () => {
@@ -12,11 +12,11 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <section className="about-me">
+    <div className="about-me">
       <div className="about-me__content">
         <AboutMeContent content={content}></AboutMeContent>
       </div>
-    </section>
+    </div>
   );
 };
 

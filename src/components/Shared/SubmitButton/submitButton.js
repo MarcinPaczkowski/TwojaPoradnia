@@ -1,8 +1,10 @@
 import React from 'react';
 import './submitButton.scss';
 
-const SubmitButton = ({ text }) => (
-  <input className="submit-button" type="submit" value={text} />
+const SubmitButton = ({ isDisabled, children }) => (
+  <button className="submit-button" type="submit" disabled={isDisabled}>
+    {children}
+  </button>
 );
 
 export default SubmitButton;

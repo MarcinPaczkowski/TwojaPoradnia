@@ -1,0 +1,36 @@
+@import '../../../styles/variables.scss';
+
+.form {
+  display: grid;
+  row-gap: 20px;
+
+  &__row {
+    display: grid;
+    row-gap: 5px;
+
+    &--item {
+      padding: 10px;
+      border: 1px solid $dark-gray;
+      color: $dark-blue;
+      font-size: 20px;
+    }
+
+    &--text {
+      min-height: 200px;
+      max-height: 300px;
+      font-family: 'Rubik', Helvetica, Arial, Lucida, sans-serif;
+
+      @media screen and (min-width: $min-desktop-width) {
+        min-height: 100px;
+      }
+
+      &::placeholder {
+        font-family: 'Rubik', Helvetica, Arial, Lucida, sans-serif;
+      }
+    }
+
+    &--error {
+      color: $blue;
+    }
+  }
+}

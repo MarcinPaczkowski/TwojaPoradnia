@@ -8,7 +8,6 @@ import ImageLink from '../../../../Shared/ImageLink/imageLink';
 import getRoutingData from '../../../../../services/routingService';
 import getSocialMedias from '../../../../../services/socialMediaService';
 import getContactData from '../../../../../services/contactService';
-import logo from '../../../../../images/logo.png';
 
 const MobileMenu = ({ isActive }) => {
   const [routings, setRoutings] = useState([]);
