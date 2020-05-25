@@ -49,7 +49,7 @@ const getContactForm = () => {
       name: 'message',
       placeholder: 'Wiadomość',
       validators: { required: true },
-      errorMessages: { required: 'Wiadomość jest wymagany!' },
+      errorMessages: { required: 'Wiadomość jest wymagana!' },
     },
   ];
 };

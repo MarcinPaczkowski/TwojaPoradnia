@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './contact.scss';
 import ContactInformation from './ContactInformation/contactInformation';
 import ContactForm from './ContactForm/contactForm';
 
 const Contact = () => {
-  const [setClearForm] = useState(false);
-
   const submitHandler = data => {
     console.log(data);
   };
