@@ -5,19 +5,27 @@ import ContactForm from './ContactForm/contactForm';
 import axios from 'axios';
 import StickyLabel from '../Shared/StickyLabel/stickyLabel';
 import stickyLabelTypes from '../Shared/StickyLabel/stickyLabelTypes';
+import Spinner from '../Shared/Spinner/spinner';
 
 const Contact = () => {
+  const LABEL_TIME = 10000;
   const [confirmationLabel, setConfirmationLabel] = useState(null);
+  const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
     if (confirmationLabel) {
-      setTimeout(() => setConfirmationLabel(null), 10000);
+      setTimeout(() => setConfirmationLabel(null), LABEL_TIME);
     }
   }, [confirmationLabel]);
 
   const submitHandler = async data => {
-    const response = await sendEmail(data);
-    processEmailResponse(response);
+    try {
+      setShowSpinner(true);
+      const response = await sendEmail(data);
+      processEmailResponse(response);
+    } finally {
+      setShowSpinner(false);
+    }
   };
 
   const processEmailResponse = ({ status }) => {
@@ -65,6 +73,7 @@ const Contact = () => {
           close={() => setConfirmationLabel(null)}
         />
       ) : null}
+      {showSpinner ? <Spinner /> : null}
     </div>
   );
 };

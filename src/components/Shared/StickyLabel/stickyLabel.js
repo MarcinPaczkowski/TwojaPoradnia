@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './stickyLabel.scss';
 import stickyLabelTypes from './stickyLabelTypes';
 import { FaTimesCircle } from 'react-icons/fa';
