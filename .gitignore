@@ -69,3 +69,6 @@ yarn-error.log
 .yarn-integrity
 .vscode
 
+
+.vercel
+.package-lock.json
