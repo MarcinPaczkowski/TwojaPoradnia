@@ -40,8 +40,8 @@ const getContactForm = () => {
       type: 'phone',
       name: 'phone',
       placeholder: 'Telefon (opcjonalnie)',
-      validators: {},
-      errorMessages: {},
+      validators: { pattern: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/ },
+      errorMessages: { pattern: 'Niewłaściwy format' },
     },
     {
       tag: 'textarea',

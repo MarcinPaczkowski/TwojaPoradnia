@@ -71,4 +71,4 @@ yarn-error.log
 
 
 .vercel
-.package-lock.json
+package-lock.json
