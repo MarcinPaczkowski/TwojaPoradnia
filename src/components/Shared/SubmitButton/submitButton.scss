@@ -1,0 +1,30 @@
+@import '../../../styles/variables.scss';
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $dark-blue;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid $dark-blue;
+  background-color: $white;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border: 1px solid $white;
+      background-color: $dark-blue;
+      color: $white;
+    }
+
+    &:disabled,
+    &:disabled + &:hover {
+      background-color: $light-gray;
+      color: $dark-blue;
+      transition: none;
+      border: 1px solid $dark-blue;
+      cursor: not-allowed;
+    }
+  }
+}
