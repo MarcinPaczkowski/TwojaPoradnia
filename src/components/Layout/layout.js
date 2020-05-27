@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from './Footer/footer';
 import Navbar from './Navbar/navbar';
 import './layout.scss';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import { loadReCaptcha } from 'react-recaptcha-v3';
 
 const Layout = ({ children, isHome }) => {
+  useEffect(() => {
+    loadReCaptcha(process.env.GATSBY_recaptchaSiteKey);
+  }, []);
+
   let layoutClasses = 'layout';
   if (isHome) {
     layoutClasses = `${layoutClasses} layout--home`;
