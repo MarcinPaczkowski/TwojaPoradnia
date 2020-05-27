@@ -6,11 +6,13 @@ import axios from 'axios';
 import StickyLabel from '../Shared/StickyLabel/stickyLabel';
 import stickyLabelTypes from '../Shared/StickyLabel/stickyLabelTypes';
 import Spinner from '../Shared/Spinner/spinner';
+import { ReCaptcha } from 'react-recaptcha-v3';
 
 const Contact = () => {
   const LABEL_TIME = 10000;
   const [confirmationLabel, setConfirmationLabel] = useState(null);
   const [showSpinner, setShowSpinner] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState('');
 
   useEffect(() => {
     if (confirmationLabel) {
@@ -21,14 +23,14 @@ const Contact = () => {
   const submitHandler = async data => {
     try {
       setShowSpinner(true);
-      const response = await sendEmail(data);
-      processEmailResponse(response);
+      const response = await sendEmail(data, recaptchaToken);
+      processResponse(response);
     } finally {
       setShowSpinner(false);
     }
   };
 
-  const processEmailResponse = ({ status }) => {
+  const processResponse = ({ status }) => {
     if (status != 200) {
       setConfirmationLabel({
         type: stickyLabelTypes.ERROR,
@@ -43,11 +45,12 @@ const Contact = () => {
     }
   };
 
-  const sendEmail = async formData => {
+  const sendEmail = async (formData, recaptchaToken) => {
     const response = await axios.post(
       '/api/sendEmail',
       {
         formData,
+        recaptchaToken,
       },
       {
         headers: {
@@ -74,6 +77,11 @@ const Contact = () => {
         />
       ) : null}
       {showSpinner ? <Spinner /> : null}
+      <ReCaptcha
+        sitekey={process.env.GATSBY_recaptchaSiteKey}
+        action="CONTACT_FORM"
+        verifyCallback={token => setRecaptchaToken(token)}
+      />
     </div>
   );
 };
