@@ -12,8 +12,7 @@ export class EmailService {
     );
   }
 
-  async sendMail(to: string, subject: string, content: string) {
-    console.log(`to: ${to}`);
+  async sendMail(subject: string, content: string) {
     const options = {
       from: this.user,
       to: this.recipient,
