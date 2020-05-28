@@ -11,19 +11,19 @@ const Navbar = ({ isHome }) => {
   const [isSticky, setIsSticky] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  const isStickyHandler = () => {
-    let offset = isMobile ? STICKY_MENU_MOBILE_OFFSET : STICKY_MENU_OFFSET;
-    if (isHome) {
-      offset = window.innerHeight - offset;
-    }
-    setIsSticky(window.scrollY >= offset);
-  };
-
-  const isMobileHandler = () => {
-    setIsMobile(window.screen.width < MIN_DESKTOP_WIDTH);
-  };
-
   useEffect(() => {
+    const isStickyHandler = () => {
+      let offset = isMobile ? STICKY_MENU_MOBILE_OFFSET : STICKY_MENU_OFFSET;
+      if (isHome) {
+        offset = window.innerHeight - offset;
+      }
+      setIsSticky(window.scrollY >= offset);
+    };
+
+    const isMobileHandler = () => {
+      setIsMobile(window.screen.width < MIN_DESKTOP_WIDTH);
+    };
+
     setIsMobile(window.screen.width < MIN_DESKTOP_WIDTH);
     window.addEventListener('scroll', isStickyHandler);
     window.addEventListener('resize', isMobileHandler);
@@ -32,7 +32,7 @@ const Navbar = ({ isHome }) => {
       window.removeEventListener('scroll', isStickyHandler);
       window.removeEventListener('resize', isMobileHandler);
     };
-  }, []);
+  }, [isHome, isMobile]);
 
   const navbarBackgroundClasses = isSticky
     ? 'navbar__background navbar__sticky'

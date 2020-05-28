@@ -9,7 +9,7 @@
   @media screen and (min-width: $min-desktop-width) {
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
-    padding: 25px 0;
+    margin: 25px 0;
   }
 }
 
@@ -58,13 +58,13 @@
     @extend %evenAndOdd;
 
     &--background {
-      background-color: rgba(102, 204, 255, 0.4);
+      background-color: $light-blue;
       grid-row: -1 / 1;
       grid-column: -1 / 1;
       margin: 0 -20px;
 
       @media screen and (min-width: $min-desktop-width) {
-        margin: 0px calc((1200px - 100vw) / 2);
+        margin: -25px calc((1200px - 100vw) / 2);
       }
     }
 

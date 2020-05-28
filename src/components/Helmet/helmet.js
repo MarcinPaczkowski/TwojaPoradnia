@@ -2,7 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 
-export default () => (
+const GatsbyHelmet = () => (
   <StaticQuery
     query={graphql`
       query helmetQuery {
@@ -37,3 +37,5 @@ export default () => (
     )}
   />
 );
+
+export default GatsbyHelmet;

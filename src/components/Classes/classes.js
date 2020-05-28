@@ -1,13 +1,17 @@
 import React from 'react';
 import './classes.scss';
+import HorizontalTile from '../Shared/HorizontalTile/horizontalTile';
 
 const Classes = () => {
   return (
     <div className="classes">
-      <div className="classes__banner"></div>
-      <div className="classes__information"></div>
-      <div className="classes__tiles"></div>
-      <div className="classes__details"></div>
+      <h1 className="classes__title">Zajęcia</h1>
+      <div className="classes__grid">
+        <HorizontalTile isOdd={false} />
+        <HorizontalTile isOdd={true} />
+        <HorizontalTile isOdd={false} />
+        <HorizontalTile isOdd={true} />
+      </div>
     </div>
   );
 };
