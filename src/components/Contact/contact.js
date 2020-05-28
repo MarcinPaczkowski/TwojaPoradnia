@@ -31,7 +31,7 @@ const Contact = () => {
   };
 
   const processResponse = ({ status }) => {
-    if (status != 200) {
+    if (status !== 200) {
       setConfirmationLabel({
         type: stickyLabelTypes.ERROR,
         message:

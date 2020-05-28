@@ -28,7 +28,7 @@ const getContactForm = () => {
       placeholder: 'Email',
       validators: {
         required: true,
-        pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/,
       },
       errorMessages: {
         required: 'Email jest wymagany!',
@@ -40,7 +40,7 @@ const getContactForm = () => {
       type: 'phone',
       name: 'phone',
       placeholder: 'Telefon (opcjonalnie)',
-      validators: { pattern: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/ },
+      validators: { pattern: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/ },
       errorMessages: { pattern: 'Niewłaściwy format' },
     },
     {

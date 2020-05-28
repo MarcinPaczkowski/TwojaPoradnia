@@ -1,0 +1,26 @@
+.horizontalTileContent {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  row-gap: 15px;
+  padding: 15px;
+
+  &__title {
+    font-size: 24px;
+    grid-row: 1;
+    text-align: center;
+  }
+
+  &__description {
+    font-size: 18px;
+    grid-row: 2;
+    line-height: 24px;
+    text-align: justify;
+  }
+
+  &__button {
+    grid-row: 3;
+    align-self: end;
+    justify-self: center;
+    margin: 15px 0;
+  }
+}
