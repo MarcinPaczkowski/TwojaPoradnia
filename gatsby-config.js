@@ -26,7 +26,7 @@ module.exports = {
         background_color: '#2980b9',
         theme_color: '#2980b9',
         display: 'standalone',
-        icon: 'src/images/logo.png',
+        icon: 'src/images/circle-icon.jpg',
         orientation: 'portrait',
       },
     },
@@ -34,8 +34,22 @@ module.exports = {
     {
       resolve: `gatsby-plugin-routes`,
       options: {
-        // this is the path to your routes configuration file
         path: `${__dirname}/src/routes.js`,
+      },
+    },
+    {
+      resolve: `@kentico/gatsby-source-kontent`,
+      options: {
+        projectId: process.env.GATSBY_kontentProjectId,
+        authorizationKey: process.env.GATSBY_kontentPreviewApiKey,
+        usePreviewUrl: process.env.GATSBY_kontentIsPreviewMode === 'true',
+        languageCodenames: [`pl-PL`],
+      },
+    },
+    {
+      resolve: `@rshackleton/gatsby-transformer-kontent-image`,
+      options: {
+        local: true,
       },
     },
     // `gatsby-plugin-sitemap`,

@@ -1,19 +1,19 @@
 import React from 'react';
 import './horizontalTileContent.scss';
 import ButtonLink from '../../ButtonLink/buttonLink';
+import parse from 'html-react-parser';
 
-const HorizontalTileContent = () => {
+const HorizontalTileContent = ({
+  content: { title, shortDescription, urlToDetails },
+}) => {
   return (
     <div className="horizontalTileContent">
-      <h2 className="horizontalTileContent__title">Zajęcia1</h2>
-      <p className="horizontalTileContent__description">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid maxime
-        iusto ipsa autem aut labore nesciunt obcaecati nostrum dignissimos,
-        fugiat nobis velit temporibus consectetur voluptas voluptates cum
-        mollitia architecto? Error.
-      </p>
+      <h2 className="horizontalTileContent__title">{title}</h2>
+      <div className="horizontalTileContent__description">
+        {parse(shortDescription)}
+      </div>
       <div className="horizontalTileContent__button">
-        <ButtonLink url="/o-mnie">Więcej</ButtonLink>
+        <ButtonLink url={urlToDetails}>Więcej</ButtonLink>
       </div>
     </div>
   );

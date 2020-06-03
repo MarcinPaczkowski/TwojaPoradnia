@@ -8,6 +8,8 @@
     display: grid;
     row-gap: 5px;
 
+    $this: &;
+
     &--item {
       padding: 10px;
       border: 1px solid $dark-gray;
@@ -30,7 +32,19 @@
     }
 
     &--error {
+      border: 1px solid $blue;
+
+      &::placeholder {
+        color: $blue;
+      }
+    }
+
+    &--errorMessage {
       color: $blue;
+    }
+
+    &--label {
+      display: none;
     }
   }
 }
