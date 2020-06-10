@@ -1,26 +1,29 @@
 import React from 'react';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
-import AboutMe from '../components/AboutMe/aboutMe';
+import TeachingResources from '../components/TeachingResources/teachingResources';
 import { useStaticQuery, graphql } from 'gatsby';
-import { mapAllCmsAboutMeArticles } from '../utils/cmsMappers/aboutMeArticleMapper';
+import { mapCmsTeachingResources } from '../utils/cmsMappers/teachingResourcesMapper';
 
-const AboutPage = () => {
+const TeachingResourcesPage = () => {
   const {
-    allKontentItemAboutmearticle: { nodes: cmsArticles },
+    allKontentItemTeachingresource: { nodes: cmsTeachingResources },
   } = useStaticQuery(
     graphql`
       query {
-        allKontentItemAboutmearticle {
+        allKontentItemTeachingresource {
           nodes {
             elements {
+              title {
+                value
+              }
               description {
                 value
               }
               image {
                 value {
                   description
-                  fluid(maxWidth: 600) {
+                  fluid(maxWidth: 720) {
                     aspectRatio
                     base64
                     sizes
@@ -29,8 +32,10 @@ const AboutPage = () => {
                   }
                 }
               }
-              title {
-                value
+              resource {
+                value {
+                  url
+                }
               }
             }
           }
@@ -39,13 +44,13 @@ const AboutPage = () => {
     `
   );
 
-  const articles = mapAllCmsAboutMeArticles(cmsArticles);
+  const teachingResources = mapCmsTeachingResources(cmsTeachingResources);
 
   return (
     <Layout>
-      <AboutMe articles={articles}></AboutMe>
+      <TeachingResources resources={teachingResources} />
     </Layout>
   );
 };
 
-export default AboutPage;
+export default TeachingResourcesPage;

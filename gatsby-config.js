@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Twoja Pora Dnia - ${process.env.GATSBY_env}`,
@@ -44,6 +48,7 @@ module.exports = {
         authorizationKey: process.env.GATSBY_kontentPreviewApiKey,
         usePreviewUrl: process.env.GATSBY_kontentIsPreviewMode === 'true',
         languageCodenames: [`pl-PL`],
+        includeTypes: true,
       },
     },
     {

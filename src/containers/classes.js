@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import Classes from '../components/Classes/classes';
-import { mapAllCmsClasses } from '../utils/classesMapper';
+import { mapAllCmsClasses } from '../utils/cmsMappers/classesMapper';
 
 const ClassesPage = () => {
   const {

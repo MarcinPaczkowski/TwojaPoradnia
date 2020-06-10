@@ -1,6 +1,7 @@
 import React from 'react';
 import './sectionContent.scss';
 import ButtonLink from '../../ButtonLink/buttonLink';
+import { v4 as uuid } from 'uuid';
 
 const SectionContent = ({
   content: { header, title, paragraphs, buttons },
@@ -11,7 +12,7 @@ const SectionContent = ({
       <h3 className="section-content__title">{title}</h3>
       {paragraphs.map((p, i) => {
         return (
-          <p className="section-content__text" key={i}>
+          <p className="section-content__text" key={uuid()}>
             {p}
           </p>
         );
@@ -19,7 +20,7 @@ const SectionContent = ({
       <div className="section-content__buttons">
         {buttons.map((b, i) => {
           return (
-            <ButtonLink key={i} url={b.url}>
+            <ButtonLink key={uuid()} url={b.url}>
               {b.text}
             </ButtonLink>
           );

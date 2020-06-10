@@ -12,7 +12,6 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border: 1px solid $white;
       background-color: $dark-blue;
       color: $white;
     }

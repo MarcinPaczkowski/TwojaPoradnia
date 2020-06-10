@@ -2,14 +2,12 @@ import React from 'react';
 import './aboutMeContent.scss';
 import Article from '../../Shared/Article/article';
 import GatsbyImage from 'gatsby-image/withIEPolyfill';
+import { v4 as uuid } from 'uuid';
 
 const AboutMeContent = ({ content }) => {
   return content.map((c, i) =>
     i % 2 ? (
-      <div
-        key={`AboutArticle${i}`}
-        className="about-me-content about-me-content__odd"
-      >
+      <div key={uuid()} className="about-me-content about-me-content__odd">
         <GatsbyImage
           className="about-me-content__odd--image"
           objectFit="cover"
@@ -22,10 +20,7 @@ const AboutMeContent = ({ content }) => {
         </div>
       </div>
     ) : (
-      <div
-        key={`AboutArticle${i}`}
-        className="about-me-content about-me-content__even"
-      >
+      <div key={uuid()} className="about-me-content about-me-content__even">
         <div className="about-me-content__even--background"></div>
         <GatsbyImage
           className="about-me-content__even--image"

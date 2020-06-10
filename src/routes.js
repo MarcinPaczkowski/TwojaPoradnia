@@ -26,7 +26,7 @@ module.exports = [
   },
   {
     path: '/materialy',
-    component: path.resolve(`src/containers/materials.js`),
+    component: path.resolve(`src/containers/teachingResources.js`),
   },
   {
     path: '/rezerwacja',

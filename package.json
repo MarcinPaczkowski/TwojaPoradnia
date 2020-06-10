@@ -34,7 +34,8 @@
     "react-hook-form": "^5.7.2",
     "react-icons": "^3.9.0",
     "react-recaptcha-v3": "^1.1.0",
-    "react-scroll-parallax": "^2.3.2"
+    "react-scroll-parallax": "^2.3.2",
+    "uuid": "^8.1.0"
   },
   "keywords": [
     "gatsby",
@@ -42,8 +43,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "gatsby build --verbose",
+    "develop": "gatsby develop --verbose",
     "start": "vercel dev",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"

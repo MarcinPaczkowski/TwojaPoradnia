@@ -8,6 +8,7 @@ import ImageLink from '../../../../Shared/ImageLink/imageLink';
 import getRoutingData from '../../../../../services/routingService';
 import getSocialMedias from '../../../../../services/socialMediaService';
 import { getContactData } from '../../../../../services/contactService';
+import { v4 as uuid } from 'uuid';
 
 const MobileMenu = ({ isActive }) => {
   const [routings, setRoutings] = useState([]);
@@ -56,13 +57,13 @@ const MobileMenu = ({ isActive }) => {
       </div>
       <div className="mobile-menu__links">
         {routings.map((r, i) => (
-          <MobileMenuLink key={`${r.name}${i}`} routing={r}></MobileMenuLink>
+          <MobileMenuLink key={uuid()} routing={r}></MobileMenuLink>
         ))}
       </div>
       <div className="mobile-menu__social-media">
         {socialMedias.map((sm, i) => (
           <MobileMenuSocialMedia
-            key={`${sm.name}${i}`}
+            key={uuid()}
             socialMedia={sm}
           ></MobileMenuSocialMedia>
         ))}

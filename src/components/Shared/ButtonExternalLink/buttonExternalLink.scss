@@ -9,6 +9,7 @@
   color: $dark-blue;
   transition: all 0.2s ease-in-out;
   border: 1px solid $dark-blue;
+  cursor: pointer;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
