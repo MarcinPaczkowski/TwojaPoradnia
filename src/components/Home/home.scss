@@ -16,13 +16,10 @@
     grid-row: 1;
   }
 
-  &__about-me {
+  &__articles {
     grid-column: 2;
     grid-row: 2;
-  }
-
-  &__test {
-    grid-column: 2;
-    grid-row: 3;
+    display: grid;
+    row-gap: 50px;
   }
 }

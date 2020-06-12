@@ -10,7 +10,6 @@ const TileContent = ({
     link: { url, text },
   },
 }) => {
-  console.log(url);
   return (
     <div className="tile-content">
       <div className="tile-content__wrapper">

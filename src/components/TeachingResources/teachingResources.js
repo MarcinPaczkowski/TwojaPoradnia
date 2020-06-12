@@ -4,7 +4,6 @@ import Tile from '../Shared/Tile/tile';
 import { v4 as uuid } from 'uuid';
 
 const TeachingResources = ({ resources }) => {
-  console.log(resources);
   const tiles = resources.map(r => {
     return {
       image: {
