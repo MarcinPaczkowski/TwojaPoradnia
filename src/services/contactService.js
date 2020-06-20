@@ -1,12 +1,3 @@
-const getContactData = () => {
-  const contact = {
-    email: 'paczkowska.malgorzata@outlook.com',
-    phone: '+48 515 515 515',
-  };
-
-  return contact;
-};
-
 const getContactForm = () => {
   return [
     {
@@ -54,4 +45,4 @@ const getContactForm = () => {
   ];
 };
 
-export { getContactData, getContactForm };
+export { getContactForm };

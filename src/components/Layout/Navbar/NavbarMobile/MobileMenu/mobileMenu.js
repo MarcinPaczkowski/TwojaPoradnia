@@ -6,27 +6,27 @@ import MobileMenuSocialMedia from './MobileMenuSocialMedia/mobileMenuSocialMedia
 import MobileMenuContact from './MobileMenuContact/mobileMenuContact';
 import ImageLink from '../../../../Shared/ImageLink/imageLink';
 import getRoutingData from '../../../../../services/routingService';
-import getSocialMedias from '../../../../../services/socialMediaService';
-import { getContactData } from '../../../../../services/contactService';
 import { v4 as uuid } from 'uuid';
+import { mapCmsContactData } from '../../../../../utils/cmsMappers/contactDataMapper';
 
 const MobileMenu = ({ isActive }) => {
   const [routings, setRoutings] = useState([]);
-  const [socialMedias, setSocialMedias] = useState([]);
-  const [contact, setContact] = useState({});
 
   useEffect(() => {
     const routings = getRoutingData();
     setRoutings(routings);
 
-    const socialMedias = getSocialMedias();
-    setSocialMedias(socialMedias);
+    if (isActive) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflowY = 'scroll';
+    }
+  }, [isActive]);
 
-    const contact = getContactData();
-    setContact(contact);
-  }, []);
-
-  const { logo } = useStaticQuery(
+  const {
+    logo,
+    allKontentItemContactdata: { nodes: cmsContactData },
+  } = useStaticQuery(
     graphql`
       query {
         logo: file(relativePath: { eq: "logo.png" }) {
@@ -36,9 +36,41 @@ const MobileMenu = ({ isActive }) => {
             }
           }
         }
+        allKontentItemContactdata {
+          nodes {
+            elements {
+              fullname {
+                value
+              }
+              email {
+                value
+              }
+              address {
+                value
+              }
+              nip {
+                value
+              }
+              phone {
+                value
+              }
+              facebookurl {
+                value
+              }
+              instagramurl {
+                value
+              }
+              youtubeurl {
+                value
+              }
+            }
+          }
+        }
       }
     `
   );
+
+  const contactData = mapCmsContactData(cmsContactData[0]);
 
   if (!isActive) {
     return null;
@@ -50,18 +82,24 @@ const MobileMenu = ({ isActive }) => {
     alt: 'Twoja Poradnia Logo',
   };
 
+  const socialMedias = [
+    { name: 'facebook', link: contactData.facebookUrl },
+    { name: 'instagram', link: contactData.instagramUrl },
+    { name: 'youtube', link: contactData.youtubeUrl },
+  ].filter(sm => sm.link !== '');
+
   return (
     <div className="mobile-menu">
       <div className="mobile-menu__logo">
         <ImageLink imageData={imageData}></ImageLink>
       </div>
       <div className="mobile-menu__links">
-        {routings.map((r, i) => (
+        {routings.map(r => (
           <MobileMenuLink key={uuid()} routing={r}></MobileMenuLink>
         ))}
       </div>
       <div className="mobile-menu__social-media">
-        {socialMedias.map((sm, i) => (
+        {socialMedias.map(sm => (
           <MobileMenuSocialMedia
             key={uuid()}
             socialMedia={sm}
@@ -69,7 +107,10 @@ const MobileMenu = ({ isActive }) => {
         ))}
       </div>
       <div className="mobile-menu__contact">
-        <MobileMenuContact contact={contact}></MobileMenuContact>
+        <MobileMenuContact
+          email={contactData.email}
+          phone={contactData.phone}
+        ></MobileMenuContact>
       </div>
     </div>
   );

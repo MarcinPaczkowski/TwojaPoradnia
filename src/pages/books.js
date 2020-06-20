@@ -2,10 +2,10 @@ import React from 'react';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 
-const ParentsPage = () => (
+const BooksPage = () => (
   <Layout>
-    <p>Rodzice</p>
+    <p>Dzieci</p>
   </Layout>
 );
 
-export default ParentsPage;
+export default BooksPage;

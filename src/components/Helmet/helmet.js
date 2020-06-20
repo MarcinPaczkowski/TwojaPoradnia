@@ -25,14 +25,14 @@ const GatsbyHelmet = () => (
         <meta name="description" content={data.site.siteMetadata.description} />
         <meta name="keywords" content={data.site.siteMetadata.keywords} />
         <title>{data.site.siteMetadata.title}</title>
-        <html lang="en" />
+        <html lang="pl" />
         {/* Google / Search Engine Meta Tags */}
-        <meta itemprop="name" content={data.site.siteMetadata.author} /> />
+        <meta itemprop="name" content={data.site.siteMetadata.author} />
         <meta
           itemprop="description"
           content={data.site.siteMetadata.description}
         />
-        <meta itemprop="image" content={data.site.siteMetadata.imageUrl} /> />
+        {/* <meta itemprop="image" content={data.site.siteMetadata.imageUrl} /> */}
       </Helmet>
     )}
   />

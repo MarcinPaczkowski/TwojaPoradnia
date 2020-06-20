@@ -21,10 +21,10 @@ const Navbar = ({ isHome }) => {
     };
 
     const isMobileHandler = () => {
-      setIsMobile(window.screen.width < MIN_DESKTOP_WIDTH);
+      setIsMobile(window.innerWidth < MIN_DESKTOP_WIDTH);
     };
 
-    setIsMobile(window.screen.width < MIN_DESKTOP_WIDTH);
+    setIsMobile(window.innerWidth < MIN_DESKTOP_WIDTH);
     window.addEventListener('scroll', isStickyHandler);
     window.addEventListener('resize', isMobileHandler);
 

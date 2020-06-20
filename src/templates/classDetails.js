@@ -2,10 +2,10 @@ import React from 'react';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 
-const BlogPage = () => (
+const ClassDetails = ({ data }) => (
   <Layout>
-    <p>Blog</p>
+    <p>Szczegóły</p>
   </Layout>
 );
 
-export default BlogPage;
+export default ClassDetails;

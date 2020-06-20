@@ -11,8 +11,8 @@ const NavbarElements = () => {
 
   useEffect(() => {
     const routings = getRoutingData();
-    setLeftRoutings(routings.filter(r => r.isLeft));
-    setRightRoutings(routings.filter(r => !r.isLeft));
+    setLeftRoutings(routings.filter(r => r.order > 0 && r.isLeft));
+    setRightRoutings(routings.filter(r => r.order > 0 && !r.isLeft));
   }, []);
 
   const { logo } = useStaticQuery(

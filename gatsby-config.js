@@ -36,12 +36,6 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-routes`,
-      options: {
-        path: `${__dirname}/src/routes.js`,
-      },
-    },
-    {
       resolve: `@kentico/gatsby-source-kontent`,
       options: {
         projectId: process.env.GATSBY_kontentProjectId,
@@ -55,6 +49,22 @@ module.exports = {
       resolve: `@rshackleton/gatsby-transformer-kontent-image`,
       options: {
         local: true,
+      },
+    },
+    {
+      resolve: '@bakkenbaeck/gatsby-plugin-rename-routes',
+      options: {
+        rename: {
+          '/about/': '/o-mnie/',
+          '/classes/': '/zajecia/',
+          '/development/': '/rozwoj-i-wychowanie/',
+          '/books/': '/ksiazki/',
+          '/games/': '/gry/',
+          '/teachingResources/': '/materialy/',
+          '/booking/': '/rezerwacja/',
+          '/contact/': '/kontakt/',
+          '/404/': '/404/',
+        },
       },
     },
     // `gatsby-plugin-sitemap`,

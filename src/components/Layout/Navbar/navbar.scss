@@ -12,7 +12,7 @@
   transition: background 0.3s ease-in-out;
 
   @media screen and (min-width: $min-desktop-width) {
-    grid-template-columns: 1fr 1200px 1fr;
+    grid-template-columns: 1fr 1180px 1fr;
     grid-template-rows: 120px;
   }
 

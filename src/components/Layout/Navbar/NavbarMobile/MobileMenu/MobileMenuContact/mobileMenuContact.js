@@ -1,11 +1,15 @@
 import React from 'react';
 import './mobileMenuContact.scss';
 
-const MobileMenuContact = ({ contact: { email, phone } }) => {
+const MobileMenuContact = ({ email, phone }) => {
   return (
     <div className="mobile-menu-contact">
-      <p className="mobile-menu-contact__item">{email}</p>
-      <p className="mobile-menu-contact__item">{phone}</p>
+      <a className="mobile-menu-contact__item" href={`mailto:${email}`}>
+        {email}
+      </a>
+      <a className="mobile-menu-contact__item" href={`tel:${phone}`}>
+        {phone}
+      </a>
     </div>
   );
 };

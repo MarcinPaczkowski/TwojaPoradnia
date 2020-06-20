@@ -8,7 +8,7 @@ import stickyLabelTypes from '../Shared/StickyLabel/stickyLabelTypes';
 import Spinner from '../Shared/Spinner/spinner';
 import { ReCaptcha } from 'react-recaptcha-v3';
 
-const Contact = () => {
+const Contact = ({ contactData }) => {
   const LABEL_TIME = 10000;
   const [confirmationLabel, setConfirmationLabel] = useState(null);
   const [showSpinner, setShowSpinner] = useState(false);
@@ -64,7 +64,7 @@ const Contact = () => {
   return (
     <div className="contact">
       <div className="contact__information">
-        <ContactInformation />
+        <ContactInformation contactData={contactData} />
       </div>
       <div className="contact__form">
         <ContactForm submitHandler={submitHandler} />

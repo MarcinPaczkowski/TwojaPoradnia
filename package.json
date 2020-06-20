@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "author": "Marcin Paczkowski <paczkowski.marcin@icloud.com>",
   "dependencies": {
+    "@bakkenbaeck/gatsby-plugin-rename-routes": "^1.0.0",
     "@hot-loader/react-dom": "^16.13.0",
     "@kentico/gatsby-source-kontent": "^6.0.1",
     "@rshackleton/gatsby-transformer-kontent-image": "^2.0.0",
