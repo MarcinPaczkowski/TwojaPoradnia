@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 
-const ClassDetails = data => {
+const BookDetails = data => {
   console.log(data);
   return (
     <Layout>
@@ -11,4 +11,4 @@ const ClassDetails = data => {
   );
 };
 
-export default ClassDetails;
+export default BookDetails;

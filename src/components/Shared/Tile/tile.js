@@ -13,7 +13,9 @@ const Tile = ({ tile }) => {
         fluid={tile.image.src}
         alt={tile.image.alt}
       ></GatsbyImage>
-      <TileContent tile={tile} />
+      <div className="tile__content">
+        <TileContent tile={tile} />
+      </div>
     </div>
   );
 };

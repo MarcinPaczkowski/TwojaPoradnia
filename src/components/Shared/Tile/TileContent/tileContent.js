@@ -1,13 +1,14 @@
 import React from 'react';
 import './tileContent.scss';
 import ButtonExternalLink from '../../ButtonExternalLink/buttonExternalLink';
+import ButtonLink from '../../ButtonLink/buttonLink';
 import parse from 'html-react-parser';
 
 const TileContent = ({
   tile: {
     title,
     description,
-    link: { url, text },
+    link: { url, text, isExternal },
   },
 }) => {
   return (
@@ -17,7 +18,11 @@ const TileContent = ({
         {parse(description)}
       </div>
       <div className="tile-content__link">
-        <ButtonExternalLink url={url}>{text}</ButtonExternalLink>
+        {isExternal ? (
+          <ButtonExternalLink url={url}>{text}</ButtonExternalLink>
+        ) : (
+          <ButtonLink url={url}>{text}</ButtonLink>
+        )}
       </div>
     </div>
   );

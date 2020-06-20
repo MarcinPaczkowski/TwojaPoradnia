@@ -2,25 +2,25 @@
   display: grid;
   padding: 15px;
   grid-template-rows: 2fr 1fr;
+  height: 100%;
 
   &__wrapper {
     &--title {
       font-size: 24px;
       margin-bottom: 10px;
       text-align: center;
+      height: 50px;
     }
 
     p {
       font-size: 16px;
-      line-height: 20px;
+      line-height: 24px;
       text-align: justify;
     }
   }
 
   &__link {
-    align-self: end;
     justify-self: center;
-
     margin: 15px 0;
   }
 }

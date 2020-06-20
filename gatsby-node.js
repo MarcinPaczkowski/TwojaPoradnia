@@ -8,12 +8,29 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
       value: node.elements.slug.value,
     });
   }
+
+  if (node.internal.type === `kontent_item_book`) {
+    createNodeField({
+      node,
+      name: `slug`,
+      value: node.elements.slug.value,
+    });
+  }
 };
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
   const result = await graphql(`
     {
       allKontentItemClass {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+      allKontentItemBook {
         edges {
           node {
             fields {
@@ -29,6 +46,16 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     createPage({
       path: `zajecia/${node.fields.slug}`,
       component: path.resolve(`./src/templates/classDetails.js`),
+      context: {
+        slug: node.fields.slug,
+      },
+    });
+  });
+
+  result.data.allKontentItemBook.edges.forEach(({ node }) => {
+    createPage({
+      path: `ksiazki/${node.fields.slug}`,
+      component: path.resolve(`./src/templates/bookDetails.js`),
       context: {
         slug: node.fields.slug,
       },
