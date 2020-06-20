@@ -7,9 +7,9 @@
   row-gap: 10px;
   padding: 50px;
 
-  @media screen and (min-width: $min-desktop-width) {
-    grid-template-columns: 1fr 1200px 1fr;
-  }
+  // @media screen and (min-width: $min-desktop-width) {
+  //   grid-template-columns: 1fr 1180px 1fr;
+  // }
 
   &__odd {
     background-color: $light-blue;
@@ -18,9 +18,8 @@
   &__background {
     grid-row: 1;
     grid-column: 2;
-    height: 200px;
+    height: 300px;
     width: 100%;
-    background-color: red;
   }
 
   &__content {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Img from 'gatsby-image/withIEPolyfill';
+import GatsbyImage from 'gatsby-image/withIEPolyfill';
 import './section.scss';
 import SectionContent from './SectionContent/sectionContent';
 
@@ -16,13 +16,13 @@ const Section = ({ content, isImageOnLeft }) => {
 
   return (
     <div className={sectionClasses}>
-      <Img
+      <GatsbyImage
         className={imageClasses}
         objectFit="cover"
         objectPosition="50% 50%"
-        fluid={content.image}
-        alt={content.imageAlt}
-      ></Img>
+        fluid={content.image.fluid}
+        alt={content.image.description}
+      ></GatsbyImage>
       <div className={contentClasses}>
         <div className="section__content--wrapper">
           <SectionContent content={content} />

@@ -1,21 +1,19 @@
 import React from 'react';
 import { Parallax } from 'react-scroll-parallax';
-import Img from 'gatsby-image/withIEPolyfill';
+import GatsbyImage from 'gatsby-image/withIEPolyfill';
 import './welcome.scss';
 
-const Welcome = ({
-  welcome: { backgroundImage, backgroundImageAlt, title, description },
-}) => {
+const Welcome = ({ welcome: { title, description, image } }) => {
   return (
     <div className="welcome">
       <Parallax className="welcome__background" y={[-50, 50]} tagOuter="figure">
-        <Img
+        <GatsbyImage
           className="welcome__background--image"
           objectFit="cover"
           objectPosition="50% 50%"
-          fluid={backgroundImage}
-          alt={backgroundImageAlt}
-        ></Img>
+          fluid={image.fluid}
+          alt={image.description}
+        ></GatsbyImage>
       </Parallax>
       <div className="welcome__content">
         <h1 className="welcome__content--title">{title}</h1>

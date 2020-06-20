@@ -8,7 +8,7 @@
   margin-top: 20px;
 
   @media screen and (min-width: $min-desktop-width) {
-    grid-template-columns: 1fr 575px 50px 575px 1fr;
+    grid-template-columns: 1fr 565px 50px 565px 1fr;
     grid-template-rows: 1fr;
     justify-items: start;
   }
@@ -26,6 +26,7 @@
     @media screen and (min-width: $min-desktop-width) {
       grid-row: 1;
       grid-column: 4;
+      justify-self: center;
     }
   }
 }

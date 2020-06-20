@@ -2,10 +2,10 @@ import React from 'react';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 
-const ParentsPage = () => (
+const DevelopmentPage = () => (
   <Layout>
-    <p>Rodzice</p>
+    <p>Blog</p>
   </Layout>
 );
 
-export default ParentsPage;
+export default DevelopmentPage;

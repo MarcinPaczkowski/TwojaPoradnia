@@ -9,7 +9,7 @@
     margin: 0px 80px 30px 20px;
   }
 
-  &__header {
+  &__title {
     place-self: center;
     padding: 0 20px;
     color: $dark-blue;
@@ -23,36 +23,56 @@
     }
   }
 
-  &__title {
-    font-size: 30px;
-    font-style: italic;
-    text-align: center;
+  &__content {
+    display: grid;
+    row-gap: 15px;
 
-    @media screen and (min-width: $min-desktop-width) {
-      text-align: left;
-      margin-left: 20px;
+    h3 {
+      font-size: 30px;
+      font-style: italic;
+      text-align: center;
+
+      @media screen and (min-width: $min-desktop-width) {
+        text-align: left;
+        margin-left: 20px;
+      }
     }
-  }
 
-  &__text {
-    font-size: 18px;
-    line-height: 150%;
-    text-align: center;
-    font-weight: 100;
+    h3 {
+      font-size: 24px;
+      font-style: italic;
+      text-align: center;
 
-    @media screen and (min-width: $min-desktop-width) {
-      text-align: left;
-      margin-left: 20px;
+      @media screen and (min-width: $min-desktop-width) {
+        text-align: left;
+        margin-left: 20px;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 150%;
+      text-align: center;
+      font-weight: 100;
+
+      @media screen and (min-width: $min-desktop-width) {
+        text-align: left;
+        margin-left: 20px;
+      }
     }
   }
 
   &__buttons {
     margin: 13px 0;
     place-self: center;
+    display: grid;
+    row-gap: 15px;
 
     @media screen and (min-width: $min-desktop-width) {
       margin-left: 20px;
       place-self: start;
+      grid-auto-flow: column;
+      column-gap: 15px;
     }
   }
 }

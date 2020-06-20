@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Twoja Pora Dnia - ${process.env.GATSBY_env}`,
@@ -26,16 +30,41 @@ module.exports = {
         background_color: '#2980b9',
         theme_color: '#2980b9',
         display: 'standalone',
-        icon: 'src/images/logo.png',
+        icon: 'src/images/circle-icon.jpg',
         orientation: 'portrait',
       },
     },
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-routes`,
+      resolve: `@kentico/gatsby-source-kontent`,
       options: {
-        // this is the path to your routes configuration file
-        path: `${__dirname}/src/routes.js`,
+        projectId: process.env.GATSBY_kontentProjectId,
+        authorizationKey: process.env.GATSBY_kontentPreviewApiKey,
+        usePreviewUrl: process.env.GATSBY_kontentIsPreviewMode === 'true',
+        languageCodenames: [`pl-PL`],
+        includeTypes: true,
+      },
+    },
+    {
+      resolve: `@rshackleton/gatsby-transformer-kontent-image`,
+      options: {
+        local: true,
+      },
+    },
+    {
+      resolve: '@bakkenbaeck/gatsby-plugin-rename-routes',
+      options: {
+        rename: {
+          '/about/': '/o-mnie/',
+          '/classes/': '/zajecia/',
+          '/development/': '/rozwoj-i-wychowanie/',
+          '/books/': '/ksiazki/',
+          '/games/': '/gry/',
+          '/teachingResources/': '/materialy/',
+          '/booking/': '/rezerwacja/',
+          '/contact/': '/kontakt/',
+          '/404/': '/404/',
+        },
       },
     },
     // `gatsby-plugin-sitemap`,

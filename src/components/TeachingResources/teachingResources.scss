@@ -1,13 +1,13 @@
 @import '../../styles/variables.scss';
 
-.materials {
+.teaching-resources {
   display: grid;
   grid-template-columns: 20px 1fr 20px;
   grid-template-rows: auto auto 20px;
   row-gap: 50px;
 
   @media screen and (min-width: $min-desktop-width) {
-    grid-template-columns: 1fr 1200px 1fr;
+    grid-template-columns: 1fr 1180px 1fr;
   }
 
   &__title {

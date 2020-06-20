@@ -1,12 +1,11 @@
 import React from 'react';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
-import AboutMe from '../components/AboutMe/aboutMe';
 
-const AboutPage = () => (
+const ClassDetails = ({ data }) => (
   <Layout>
-    <AboutMe></AboutMe>
+    <p>Szczegóły</p>
   </Layout>
 );
 
-export default AboutPage;
+export default ClassDetails;

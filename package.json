@@ -4,13 +4,16 @@
   "version": "0.1.0",
   "author": "Marcin Paczkowski <paczkowski.marcin@icloud.com>",
   "dependencies": {
+    "@bakkenbaeck/gatsby-plugin-rename-routes": "^1.0.0",
     "@hot-loader/react-dom": "^16.13.0",
+    "@kentico/gatsby-source-kontent": "^6.0.1",
+    "@rshackleton/gatsby-transformer-kontent-image": "^2.0.0",
     "@types/node": "^14.0.5",
     "@types/nodemailer": "^6.4.0",
     "@types/nodemailer-direct-transport": "^1.0.31",
     "@types/nodemailer-smtp-transport": "^2.7.4",
     "axios": "^0.19.2",
-    "gatsby": "^2.18.17",
+    "gatsby": "^2.22.19",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-google-analytics": "^2.1.31",
     "gatsby-plugin-manifest": "^2.2.34",
@@ -22,7 +25,9 @@
     "gatsby-plugin-sitemap": "^2.2.24",
     "gatsby-source-filesystem": "^2.1.43",
     "gatsby-transformer-sharp": "^2.3.9",
-    "node-sass": "^4.13.0",
+    "html-react-parser": "^0.10.5",
+    "minimist": "^1.2.5",
+    "node-sass": "^4.14.1",
     "nodemailer": "^6.4.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -30,7 +35,8 @@
     "react-hook-form": "^5.7.2",
     "react-icons": "^3.9.0",
     "react-recaptcha-v3": "^1.1.0",
-    "react-scroll-parallax": "^2.3.2"
+    "react-scroll-parallax": "^2.3.2",
+    "uuid": "^8.1.0"
   },
   "keywords": [
     "gatsby",
@@ -38,14 +44,14 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "gatsby build --verbose",
+    "develop": "gatsby develop --verbose",
     "start": "vercel dev",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@now/node": "^1.6.1",
+    "@now/node": "^1.7.0",
     "prettier": "^1.14.2"
   },
   "repository": {
