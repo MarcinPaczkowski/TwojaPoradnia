@@ -1,7 +1,6 @@
 import React from 'react';
 import './teachingResources.scss';
-import Tile from '../Shared/Tile/tile';
-import { v4 as uuid } from 'uuid';
+import Tiles from '../Shared/Tiles/tiles';
 
 const TeachingResources = ({ resources }) => {
   const tiles = resources.map(r => {
@@ -13,6 +12,7 @@ const TeachingResources = ({ resources }) => {
       title: r.title,
       description: r.description,
       link: {
+        isExternal: true,
         url: r.resource,
         text: 'Pobierz',
       },
@@ -22,9 +22,7 @@ const TeachingResources = ({ resources }) => {
     <div className="teaching-resources">
       <h1 className="teaching-resources__title">Materiały</h1>
       <div className="teaching-resources__grid">
-        {tiles.map(t => (
-          <Tile tile={t} key={uuid()}></Tile>
-        ))}
+        <Tiles tiles={tiles} />
       </div>
     </div>
   );
