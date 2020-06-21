@@ -1,9 +1,9 @@
-const map = cmsBooks => {
+const map = cmsBook => {
   return {
-    title: cmsBooks.elements.title.value,
-    shortDescription: cmsBooks.elements.shortdescription.value,
-    image: cmsBooks.elements.image.value[0],
-    detailsUrl: `/ksiazki/${cmsBooks.elements.slug.value}`,
+    title: cmsBook.elements.title.value,
+    shortDescription: cmsBook.elements.shortdescription.value,
+    image: cmsBook.elements.image.value[0],
+    detailsUrl: `/ksiazki/${cmsBook.elements.slug.value}`,
   };
 };
 
