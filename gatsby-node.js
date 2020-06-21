@@ -1,20 +1,19 @@
 const path = require(`path`);
 
 exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
-  if (node.internal.type === `kontent_item_class`) {
-    createNodeField({
-      node,
-      name: `slug`,
-      value: node.elements.slug.value,
-    });
-  }
+  switch (node.internal.type) {
+    case 'kontent_item_class':
+    case 'kontent_item_book':
+    case 'kontent_item_game':
+      createNodeField({
+        node,
+        name: `slug`,
+        value: node.elements.slug.value,
+      });
+      break;
 
-  if (node.internal.type === `kontent_item_book`) {
-    createNodeField({
-      node,
-      name: `slug`,
-      value: node.elements.slug.value,
-    });
+    default:
+      break;
   }
 };
 
@@ -31,6 +30,15 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         }
       }
       allKontentItemBook {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+      allKontentItemGame {
         edges {
           node {
             fields {
@@ -56,6 +64,16 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     createPage({
       path: `ksiazki/${node.fields.slug}`,
       component: path.resolve(`./src/templates/bookDetails.js`),
+      context: {
+        slug: node.fields.slug,
+      },
+    });
+  });
+
+  result.data.allKontentItemGame.edges.forEach(({ node }) => {
+    createPage({
+      path: `gry/${node.fields.slug}`,
+      component: path.resolve(`./src/templates/gameDetails.js`),
       context: {
         slug: node.fields.slug,
       },
