@@ -2,7 +2,7 @@ import React from 'react';
 import './books.scss';
 import Tiles from '../Shared/Tiles/tiles';
 
-const TeachingResources = ({ books }) => {
+const Books = ({ books }) => {
   const tiles = books.map(b => {
     return {
       image: {
@@ -28,4 +28,4 @@ const TeachingResources = ({ books }) => {
   );
 };
 
-export default TeachingResources;
+export default Books;
