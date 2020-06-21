@@ -26,6 +26,32 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
             fields {
               slug
             }
+            elements {
+              title {
+                value
+              }
+              slug {
+                value
+              }
+              image {
+                value {
+                  description
+                  fluid(maxWidth: 1920) {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
+              shortdescription {
+                value
+              }
+              longdescription {
+                value
+              }
+            }
           }
         }
       }
@@ -35,6 +61,32 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
             fields {
               slug
             }
+            elements {
+              title {
+                value
+              }
+              slug {
+                value
+              }
+              image {
+                value {
+                  description
+                  fluid(maxWidth: 1920) {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
+              shortdescription {
+                value
+              }
+              longdescription {
+                value
+              }
+            }
           }
         }
       }
@@ -43,6 +95,32 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
           node {
             fields {
               slug
+            }
+            elements {
+              title {
+                value
+              }
+              slug {
+                value
+              }
+              image {
+                value {
+                  description
+                  fluid(maxWidth: 1920) {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
+              shortdescription {
+                value
+              }
+              longdescription {
+                value
+              }
             }
           }
         }
@@ -55,7 +133,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       path: `zajecia/${node.fields.slug}`,
       component: path.resolve(`./src/templates/classDetails.js`),
       context: {
-        slug: node.fields.slug,
+        elements: node.elements,
       },
     });
   });
@@ -65,7 +143,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       path: `ksiazki/${node.fields.slug}`,
       component: path.resolve(`./src/templates/bookDetails.js`),
       context: {
-        slug: node.fields.slug,
+        elements: node.elements,
       },
     });
   });
@@ -75,7 +153,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       path: `gry/${node.fields.slug}`,
       component: path.resolve(`./src/templates/gameDetails.js`),
       context: {
-        slug: node.fields.slug,
+        elements: node.elements,
       },
     });
   });

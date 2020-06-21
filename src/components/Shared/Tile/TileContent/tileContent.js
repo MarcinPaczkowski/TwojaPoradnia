@@ -8,9 +8,10 @@ const TileContent = ({
   tile: {
     title,
     description,
-    link: { url, text, isExternal },
+    link: { url, text },
   },
 }) => {
+  const isInternal = /^\/(?!\/)/.test(url);
   return (
     <div className="tile-content">
       <div className="tile-content__wrapper">
@@ -18,10 +19,10 @@ const TileContent = ({
         {parse(description)}
       </div>
       <div className="tile-content__link">
-        {isExternal ? (
-          <ButtonExternalLink url={url}>{text}</ButtonExternalLink>
-        ) : (
+        {isInternal ? (
           <ButtonLink url={url}>{text}</ButtonLink>
+        ) : (
+          <ButtonExternalLink url={url}>{text}</ButtonExternalLink>
         )}
       </div>
     </div>

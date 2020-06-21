@@ -4,8 +4,9 @@ import '../styles/style.scss';
 import TeachingResources from '../components/TeachingResources/teachingResources';
 import { useStaticQuery, graphql } from 'gatsby';
 import { mapCmsTeachingResources } from '../utils/cmsMappers/teachingResourcesMapper';
+import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
-const TeachingResourcesPage = () => {
+const TeachingResourcesPage = pageData => {
   const {
     allKontentItemTeachingresource: { nodes: cmsTeachingResources },
   } = useStaticQuery(
@@ -45,9 +46,10 @@ const TeachingResourcesPage = () => {
   );
 
   const teachingResources = mapCmsTeachingResources(cmsTeachingResources);
+  const breadcrumbs = buildBreadcrumbs(pageData, 'Materiały');
 
   return (
-    <Layout>
+    <Layout breadcrumbs={breadcrumbs}>
       <TeachingResources resources={teachingResources} />
     </Layout>
   );

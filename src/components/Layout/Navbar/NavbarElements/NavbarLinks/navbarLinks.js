@@ -3,9 +3,13 @@ import './navbarLinks.scss';
 import NavbarLink from './NavbarLink/navbarLink';
 import { v4 as uuid } from 'uuid';
 
-const NavbarLinks = ({ routings }) => {
+const NavbarLinks = ({ routings, isLeft }) => {
   return (
-    <div className="navbar-links">
+    <div
+      className={`navbar-links ${
+        isLeft ? 'navbar-links--left' : 'navbar-links--right'
+      }`}
+    >
       {routings.map((r, i) => (
         <NavbarLink key={uuid()} routing={r}></NavbarLink>
       ))}

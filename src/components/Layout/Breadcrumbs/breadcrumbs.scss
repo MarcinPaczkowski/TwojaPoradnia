@@ -1,0 +1,24 @@
+@import '../../../styles/variables.scss';
+
+.breadcrumbs {
+  &__link {
+    color: $dark-gray;
+    font-size: 20px;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &--disabled {
+      color: $dark-blue;
+      pointer-events: none;
+      cursor: default;
+      font-weight: 500;
+    }
+  }
+
+  &__separator {
+    color: $light-gray;
+    padding: 0 5px;
+  }
+}

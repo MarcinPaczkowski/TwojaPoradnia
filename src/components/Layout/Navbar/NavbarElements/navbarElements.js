@@ -41,10 +41,10 @@ const NavbarElements = () => {
         <ImageLink imageData={imageData}></ImageLink>
       </div>
       <div className="navbar-elements__links navbar-elements__links--left">
-        <NavbarLinks routings={leftRoutings}></NavbarLinks>
+        <NavbarLinks routings={leftRoutings} isLeft={true}></NavbarLinks>
       </div>
       <div className="navbar-elements__links navbar-elements__links--right">
-        <NavbarLinks routings={rightRoutings}></NavbarLinks>
+        <NavbarLinks routings={rightRoutings} isLeft={false}></NavbarLinks>
       </div>
     </div>
   );
