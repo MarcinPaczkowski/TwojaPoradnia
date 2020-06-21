@@ -1,11 +1,15 @@
 import React from 'react';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
+import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
-const DevelopmentPage = () => (
-  <Layout>
-    <p>Blog</p>
-  </Layout>
-);
+const DevelopmentPage = pageData => {
+  const breadcrumbs = buildBreadcrumbs(pageData, 'Rozwój i wychowanie');
+  return (
+    <Layout breadcrumbs={breadcrumbs}>
+      <p>Rozwój i wychowanie</p>
+    </Layout>
+  );
+};
 
 export default DevelopmentPage;

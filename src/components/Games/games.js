@@ -12,7 +12,6 @@ const Games = ({ games }) => {
       title: g.title,
       description: g.shortDescription,
       link: {
-        isExternal: false,
         url: g.detailsUrl,
         text: 'Więcej',
       },

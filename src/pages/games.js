@@ -4,8 +4,9 @@ import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import { mapCmsGames } from '../utils/cmsMappers/gamesMappers';
 import Games from '../components/Games/games';
+import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
-const GamesPage = () => {
+const GamesPage = pageData => {
   const {
     allKontentItemGame: { nodes: cmsGames },
   } = useStaticQuery(
@@ -18,6 +19,9 @@ const GamesPage = () => {
                 value
               }
               shortdescription {
+                value
+              }
+              longdescription {
                 value
               }
               image {
@@ -43,9 +47,10 @@ const GamesPage = () => {
   );
 
   const games = mapCmsGames(cmsGames);
+  const breadcrumbs = buildBreadcrumbs(pageData, 'Gry');
 
   return (
-    <Layout>
+    <Layout breadcrumbs={breadcrumbs}>
       <Games games={games} />
     </Layout>
   );

@@ -12,7 +12,6 @@ const Books = ({ books }) => {
       title: b.title,
       description: b.shortDescription,
       link: {
-        isExternal: false,
         url: b.detailsUrl,
         text: 'Więcej',
       },

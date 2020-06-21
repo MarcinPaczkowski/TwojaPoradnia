@@ -4,7 +4,7 @@ import NavbarElements from './NavbarElements/navbarElements';
 import NavbarMobile from './NavbarMobile/navbarMobile';
 
 const Navbar = ({ isHome }) => {
-  const STICKY_MENU_MOBILE_OFFSET = 80;
+  const STICKY_MENU_MOBILE_OFFSET = 100;
   const STICKY_MENU_OFFSET = 120;
   const MIN_DESKTOP_WIDTH = 1201;
 

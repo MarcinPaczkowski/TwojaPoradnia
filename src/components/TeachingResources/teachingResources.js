@@ -12,7 +12,6 @@ const TeachingResources = ({ resources }) => {
       title: r.title,
       description: r.description,
       link: {
-        isExternal: true,
         url: r.resource,
         text: 'Pobierz',
       },

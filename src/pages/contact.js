@@ -4,8 +4,9 @@ import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import Contact from '../components/Contact/contact';
 import { mapCmsContactData } from '../utils/cmsMappers/contactDataMapper';
+import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
-const ContactPage = () => {
+const ContactPage = pageData => {
   const {
     allKontentItemContactdata: { nodes: cmsContactData },
   } = useStaticQuery(
@@ -46,9 +47,10 @@ const ContactPage = () => {
   );
 
   const contactData = mapCmsContactData(cmsContactData[0]);
+  const breadcrumbs = buildBreadcrumbs(pageData, 'Kontakt');
 
   return (
-    <Layout>
+    <Layout breadcrumbs={breadcrumbs}>
       <Contact contactData={contactData} />
     </Layout>
   );

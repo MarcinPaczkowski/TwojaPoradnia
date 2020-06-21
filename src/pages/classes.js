@@ -4,8 +4,9 @@ import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import Classes from '../components/Classes/classes';
 import { mapAllCmsClasses } from '../utils/cmsMappers/classesMapper';
+import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
-const ClassesPage = () => {
+const ClassesPage = pageData => {
   const {
     allKontentItemClass: { nodes: cmsClasses },
   } = useStaticQuery(
@@ -46,9 +47,10 @@ const ClassesPage = () => {
   );
 
   const classes = mapAllCmsClasses(cmsClasses);
+  const breadcrumbs = buildBreadcrumbs(pageData, 'Zajęcia');
 
   return (
-    <Layout>
+    <Layout breadcrumbs={breadcrumbs}>
       <Classes classes={classes} />
     </Layout>
   );

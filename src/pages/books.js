@@ -4,8 +4,9 @@ import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import Books from '../components/Books/books';
 import { mapCmsBooks } from '../utils/cmsMappers/booksMapper';
+import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
-const BooksPage = () => {
+const BooksPage = pageData => {
   const {
     allKontentItemBook: { nodes: cmsBooks },
   } = useStaticQuery(
@@ -18,6 +19,9 @@ const BooksPage = () => {
                 value
               }
               shortdescription {
+                value
+              }
+              longdescription {
                 value
               }
               image {
@@ -43,9 +47,10 @@ const BooksPage = () => {
   );
 
   const books = mapCmsBooks(cmsBooks);
+  const breadcrumbs = buildBreadcrumbs(pageData, 'Książki');
 
   return (
-    <Layout>
+    <Layout breadcrumbs={breadcrumbs}>
       <Books books={books} />
     </Layout>
   );

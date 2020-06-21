@@ -1,11 +1,16 @@
 import React from 'react';
 import './mobileMenuLink.scss';
+import { Link } from 'gatsby';
 
 const MobileMenuLink = ({ routing: { name, link } }) => {
   return (
-    <a className="mobile-menu-link" href={link}>
+    <Link
+      className="mobile-menu-link"
+      to={link}
+      activeClassName="mobile-menu-link--active"
+    >
       {name}
-    </a>
+    </Link>
   );
 };
 
