@@ -2,15 +2,16 @@
 
 .breadcrumbs {
   &__link {
-    color: $dark-gray;
-    font-size: 20px;
+    color: $white;
+    font-size: 16px;
+    cursor: default;
 
     &:hover {
-      color: $blue;
+      color: $white;
     }
 
     &--disabled {
-      color: $dark-blue;
+      color: $white;
       pointer-events: none;
       cursor: default;
       font-weight: 500;
@@ -18,7 +19,7 @@
   }
 
   &__separator {
-    color: $light-gray;
+    color: $white;
     padding: 0 5px;
   }
 }

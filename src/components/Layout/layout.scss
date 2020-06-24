@@ -1,17 +1,18 @@
 @import '../../styles/variables.scss';
 
 .layout {
+  min-height: 101vh;
   display: grid;
-  grid-template-rows: 100px auto minmax(100vh, auto) 80px;
+  grid-template-rows: 100px auto auto 80px;
   grid-template-columns: 20px 1fr 20px;
 
   @media screen and (min-width: $min-desktop-width) {
-    grid-template-rows: 120px auto minmax(100vh, auto) 80px;
+    grid-template-rows: 120px auto auto 80px;
     grid-template-columns: 1fr 1180px 1fr;
   }
 
   &--home {
-    grid-template-rows: 0 auto minmax(100vh, auto) 80px;
+    grid-template-rows: 0 auto auto 80px;
   }
 
   &__navbar {
@@ -31,7 +32,6 @@
   }
 
   &__footer {
-    margin-top: 20px;
     grid-row: 4;
     grid-column: -1 / 1;
   }

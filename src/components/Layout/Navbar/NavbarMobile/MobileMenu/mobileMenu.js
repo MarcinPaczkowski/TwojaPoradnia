@@ -93,11 +93,11 @@ const MobileMenu = ({ isActive }) => {
       <div className="mobile-menu__logo">
         <ImageLink imageData={imageData}></ImageLink>
       </div>
-      <div className="mobile-menu__links">
+      <ul className="mobile-menu__links">
         {routings.map(r => (
           <MobileMenuLink key={uuid()} routing={r}></MobileMenuLink>
         ))}
-      </div>
+      </ul>
       <div className="mobile-menu__social-media">
         {socialMedias.map(sm => (
           <MobileMenuSocialMedia

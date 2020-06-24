@@ -10,7 +10,7 @@ const HorizontalTile = ({ isOdd, content }) => {
   return (
     <div className={horizontalTileClasses}>
       <GatsbyImage
-        className="horizontalTile__background"
+        className="horizontalTile__image"
         objectFit="cover"
         objectPosition="50% 50%"
         fluid={content.image.fluid}

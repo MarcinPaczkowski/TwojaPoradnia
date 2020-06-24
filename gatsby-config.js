@@ -57,7 +57,7 @@ module.exports = {
         rename: {
           '/about/': '/o-mnie/',
           '/classes/': '/zajecia/',
-          '/development/': '/rozwoj-i-wychowanie/',
+          '/developments/': '/rozwoj-i-wychowanie/',
           '/books/': '/ksiazki/',
           '/games/': '/gry/',
           '/teachingResources/': '/materialy/',
@@ -67,6 +67,8 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-remove-trailing-slashes`,
+
     // `gatsby-plugin-sitemap`,
     // {
     // 	resolve: `gatsby-plugin-google-analytics`,

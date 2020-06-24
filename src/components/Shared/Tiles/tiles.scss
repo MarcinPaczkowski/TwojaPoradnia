@@ -6,6 +6,7 @@
   grid-auto-flow: row;
   place-items: center;
   row-gap: 25px;
+  margin-bottom: 50px;
 
   @media screen and (min-width: $min-tablet-width) {
     grid-template-columns: repeat(2, 1fr);
