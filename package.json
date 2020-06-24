@@ -7,6 +7,7 @@
     "@bakkenbaeck/gatsby-plugin-rename-routes": "^1.0.0",
     "@hot-loader/react-dom": "^16.13.0",
     "@kentico/gatsby-source-kontent": "^6.0.1",
+    "@pittica/gatsby-plugin-recaptcha": "^1.0.0",
     "@rshackleton/gatsby-transformer-kontent-image": "^2.0.0",
     "@types/node": "^14.0.5",
     "@types/nodemailer": "^6.4.0",
@@ -34,7 +35,6 @@
     "react-helmet": "^5.2.1",
     "react-hook-form": "^5.7.2",
     "react-icons": "^3.9.0",
-    "react-recaptcha-v3": "^2.0.0",
     "react-scroll-parallax": "^2.3.2",
     "uuid": "^8.1.0"
   },

@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Footer from './Footer/footer';
 import Navbar from './Navbar/navbar';
 import Breadcrumbs from './Breadcrumbs/breadcrumbs';
 import './layout.scss';
 import { ParallaxProvider } from 'react-scroll-parallax';
-import { loadReCaptcha } from 'react-recaptcha-v3';
 import GatsbyHelmet from '../Helmet/helmet';
 
 const Layout = ({ children, isHome, breadcrumbs }) => {
-  useEffect(() => {
-    loadReCaptcha(process.env.GATSBY_recaptchaSiteKey);
-  }, []);
-
   let layoutClasses = 'layout';
   if (isHome) {
     layoutClasses = `${layoutClasses} layout--home`;
