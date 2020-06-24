@@ -5,6 +5,7 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
     case 'kontent_item_class':
     case 'kontent_item_book':
     case 'kontent_item_game':
+    case 'kontent_item_development':
       createNodeField({
         node,
         name: `slug`,
@@ -125,6 +126,41 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
           }
         }
       }
+      allKontentItemDevelopment {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            elements {
+              title {
+                value
+              }
+              slug {
+                value
+              }
+              image {
+                value {
+                  description
+                  fluid(maxWidth: 1920) {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
+              shortdescription {
+                value
+              }
+              longdescription {
+                value
+              }
+            }
+          }
+        }
+      }
     }
   `);
 
@@ -152,6 +188,16 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     createPage({
       path: `gry/${node.fields.slug}`,
       component: path.resolve(`./src/templates/gameDetails.js`),
+      context: {
+        elements: node.elements,
+      },
+    });
+  });
+
+  result.data.allKontentItemDevelopment.edges.forEach(({ node }) => {
+    createPage({
+      path: `rozwoj-i-wychowanie/${node.fields.slug}`,
+      component: path.resolve(`./src/templates/developmentDetails.js`),
       context: {
         elements: node.elements,
       },

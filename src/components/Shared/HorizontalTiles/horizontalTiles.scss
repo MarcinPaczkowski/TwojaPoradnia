@@ -1,25 +1,16 @@
-@import '../../styles/variables.scss';
+@import '../../../styles/variables.scss';
 
-.classes {
+.horizontalTiles {
   display: grid;
   grid-template-columns: 20px 1fr 20px;
   grid-template-rows: auto auto;
-  row-gap: 50px;
+  grid-auto-flow: column;
 
   @media screen and (min-width: $min-desktop-width) {
     grid-template-columns: 1fr 1180px 1fr;
   }
 
-  &__title {
-    grid-column: 2;
-    grid-row: 1;
-    text-align: center;
-    font-size: 42px;
-    font-weight: 500;
-  }
-
-  &__grid {
-    grid-row: 2;
+  &__tile {
     grid-column: -1 / 1;
   }
 }

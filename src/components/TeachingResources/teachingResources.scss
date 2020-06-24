@@ -3,7 +3,7 @@
 .teaching-resources {
   display: grid;
   grid-template-columns: 20px 1fr 20px;
-  grid-template-rows: auto auto 20px;
+  grid-template-rows: auto auto;
   row-gap: 50px;
 
   @media screen and (min-width: $min-desktop-width) {

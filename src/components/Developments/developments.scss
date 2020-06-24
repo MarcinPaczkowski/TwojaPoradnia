@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.classes {
+.developments {
   display: grid;
   grid-template-columns: 20px 1fr 20px;
   grid-template-rows: auto auto;
@@ -13,7 +13,7 @@
   &__title {
     grid-column: 2;
     grid-row: 1;
-    text-align: center;
+    justify-self: center;
     font-size: 42px;
     font-weight: 500;
   }

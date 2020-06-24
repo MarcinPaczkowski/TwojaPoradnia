@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 
 const NavbarLinks = ({ routings, isLeft }) => {
   return (
-    <div
+    <ul
       className={`navbar-links ${
         isLeft ? 'navbar-links--left' : 'navbar-links--right'
       }`}
@@ -13,7 +13,7 @@ const NavbarLinks = ({ routings, isLeft }) => {
       {routings.map((r, i) => (
         <NavbarLink key={uuid()} routing={r}></NavbarLink>
       ))}
-    </div>
+    </ul>
   );
 };
 
