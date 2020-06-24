@@ -52,6 +52,7 @@
   },
   "devDependencies": {
     "@now/node": "^1.7.0",
+    "gatsby-plugin-remove-trailing-slashes": "^2.3.5",
     "prettier": "^1.14.2"
   },
   "repository": {
