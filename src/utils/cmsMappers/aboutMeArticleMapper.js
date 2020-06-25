@@ -1,7 +1,7 @@
 const map = cmsArticle => {
   return {
     title: cmsArticle.elements.title.value,
-    description: cmsArticle.elements.description.value,
+    shortDescription: cmsArticle.elements.description.value,
     image: cmsArticle.elements.image.value[0],
   };
 };

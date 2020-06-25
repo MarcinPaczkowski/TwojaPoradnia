@@ -68,7 +68,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-remove-trailing-slashes`,
-
     // `gatsby-plugin-sitemap`,
     // {
     // 	resolve: `gatsby-plugin-google-analytics`,

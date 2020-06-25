@@ -22,8 +22,9 @@
       max-height: 300px;
       font-family: 'Rubik', Helvetica, Arial, Lucida, sans-serif;
 
-      @media screen and (min-width: $min-desktop-width) {
-        min-height: 100px;
+      @media screen and (min-width: $min-tablet-width) {
+        min-height: 240px;
+        max-height: 240px;
       }
 
       &::placeholder {

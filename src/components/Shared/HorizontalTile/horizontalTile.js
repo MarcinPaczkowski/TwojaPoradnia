@@ -4,19 +4,22 @@ import HorizontalTileContent from './HorizontalTileContent/horizontalTileContent
 import GatsbyImage from 'gatsby-image/withIEPolyfill';
 
 const HorizontalTile = ({ isOdd, content }) => {
-  const horizontalTileClasses = `horizontalTile ${
-    !isOdd ? 'horizontalTile__odd' : ''
-  }`;
   return (
-    <div className={horizontalTileClasses}>
+    <div className={`horizontalTile ${isOdd ? 'horizontalTile--odd' : ''}`}>
       <GatsbyImage
-        className="horizontalTile__image"
+        className={`horizontalTile__image ${
+          isOdd ? 'horizontalTile__image--odd' : ''
+        }`}
         objectFit="cover"
         objectPosition="50% 50%"
         fluid={content.image.fluid}
         alt={content.image.description}
       ></GatsbyImage>
-      <div className="horizontalTile__content">
+      <div
+        className={`horizontalTile__content ${
+          isOdd ? 'horizontalTile__content--odd' : ''
+        }`}
+      >
         <HorizontalTileContent content={content} />
       </div>
     </div>

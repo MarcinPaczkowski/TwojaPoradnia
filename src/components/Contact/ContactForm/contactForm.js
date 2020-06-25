@@ -12,7 +12,7 @@ const ContactForm = ({ submitHandler }) => {
 
   return (
     <div className="contact-form">
-      <h1 className="contact-form__title">Formularz kontaktowy</h1>
+      <h1 className="contact-form__title">Napisz do nas</h1>
       <Form
         submitted={submitHandler}
         items={contactFormItems}
