@@ -10,36 +10,6 @@
     text-align: center;
   }
 
-  &__row {
-    column-gap: 5px;
-    font-size: 24px;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 70px auto;
-
-    svg,
-    span {
-      grid-column: 1;
-      justify-self: start;
-      color: $dark-blue;
-      font-size: 30px;
-    }
-
-    &--item {
-      grid-column: 2;
-      color: $black;
-      justify-self: start;
-    }
-
-    a {
-      &:visited {
-        color: $black;
-      }
-
-      &:hover,
-      &:focus {
-        color: $dark-blue;
-      }
-    }
+  &__rows {
   }
 }

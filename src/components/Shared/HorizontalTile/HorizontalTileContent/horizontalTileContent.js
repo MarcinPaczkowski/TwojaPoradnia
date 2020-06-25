@@ -12,9 +12,11 @@ const HorizontalTileContent = ({
       <div className="horizontalTileContent__description">
         {parse(shortDescription)}
       </div>
-      <div className="horizontalTileContent__button">
-        <ButtonLink url={urlToDetails}>Więcej</ButtonLink>
-      </div>
+      {urlToDetails ? (
+        <div className="horizontalTileContent__button">
+          <ButtonLink url={urlToDetails}>Więcej</ButtonLink>
+        </div>
+      ) : null}
     </div>
   );
 };
