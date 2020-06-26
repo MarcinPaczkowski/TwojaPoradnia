@@ -1,6 +1,5 @@
 import React from 'react';
 import './aboutMe.scss';
-// import AboutMeContent from './AboutMeContent/aboutMeContent';
 import HorizontalTiles from '../Shared/HorizontalTiles/horizontalTiles';
 
 const AboutMe = ({ articles }) => {

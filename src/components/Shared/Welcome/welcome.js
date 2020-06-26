@@ -2,6 +2,7 @@ import React from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import GatsbyImage from 'gatsby-image/withIEPolyfill';
 import './welcome.scss';
+import parse from 'html-react-parser';
 
 const Welcome = ({ welcome: { title, description, image } }) => {
   return (
@@ -16,8 +17,12 @@ const Welcome = ({ welcome: { title, description, image } }) => {
         ></GatsbyImage>
       </Parallax>
       <div className="welcome__content">
-        <h1 className="welcome__content--title">{title}</h1>
-        <p className="welcome__content--desc">{description}</p>
+        <div className="welcome__content--title welcome__content--text">
+          {parse(title)}
+        </div>
+        <div className="welcome__content--desc  welcome__content--text">
+          {parse(description)}
+        </div>
       </div>
     </div>
   );
