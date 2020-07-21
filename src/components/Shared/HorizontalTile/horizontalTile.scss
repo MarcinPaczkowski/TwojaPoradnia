@@ -4,13 +4,11 @@
   display: grid;
   grid-template-columns: 20px 1fr 20px;
   grid-template-rows: auto auto;
-  padding: 25px 0;
   row-gap: 25px;
 
   @media screen and (min-width: $min-desktop-width) {
     grid-template-rows: auto;
     grid-template-columns: 1fr 575px 30px 575px 1fr;
-    padding: 25px;
   }
 
   &__image {

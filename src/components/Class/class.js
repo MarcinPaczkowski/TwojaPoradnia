@@ -1,5 +1,6 @@
 import React from 'react';
 import './class.scss';
+import Section from '../Layout/Section/section';
 import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 import HorizontalTile from '../Shared/HorizontalTile/horizontalTile';
 import TileImagePosition from '../Shared/HorizontalTile/tileImagePosition';
@@ -18,37 +19,21 @@ const Class = ({ classDetails }) => {
 
   return (
     <div className="class">
-      <div className="class__background">
-        <div className="class__container">
-          <div className="class__section">
-            <HeaderTitle title={classDetails.title} />
-          </div>
-        </div>
-      </div>
-      <div className="class__background class__background--blue">
-        <div className="class__container">
-          <div className="class__section">
-            <HorizontalTile
-              imagePosition={TileImagePosition.LEFT}
-              content={content1}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="class__background">
-        <div className="class__container">
-          <div className="class__section">
-            <HorizontalText text={content2} />
-          </div>
-        </div>
-      </div>
-      <div className="class__background class__background--blue">
-        <div className="class__container">
-          <div className="class__section">
-            <HorizontalText text={content2} />
-          </div>
-        </div>
-      </div>
+      <Section>
+        <HeaderTitle title={classDetails.title} />
+      </Section>
+      <Section hasColor={true}>
+        <HorizontalTile
+          imagePosition={TileImagePosition.LEFT}
+          content={content1}
+        />
+      </Section>
+      <Section>
+        <HorizontalText text={content2} />
+      </Section>
+      <Section hasColor={true}>
+        <HorizontalText text={content2} />
+      </Section>
     </div>
   );
 };

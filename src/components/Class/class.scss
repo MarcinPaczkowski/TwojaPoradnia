@@ -1,27 +1,3 @@
-@import '../../styles/variables.scss';
-
 .class {
   display: grid;
-
-  &__background {
-    grid-column: -1 / 1;
-
-    &--blue {
-      background-color: $light-blue;
-    }
-  }
-
-  &__container {
-    display: grid;
-    grid-template-columns: 20px 1fr 20px;
-    padding: 25px 0;
-
-    @media screen and (min-width: $min-desktop-width) {
-      grid-template-columns: 1fr 1180px 1fr;
-    }
-  }
-
-  &__section {
-    grid-column: 2;
-  }
 }
