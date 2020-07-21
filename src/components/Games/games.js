@@ -2,6 +2,8 @@ import React from 'react';
 import './games.scss';
 import Tiles from '../Shared/Tiles/tiles';
 import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
+import Section from '../Layout/Section/section';
+import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
 
 const Games = ({ games }) => {
   const tiles = games.map(g => {
@@ -20,12 +22,14 @@ const Games = ({ games }) => {
   });
   return (
     <div className="games">
-      <div className="games__title">
+      <Section>
         <HeaderTitle title="Gry" />
-      </div>
-      <div className="games__grid">
-        <Tiles tiles={tiles} />
-      </div>
+      </Section>
+      <NegativeMarginWrapper>
+        <Section>
+          <Tiles tiles={tiles} />
+        </Section>
+      </NegativeMarginWrapper>
     </div>
   );
 };

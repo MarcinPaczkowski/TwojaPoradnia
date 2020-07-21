@@ -3,6 +3,7 @@ import './horizontalTiles.scss';
 import HorizontalTile from '../HorizontalTile/horizontalTile';
 import tileImagePosition from '../HorizontalTile/tileImagePosition';
 import { v4 as uuid } from 'uuid';
+import Section from '../../Layout/Section/section';
 
 const HorizontalTiles = ({ tiles }) => {
   return (
@@ -10,19 +11,14 @@ const HorizontalTiles = ({ tiles }) => {
       {tiles.map((t, i) => {
         const isEven = i % 2 === 0;
         return (
-          <div
-            className={`horizontalTiles__tile ${
-              isEven ? 'horizontalTiles__tile--background' : ''
-            }`}
-            key={uuid()}
-          >
+          <Section hasColor={isEven} key={uuid()}>
             <HorizontalTile
               imagePosition={
                 isEven ? tileImagePosition.LEFT : tileImagePosition.RIGHT
               }
               content={t}
             />
-          </div>
+          </Section>
         );
       })}
     </div>

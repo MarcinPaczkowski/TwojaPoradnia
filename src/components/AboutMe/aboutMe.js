@@ -2,24 +2,28 @@ import React from 'react';
 import './aboutMe.scss';
 import HorizontalTiles from '../Shared/HorizontalTiles/horizontalTiles';
 import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
+import Section from '../Layout/Section/section';
+import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
 
 const AboutMe = ({ articles }) => {
   return (
     <div className="about-me">
-      <div className="about-me__title">
+      <Section>
         <HeaderTitle title="O mnie" />
-      </div>
-      <div className="about-me__content">
-        <HorizontalTiles
-          tiles={articles.map(a => {
-            return {
-              title: a.title,
-              description: a.shortDescription,
-              image: a.image,
-            };
-          })}
-        />
-      </div>
+      </Section>
+      <NegativeMarginWrapper>
+        <Section isWide={true}>
+          <HorizontalTiles
+            tiles={articles.map(a => {
+              return {
+                title: a.title,
+                description: a.shortDescription,
+                image: a.image,
+              };
+            })}
+          />
+        </Section>
+      </NegativeMarginWrapper>
     </div>
   );
 };

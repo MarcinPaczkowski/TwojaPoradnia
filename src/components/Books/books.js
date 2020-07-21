@@ -2,6 +2,8 @@ import React from 'react';
 import './books.scss';
 import Tiles from '../Shared/Tiles/tiles';
 import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
+import Section from '../Layout/Section/section';
+import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
 
 const Books = ({ books }) => {
   const tiles = books.map(b => {
@@ -20,12 +22,14 @@ const Books = ({ books }) => {
   });
   return (
     <div className="books">
-      <div className="books__title">
+      <Section>
         <HeaderTitle title="Książki" />
-      </div>
-      <div className="books__grid">
-        <Tiles tiles={tiles} />
-      </div>
+      </Section>
+      <NegativeMarginWrapper>
+        <Section>
+          <Tiles tiles={tiles} />
+        </Section>
+      </NegativeMarginWrapper>
     </div>
   );
 };

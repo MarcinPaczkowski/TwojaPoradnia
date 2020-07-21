@@ -1,0 +1,9 @@
+@import '../../../styles/variables.scss';
+
+.negative-margin-wrapper {
+  margin: -25px 0;
+
+  @media screen and (min-width: $min-desktop-width) {
+    margin: -40px 0;
+  }
+}
