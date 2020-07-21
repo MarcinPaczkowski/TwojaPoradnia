@@ -1,6 +1,7 @@
 import React from 'react';
 import './books.scss';
 import Tiles from '../Shared/Tiles/tiles';
+import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 
 const Books = ({ books }) => {
   const tiles = books.map(b => {
@@ -19,7 +20,9 @@ const Books = ({ books }) => {
   });
   return (
     <div className="books">
-      <h1 className="books__title">Książki</h1>
+      <div className="books__title">
+        <HeaderTitle title="Książki" />
+      </div>
       <div className="books__grid">
         <Tiles tiles={tiles} />
       </div>

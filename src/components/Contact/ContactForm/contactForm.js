@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './contactForm.scss';
 import Form from '../../Shared/Form/form';
 import { getContactForm } from '../../../services/contactService';
+import HeaderTitle from '../../Shared/HeaderTitle/headerTitle';
 
 const ContactForm = ({ submitHandler }) => {
   const [contactFormItems, setContactFormItems] = useState([]);
@@ -12,7 +13,9 @@ const ContactForm = ({ submitHandler }) => {
 
   return (
     <div className="contact-form">
-      <h1 className="contact-form__title">Napisz do nas</h1>
+      <div className="contact-form__title">
+        <HeaderTitle title="Napisz do nas" />
+      </div>
       <Form
         submitted={submitHandler}
         items={contactFormItems}

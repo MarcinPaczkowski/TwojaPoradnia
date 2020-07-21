@@ -1,6 +1,7 @@
 import React from 'react';
 import './games.scss';
 import Tiles from '../Shared/Tiles/tiles';
+import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 
 const Games = ({ games }) => {
   const tiles = games.map(g => {
@@ -19,7 +20,9 @@ const Games = ({ games }) => {
   });
   return (
     <div className="games">
-      <h1 className="games__title">Gry</h1>
+      <div className="games__title">
+        <HeaderTitle title="Gry" />
+      </div>
       <div className="games__grid">
         <Tiles tiles={tiles} />
       </div>

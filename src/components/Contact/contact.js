@@ -23,7 +23,7 @@ const Contact = ({ contactData }) => {
     if (confirmationLabel) {
       setTimeout(() => setConfirmationLabel(null), LABEL_TIME);
     }
-  }, [confirmationLabel]);
+  }, [confirmationLabel, recaptchaLoaded]);
 
   const submitHandler = async data => {
     try {

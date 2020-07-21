@@ -30,7 +30,7 @@ module.exports = {
         background_color: '#2980b9',
         theme_color: '#2980b9',
         display: 'standalone',
-        icon: 'src/images/circle-icon.jpg',
+        icon: 'src/images/icon.png',
         orientation: 'portrait',
       },
     },
