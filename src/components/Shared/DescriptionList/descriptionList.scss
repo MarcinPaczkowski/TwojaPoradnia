@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+
+.description-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  row-gap: 20px;
+  justify-items: center;
+
+  @media screen and (min-width: $min-tablet-width) {
+    column-gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -5,6 +5,10 @@ import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 import HorizontalTile from '../Shared/HorizontalTile/horizontalTile';
 import TileImagePosition from '../Shared/HorizontalTile/tileImagePosition';
 import HorizontalText from '../Shared/HorizontalText/horizontalText';
+import BoxWithCircleImage from '../Shared/BoxWithCircleImage/boxWithCircleImage';
+import SmallCard from '../Shared/SmallCard/smallCard';
+import SubTitle from '../Shared/SubTitle/subTitle';
+import DescriptionList from '../Shared/DescriptionList/descriptionList';
 
 const Class = ({ classDetails }) => {
   const content1 = {
@@ -16,6 +20,14 @@ const Class = ({ classDetails }) => {
     image: classDetails.image,
   };
   const content2 = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, facere a autem fuga et suscipit accusamus, doloribus cum culpa maxime repellat reprehenderit nihil. Beatae illo est pariatur voluptatem quia quibusdam.Illum beatae impedit non id laudantium cum optio tenetur vel voluptatibus vitae excepturi temporibus nihil consectetur necessitatibus asperiores, velit consequatur quas? Cumque pariatur ea molestias amet facilis, dolor eligendi alias?`;
+  const content3 = [
+    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
+    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
+    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
+    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
+    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
+    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
+  ];
 
   return (
     <div className="class">
@@ -33,6 +45,28 @@ const Class = ({ classDetails }) => {
       </Section>
       <Section hasColor={true}>
         <HorizontalText text={content2} />
+      </Section>
+      <Section>
+        <SubTitle title="Testowy tytuł" />
+        <div className="class__boxes-with-circles">
+          <BoxWithCircleImage />
+          <BoxWithCircleImage />
+        </div>
+      </Section>
+      <Section hasColor={true}>
+        <SubTitle title="Testowy tytuł" />
+        <div className="class__perks">
+          <SmallCard text="Lorem ipsum dolor sit amet." />
+          <SmallCard text="Lorem ipsum dolor sit amet." />
+          <SmallCard text="Lorem ipsum dolor sit amet." />
+          <SmallCard text="Lorem ipsum dolor sit amet." />
+          <SmallCard text="Lorem ipsum dolor sit amet." />
+          <SmallCard text="Lorem ipsum dolor sit amet." />
+        </div>
+      </Section>
+      <Section>
+        <SubTitle title="Testowy tytuł" />
+        <DescriptionList elements={content3} />
       </Section>
     </div>
   );

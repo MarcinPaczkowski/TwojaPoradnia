@@ -21,6 +21,8 @@
 
     #{$this}__container {
       grid-column: 2;
+      display: grid;
+      row-gap: 40px;
 
       &--wide {
         grid-column: -1 / 1;
