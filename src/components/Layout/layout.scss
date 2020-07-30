@@ -6,7 +6,7 @@
   grid-template-rows: 100px 0px auto 50px;
   grid-template-columns: 20px 1fr 20px;
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     grid-template-columns: 1fr 1180px 1fr;
   }
 

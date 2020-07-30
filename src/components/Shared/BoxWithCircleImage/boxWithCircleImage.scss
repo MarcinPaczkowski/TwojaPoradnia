@@ -6,18 +6,16 @@
   height: auto;
   width: 100%;
   border: 3px solid $dark-blue;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
   border-radius: 10px;
   background-color: $white;
 
   @media screen and (min-width: $min-tablet-width) {
     height: 400px;
-    width: 100%;
   }
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     height: 300px;
-    width: 500px;
   }
 
   &__wrapper {
@@ -37,12 +35,12 @@
 
   &__circle {
     border-radius: 50%;
-    border: 1px solid black;
     background-color: white;
     width: 170px;
     height: 170px;
     position: absolute;
     top: -85px;
     justify-self: center;
+    box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
   }
 }

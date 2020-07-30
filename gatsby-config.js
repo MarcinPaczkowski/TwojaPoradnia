@@ -61,7 +61,7 @@ module.exports = {
           '/books/': '/ksiazki/',
           '/games/': '/gry/',
           '/teachingResources/': '/materialy/',
-          '/booking/': '/rezerwacja/',
+          '/courses/': '/szkolenia/',
           '/contact/': '/kontakt/',
           '/404/': '/404/',
         },

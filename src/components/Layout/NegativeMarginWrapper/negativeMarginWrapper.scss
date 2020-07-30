@@ -3,7 +3,7 @@
 .negative-margin-wrapper {
   margin: -25px 0;
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     margin: -40px 0;
   }
 }

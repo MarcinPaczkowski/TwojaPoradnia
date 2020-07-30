@@ -45,8 +45,8 @@ const getRoutingData = () => {
       isLeft: false,
     },
     {
-      name: 'Rezerwacja',
-      link: '/rezerwacja',
+      name: 'Szkolenia',
+      link: '/szkolenia',
       order: 3,
       isActive: true,
       isLeft: false,

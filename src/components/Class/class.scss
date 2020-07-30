@@ -8,7 +8,7 @@
     grid-auto-flow: row;
     row-gap: 120px;
     column-gap: 0px;
-    justify-items: center;
+    justify-content: space-between;
     margin-top: 82px;
 
     @media screen and (min-width: $min-tablet-width) {
@@ -30,8 +30,20 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  &__boxes {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+    row-gap: 20px;
+
+    @media screen and (min-width: $min-tablet-width) {
+      column-gap: 25px;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }

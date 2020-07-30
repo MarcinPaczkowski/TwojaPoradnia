@@ -14,7 +14,7 @@
     justify-items: normal;
   }
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     grid-template-columns: 565px 50px 565px;
   }
 

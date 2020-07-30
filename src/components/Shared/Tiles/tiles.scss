@@ -13,7 +13,7 @@
     column-gap: 25px;
   }
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     grid-template-columns: repeat(3, 1fr);
   }
 }

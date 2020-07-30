@@ -8,12 +8,13 @@
   text-transform: uppercase;
   color: $dark-blue;
   transition: all 0.2s ease-in-out;
-  border: 1px solid $dark-blue;
+  box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
   background-color: $white;
+  border: none;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      border: 1px solid $white;
+      box-shadow: 0px 0px 20px 10px rgba(66, 88, 128, 0.5);
       background-color: $dark-blue;
       color: $white;
     }
@@ -23,7 +24,7 @@
       background-color: $light-gray;
       color: $dark-blue;
       transition: none;
-      border: 1px solid $dark-blue;
+      box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
       cursor: not-allowed;
     }
   }

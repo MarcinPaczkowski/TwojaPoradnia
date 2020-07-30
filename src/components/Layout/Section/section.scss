@@ -14,7 +14,7 @@
     grid-template-columns: 20px 1fr 20px;
     padding: 25px 0;
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       grid-template-columns: 1fr 1180px 1fr;
       padding: 40px 0;
     }

@@ -6,14 +6,14 @@
   grid-template-columns: 1fr;
   row-gap: 50px;
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     grid-template-columns: 3fr 5fr;
     grid-template-rows: 1fr;
     row-gap: unset;
   }
 
   &--reversed {
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       grid-template-columns: 5fr 3fr;
     }
   }
@@ -24,15 +24,16 @@
     grid-column: 1;
     grid-row: 1;
     object-fit: cover;
+    box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       grid-column: 1;
       grid-row: 1;
       place-self: center;
     }
 
     &--reversed {
-      @media screen and (min-width: $min-desktop-width) {
+      @media screen and (min-width: $min-large-desktop-width) {
         grid-column: 2;
         grid-row: 1;
       }
@@ -44,8 +45,9 @@
     width: 100%;
     display: grid;
     position: relative;
+    box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       grid-column: 2;
       grid-row: 1;
       width: calc(100% + 40px);
@@ -54,7 +56,7 @@
     }
 
     &--reversed {
-      @media screen and (min-width: $min-desktop-width) {
+      @media screen and (min-width: $min-large-desktop-width) {
         grid-column: 1;
         grid-row: 1;
         margin-left: 0px;
@@ -66,7 +68,7 @@
       margin-top: -16px;
       margin-left: 0;
 
-      @media screen and (min-width: $min-desktop-width) {
+      @media screen and (min-width: $min-large-desktop-width) {
         justify-self: start;
         margin-left: 100px;
       }
