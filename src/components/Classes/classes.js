@@ -1,14 +1,30 @@
 import React from 'react';
 import './classes.scss';
 import HorizontalTiles from '../Shared/HorizontalTiles/horizontalTiles';
+import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
+import Section from '../Layout/Section/section';
+import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
 
 const Classes = ({ classes }) => {
   return (
     <div className="classes">
-      <h1 className="classes__title">Zajęcia</h1>
-      <div className="classes__grid">
-        <HorizontalTiles tiles={classes} />
-      </div>
+      <Section>
+        <HeaderTitle title="Zajęcia" />
+      </Section>
+      <NegativeMarginWrapper>
+        <Section isWide={true}>
+          <HorizontalTiles
+            tiles={classes.map(c => {
+              return {
+                title: c.title,
+                description: c.shortDescription,
+                image: c.image,
+                url: c.urlToDetails,
+              };
+            })}
+          />
+        </Section>
+      </NegativeMarginWrapper>
     </div>
   );
 };

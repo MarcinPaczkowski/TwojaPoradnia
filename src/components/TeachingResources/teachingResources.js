@@ -1,6 +1,9 @@
 import React from 'react';
 import './teachingResources.scss';
 import Tiles from '../Shared/Tiles/tiles';
+import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
+import Section from '../Layout/Section/section';
+import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
 
 const TeachingResources = ({ resources }) => {
   const tiles = resources.map(r => {
@@ -19,10 +22,14 @@ const TeachingResources = ({ resources }) => {
   });
   return (
     <div className="teaching-resources">
-      <h1 className="teaching-resources__title">Materiały</h1>
-      <div className="teaching-resources__grid">
-        <Tiles tiles={tiles} />
-      </div>
+      <Section>
+        <HeaderTitle title="Materiały" />
+      </Section>
+      <NegativeMarginWrapper>
+        <Section>
+          <Tiles tiles={tiles} />
+        </Section>
+      </NegativeMarginWrapper>
     </div>
   );
 };

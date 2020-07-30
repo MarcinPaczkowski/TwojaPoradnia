@@ -1,13 +1,12 @@
 @import '../../styles/variables.scss';
 
 .home {
-  margin-top: -20px;
   display: grid;
   grid-template-columns: 20px 1fr 20px;
   grid-template-rows: auto auto auto 20px;
   row-gap: 50px;
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     grid-template-columns: 1fr 1180px 1fr;
   }
 
@@ -19,7 +18,5 @@
   &__articles {
     grid-column: 2;
     grid-row: 2;
-    display: grid;
-    row-gap: 50px;
   }
 }

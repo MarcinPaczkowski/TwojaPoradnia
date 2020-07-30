@@ -29,9 +29,9 @@ const MobileMenu = ({ isActive }) => {
   } = useStaticQuery(
     graphql`
       query {
-        logo: file(relativePath: { eq: "logo.png" }) {
+        logo: file(relativePath: { eq: "Twoja-Pora-Dnia-logo.png" }) {
           childImageSharp {
-            fixed(width: 100, height: 80) {
+            fixed(width: 110, height: 80) {
               ...GatsbyImageSharpFixed_noBase64
             }
           }

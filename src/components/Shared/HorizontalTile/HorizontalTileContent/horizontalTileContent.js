@@ -3,18 +3,16 @@ import './horizontalTileContent.scss';
 import ButtonLink from '../../ButtonLink/buttonLink';
 import parse from 'html-react-parser';
 
-const HorizontalTileContent = ({
-  content: { title, shortDescription, urlToDetails },
-}) => {
+const HorizontalTileContent = ({ content: { title, description, url } }) => {
   return (
     <div className="horizontalTileContent">
-      <h2 className="horizontalTileContent__title">{title}</h2>
+      {title ? <h2 className="horizontalTileContent__title">{title}</h2> : null}
       <div className="horizontalTileContent__description">
-        {parse(shortDescription)}
+        {parse(description)}
       </div>
-      {urlToDetails ? (
+      {url ? (
         <div className="horizontalTileContent__button">
-          <ButtonLink url={urlToDetails}>Więcej</ButtonLink>
+          <ButtonLink url={url}>Więcej</ButtonLink>
         </div>
       ) : null}
     </div>

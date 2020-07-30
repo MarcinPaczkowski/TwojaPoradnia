@@ -4,29 +4,26 @@
   display: grid;
   grid-template-columns: 20px 1fr 20px;
   grid-template-rows: auto auto;
-  padding: 25px 0;
   row-gap: 25px;
-  background-color: $light-blue;
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     grid-template-rows: auto;
     grid-template-columns: 1fr 575px 30px 575px 1fr;
-    padding: 25px;
-  }
-
-  &--odd {
-    background-color: $white;
   }
 
   &__image {
     grid-row: 1;
-    grid-column: 2;
     max-height: 400px;
+    box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
 
-    &--odd {
+    &--left {
+      grid-column: 2;
+    }
+
+    &--right {
       grid-column: 2;
 
-      @media screen and (min-width: $min-desktop-width) {
+      @media screen and (min-width: $min-large-desktop-width) {
         grid-column: 4;
       }
     }
@@ -36,13 +33,16 @@
     grid-row: 2;
     grid-column: 2;
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       grid-row: 1;
-      grid-column: 4;
       place-self: center;
 
-      &--odd {
+      &--left {
         grid-column: 2;
+      }
+
+      &--right {
+        grid-column: 4;
       }
     }
   }

@@ -1,0 +1,31 @@
+@import '../../../styles/variables.scss';
+
+.text-with-circle-image {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto auto;
+  row-gap: 20px;
+  justify-content: center;
+
+  @media screen and (min-width: $min-tablet-width) {
+    column-gap: 50px;
+    grid-template-columns: auto auto;
+  }
+
+  &__icon {
+    border-radius: 50%;
+    background-color: $blue;
+    width: 250px;
+    height: 250px;
+    box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
+    justify-self: center;
+    align-self: center;
+  }
+
+  &__text {
+    text-align: justify;
+    line-height: 24px;
+    font-size: 20px;
+    align-self: center;
+  }
+}

@@ -5,7 +5,7 @@
   grid-template-rows: 300px auto;
   height: 550px;
   width: 100%;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
   border-radius: 10px;
 
   &:hover {
@@ -16,7 +16,7 @@
   @media screen and (min-width: $min-tablet-width) {
   }
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
   }
 
   &__image {

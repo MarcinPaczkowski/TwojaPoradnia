@@ -1,15 +1,15 @@
 import React from 'react';
-import './sectionContent.scss';
+import './boxCardContent.scss';
 import ButtonLink from '../../ButtonLink/buttonLink';
 import { v4 as uuid } from 'uuid';
 import parse from 'html-react-parser';
 
-const SectionContent = ({ content: { title, content, actions } }) => {
+const BoxCardContent = ({ content: { title, content, actions } }) => {
   return (
-    <div className="section-content">
-      <h2 className="section-content__title">{title}</h2>
-      <div className="section-content__content">{parse(content)}</div>
-      <div className="section-content__buttons">
+    <div className="box-card-content">
+      <h2 className="box-card-content__title">{title}</h2>
+      <div className="box-card-content__content">{parse(content)}</div>
+      <div className="box-card-content__buttons">
         {actions.map(a => {
           return (
             <ButtonLink key={uuid()} url={a.link}>
@@ -22,4 +22,4 @@ const SectionContent = ({ content: { title, content, actions } }) => {
   );
 };
 
-export default SectionContent;
+export default BoxCardContent;

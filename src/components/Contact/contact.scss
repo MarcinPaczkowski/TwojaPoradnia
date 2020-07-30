@@ -2,36 +2,35 @@
 
 .contact {
   display: grid;
-  grid-template-columns: 20px 1fr 20px;
+  grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   row-gap: 50px;
-  margin-top: 20px;
   margin-bottom: 50px;
   justify-items: normal;
 
   @media screen and (min-width: $min-tablet-width) {
-    grid-template-columns: 25px 1fr 15px 1fr 25px;
+    grid-template-columns: 1fr 15px 1fr;
     grid-template-rows: 1fr;
     justify-items: normal;
   }
 
-  @media screen and (min-width: $min-desktop-width) {
-    grid-template-columns: 1fr 565px 50px 565px 1fr;
+  @media screen and (min-width: $min-large-desktop-width) {
+    grid-template-columns: 565px 50px 565px;
   }
 
   &__information {
     grid-row: 1;
-    grid-column: 2;
+    grid-column: 1;
   }
 
   &__form {
     grid-row: 2;
-    grid-column: 2;
+    grid-column: 1;
     justify-self: normal;
 
     @media screen and (min-width: $min-tablet-width) {
       grid-row: 1;
-      grid-column: 4;
+      grid-column: 3;
       justify-self: unset;
     }
   }

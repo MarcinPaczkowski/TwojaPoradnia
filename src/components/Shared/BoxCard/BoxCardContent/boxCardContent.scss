@@ -1,11 +1,11 @@
 @import '../../../../styles/variables.scss';
 
-.section-content {
+.box-card-content {
   display: grid;
   row-gap: 20px;
   margin: 0px 20px 30px;
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     margin: 0px 80px 30px 20px;
   }
 
@@ -18,7 +18,7 @@
     font-style: italic;
     font-weight: 600;
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       place-self: start;
     }
   }
@@ -32,7 +32,7 @@
       font-style: italic;
       text-align: center;
 
-      @media screen and (min-width: $min-desktop-width) {
+      @media screen and (min-width: $min-large-desktop-width) {
         text-align: left;
         margin-left: 20px;
       }
@@ -43,7 +43,7 @@
       font-style: italic;
       text-align: center;
 
-      @media screen and (min-width: $min-desktop-width) {
+      @media screen and (min-width: $min-large-desktop-width) {
         text-align: left;
         margin-left: 20px;
       }
@@ -55,7 +55,7 @@
       text-align: center;
       font-weight: 100;
 
-      @media screen and (min-width: $min-desktop-width) {
+      @media screen and (min-width: $min-large-desktop-width) {
         text-align: left;
         margin-left: 20px;
       }
@@ -68,7 +68,7 @@
     display: grid;
     row-gap: 15px;
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       margin-left: 20px;
       place-self: start;
       grid-auto-flow: column;

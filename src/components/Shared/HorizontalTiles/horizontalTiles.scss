@@ -2,5 +2,10 @@
 
 .horizontalTiles {
   &__tile {
+    background-color: $white;
+
+    &--background {
+      background-color: $light-blue;
+    }
   }
 }

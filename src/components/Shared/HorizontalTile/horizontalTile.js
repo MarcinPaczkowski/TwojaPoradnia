@@ -2,13 +2,16 @@ import React from 'react';
 import './horizontalTile.scss';
 import HorizontalTileContent from './HorizontalTileContent/horizontalTileContent';
 import GatsbyImage from 'gatsby-image/withIEPolyfill';
+import tileImagePosition from './tileImagePosition';
 
-const HorizontalTile = ({ isOdd, content }) => {
+const HorizontalTile = ({ imagePosition, content }) => {
   return (
-    <div className={`horizontalTile ${isOdd ? 'horizontalTile--odd' : ''}`}>
+    <div className="horizontalTile">
       <GatsbyImage
         className={`horizontalTile__image ${
-          isOdd ? 'horizontalTile__image--odd' : ''
+          imagePosition === tileImagePosition.LEFT
+            ? 'horizontalTile__image--left'
+            : 'horizontalTile__image--right'
         }`}
         objectFit="cover"
         objectPosition="50% 50%"
@@ -17,7 +20,9 @@ const HorizontalTile = ({ isOdd, content }) => {
       ></GatsbyImage>
       <div
         className={`horizontalTile__content ${
-          isOdd ? 'horizontalTile__content--odd' : ''
+          imagePosition !== tileImagePosition.LEFT
+            ? 'horizontalTile__content--left'
+            : 'horizontalTile__content--right'
         }`}
       >
         <HorizontalTileContent content={content} />

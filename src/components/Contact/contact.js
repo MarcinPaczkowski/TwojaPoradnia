@@ -7,6 +7,7 @@ import StickyLabel from '../Shared/StickyLabel/stickyLabel';
 import stickyLabelTypes from '../Shared/StickyLabel/stickyLabelTypes';
 import Spinner from '../Shared/Spinner/spinner';
 import ReCaptcha, { Loader } from '@pittica/gatsby-plugin-recaptcha';
+import Section from '../Layout/Section/section';
 
 const Contact = ({ contactData }) => {
   const LABEL_TIME = 10000;
@@ -23,7 +24,7 @@ const Contact = ({ contactData }) => {
     if (confirmationLabel) {
       setTimeout(() => setConfirmationLabel(null), LABEL_TIME);
     }
-  }, [confirmationLabel]);
+  }, [confirmationLabel, recaptchaLoaded]);
 
   const submitHandler = async data => {
     try {
@@ -67,29 +68,31 @@ const Contact = ({ contactData }) => {
   };
 
   return (
-    <div className="contact">
-      <div className="contact__information">
-        <ContactInformation contactData={contactData} />
-      </div>
-      <div className="contact__form">
-        <ContactForm submitHandler={submitHandler} />
-      </div>
-      {confirmationLabel ? (
-        <StickyLabel
-          type={confirmationLabel.type}
-          message={confirmationLabel.message}
-          close={() => setConfirmationLabel(null)}
+    <Section>
+      <div className="contact">
+        <div className="contact__information">
+          <ContactInformation contactData={contactData} />
+        </div>
+        <div className="contact__form">
+          <ContactForm submitHandler={submitHandler} />
+        </div>
+        {confirmationLabel ? (
+          <StickyLabel
+            type={confirmationLabel.type}
+            message={confirmationLabel.message}
+            close={() => setConfirmationLabel(null)}
+          />
+        ) : null}
+        {showSpinner ? <Spinner /> : null}
+        <ReCaptcha
+          sitekey={process.env.GATSBY_recaptchaSiteKey}
+          action="CONTACT_FORM"
+          callback={token => setRecaptchaToken(token)}
+          id="g-recaptcha_contact"
+          badge="bottomright"
         />
-      ) : null}
-      {showSpinner ? <Spinner /> : null}
-      <ReCaptcha
-        sitekey={process.env.GATSBY_recaptchaSiteKey}
-        action="CONTACT_FORM"
-        callback={token => setRecaptchaToken(token)}
-        id="g-recaptcha_contact"
-        badge="bottomright"
-      />
-    </div>
+      </div>
+    </Section>
   );
 };
 

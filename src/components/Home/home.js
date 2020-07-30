@@ -2,7 +2,8 @@ import React from 'react';
 import { v4 as uuid } from 'uuid';
 import './home.scss';
 import Welcome from '../Shared/Welcome/welcome';
-import Section from '../Shared/Section/section';
+import BoxCard from '../Shared/BoxCard/boxCard';
+import Section from '../Layout/Section/section';
 
 const Home = ({ homePage }) => {
   return (
@@ -13,7 +14,9 @@ const Home = ({ homePage }) => {
       <div className="home__articles">
         {homePage.articles.map((a, i) => {
           return (
-            <Section content={a} isImageOnLeft={i % 2 !== 0} key={uuid()} />
+            <Section key={uuid()}>
+              <BoxCard content={a} isImageOnLeft={i % 2 !== 0} />
+            </Section>
           );
         })}
       </div>

@@ -8,17 +8,18 @@
   text-transform: uppercase;
   color: $dark-blue;
   transition: all 0.2s ease-in-out;
-  border: 1px solid $dark-blue;
   text-align: center;
+  box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       background-color: $dark-blue;
       color: $white;
+      box-shadow: 0px 0px 20px 10px rgba(66, 88, 128, 0.5);
     }
   }
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     text-align: left;
   }
 }

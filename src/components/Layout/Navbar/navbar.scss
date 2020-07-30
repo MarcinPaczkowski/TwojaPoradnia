@@ -11,7 +11,7 @@
   z-index: 12;
   transition: background 0.3s ease-in-out;
 
-  @media screen and (min-width: $min-desktop-width) {
+  @media screen and (min-width: $min-large-desktop-width) {
     grid-template-columns: 1fr 1180px 1fr;
     grid-template-rows: 120px;
   }
@@ -33,7 +33,7 @@
     grid-column: 1;
     grid-row: 1;
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       grid-column: 2;
     }
   }
@@ -43,7 +43,7 @@
     grid-row: 1;
     justify-self: center;
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       display: none;
       grid-column: unset;
     }

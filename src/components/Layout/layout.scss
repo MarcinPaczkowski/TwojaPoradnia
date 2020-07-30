@@ -3,16 +3,15 @@
 .layout {
   min-height: 101vh;
   display: grid;
-  grid-template-rows: 100px auto auto 80px;
+  grid-template-rows: 100px 0px auto 50px;
   grid-template-columns: 20px 1fr 20px;
 
-  @media screen and (min-width: $min-desktop-width) {
-    grid-template-rows: 120px auto auto 80px;
+  @media screen and (min-width: $min-large-desktop-width) {
     grid-template-columns: 1fr 1180px 1fr;
   }
 
   &--home {
-    grid-template-rows: 0 auto auto 80px;
+    grid-template-rows: 0 0px auto 50px;
   }
 
   &__navbar {
@@ -26,7 +25,6 @@
   }
 
   &__content {
-    margin-top: 20px;
     grid-row: 3;
     grid-column: -1 / 1;
   }

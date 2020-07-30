@@ -3,14 +3,14 @@ import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
-const BookingsPage = pageData => {
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Rezerwacja');
+const CoursesPage = pageData => {
+  const breadcrumbs = buildBreadcrumbs(pageData, 'Szkolenia');
 
   return (
     <Layout breadcrumbs={breadcrumbs}>
-      <p>Rezerwacja</p>
+      <p>Szkolenia</p>
     </Layout>
   );
 };
 
-export default BookingsPage;
+export default CoursesPage;
