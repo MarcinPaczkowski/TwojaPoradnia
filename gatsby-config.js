@@ -24,11 +24,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Makefolio',
-        short_name: 'Makefolio',
+        name: 'Twoja Poradnia Małgorzata Paczkowska',
+        short_name: 'Twoja Poradnia',
         start_url: '/',
-        background_color: '#2980b9',
-        theme_color: '#2980b9',
+        background_color: '#d1e1ff',
+        theme_color: '#d1e1ff',
         display: 'standalone',
         icon: 'src/images/icon.png',
         orientation: 'portrait',
@@ -78,6 +78,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-offline`,
     // `gatsby-plugin-sitemap`,
     // {
     // 	resolve: `gatsby-plugin-google-analytics`,
