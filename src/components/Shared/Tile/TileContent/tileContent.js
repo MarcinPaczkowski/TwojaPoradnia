@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
+
 import './tileContent.scss';
 import ButtonExternalLink from '../../ButtonExternalLink/buttonExternalLink';
 import ButtonLink from '../../ButtonLink/buttonLink';
 import parse from 'html-react-parser';
 
-const TileContent = ({
-  tile: {
+const TileContent = (props, ref) => {
+  useImperativeHandle(ref, () => ({
+    navigate() {
+      buttonLinkRef.current.navigate();
+    },
+  }));
+
+  const {
     title,
     description,
-    link: { url, text },
-  },
-}) => {
-  const isInternal = /^\/(?!\/)/.test(url);
+    link: { url, text, isInternal },
+  } = props.tile;
+  const buttonLinkRef = useRef();
   return (
     <div className="tile-content">
       <div className="tile-content__wrapper">
@@ -20,13 +26,17 @@ const TileContent = ({
       </div>
       <div className="tile-content__link">
         {isInternal ? (
-          <ButtonLink url={url}>{text}</ButtonLink>
+          <ButtonLink ref={buttonLinkRef} url={url}>
+            {text}
+          </ButtonLink>
         ) : (
-          <ButtonExternalLink url={url}>{text}</ButtonExternalLink>
+          <ButtonExternalLink ref={buttonLinkRef} url={url}>
+            {text}
+          </ButtonExternalLink>
         )}
       </div>
     </div>
   );
 };
 
-export default TileContent;
+export default forwardRef(TileContent);
