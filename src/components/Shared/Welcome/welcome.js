@@ -11,7 +11,7 @@ const Welcome = ({ welcome: { title, description, image } }) => {
         <GatsbyImage
           className="welcome__background--image"
           objectFit="cover"
-          objectPosition="50% 50%"
+          objectPosition="50% 30%"
           fluid={image.fluid}
           alt={image.description}
         ></GatsbyImage>
