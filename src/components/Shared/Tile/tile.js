@@ -6,7 +6,6 @@ import { FaArrowCircleRight, FaCloudDownloadAlt } from 'react-icons/fa';
 import 'animate.css/animate.css';
 
 const Tile = ({ tile }) => {
-  console.log(tile);
   tile.link.isInternal = /^\/(?!\/)/.test(tile.link.url);
   const isDownload = tile.link.url
     .split('/')
