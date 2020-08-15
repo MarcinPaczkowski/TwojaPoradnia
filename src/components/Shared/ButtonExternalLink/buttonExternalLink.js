@@ -1,25 +1,17 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
+import React from 'react';
 import './buttonExternalLink.scss';
 
-const ButtonExternalLink = (props, ref) => {
-  useImperativeHandle(ref, () => ({
-    navigate() {
-      aRef.current.click();
-    },
-  }));
-
-  const aRef = useRef();
+const ButtonExternalLink = ({ url, children }) => {
   return (
     <a
-      ref={aRef}
       className="button-external-link"
-      href={props.url}
+      href={url}
       target="_blank"
       rel="noopener noreferrer"
     >
-      {props.children}
+      {children}
     </a>
   );
 };
 
-export default forwardRef(ButtonExternalLink);
+export default ButtonExternalLink;

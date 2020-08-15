@@ -49,9 +49,6 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
               shortdescription {
                 value
               }
-              longdescription {
-                value
-              }
             }
           }
         }
