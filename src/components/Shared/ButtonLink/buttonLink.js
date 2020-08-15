@@ -1,18 +1,11 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
-import { navigate } from 'gatsby';
+import React from 'react';
+import { Link } from 'gatsby';
 import './buttonLink.scss';
 
-const ButtonLink = (props, ref) => {
-  useImperativeHandle(ref, () => ({
-    navigate() {
-      navigate(props.url);
-    },
-  }));
-  return (
-    <a className="button-link" href={props.url}>
-      {props.children}
-    </a>
-  );
-};
+const ButtonLink = ({ url, children }) => (
+  <Link className="button-link" to={url}>
+    {children}
+  </Link>
+);
 
-export default forwardRef(ButtonLink);
+export default ButtonLink;
