@@ -2,7 +2,6 @@ const map = cmsClass => {
   return {
     title: cmsClass.elements.title.value,
     shortDescription: cmsClass.elements.shortdescription.value,
-    longDescription: cmsClass.elements.longdescription.value,
     image: cmsClass.elements.image.value[0],
     slug: cmsClass.elements.slug.value,
     urlToDetails: `/zajecia/${cmsClass.elements.slug.value}`,

@@ -21,9 +21,6 @@ const ClassesPage = pageData => {
               shortdescription {
                 value
               }
-              longdescription {
-                value
-              }
               image {
                 value {
                   description
