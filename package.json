@@ -39,6 +39,7 @@
     "react-hook-form": "^5.7.2",
     "react-icons": "^3.10.0",
     "react-scroll-parallax": "^2.3.4",
+    "use-ssr": "^1.0.23",
     "uuid": "^8.3.0"
   },
   "keywords": [
@@ -47,7 +48,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build --verbose",
+    "build": "gatsby clean & gatsby build --verbose",
     "develop": "gatsby clean & gatsby develop --verbose",
     "start": "vercel dev",
     "format": "prettier --write \"src/**/*.js\"",
