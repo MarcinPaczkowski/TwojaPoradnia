@@ -33,6 +33,9 @@ const AboutPage = pageData => {
               title {
                 value
               }
+              order {
+                value
+              }
             }
           }
         }
