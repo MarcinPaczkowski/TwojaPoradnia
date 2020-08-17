@@ -5,19 +5,29 @@ import GatsbyImage from 'gatsby-image/withIEPolyfill';
 import tileImagePosition from './tileImagePosition';
 
 const HorizontalTile = ({ imagePosition, content }) => {
-  return (
+  return content ? (
     <div className="horizontalTile">
-      <GatsbyImage
-        className={`horizontalTile__image ${
-          imagePosition === tileImagePosition.LEFT
-            ? 'horizontalTile__image--left'
-            : 'horizontalTile__image--right'
-        }`}
-        objectFit="cover"
-        objectPosition="50% 50%"
-        fluid={content.image.fluid}
-        alt={content.image.description}
-      ></GatsbyImage>
+      {content.image ? (
+        <GatsbyImage
+          className={`horizontalTile__image ${
+            imagePosition === tileImagePosition.LEFT
+              ? 'horizontalTile__image--left'
+              : 'horizontalTile__image--right'
+          }`}
+          objectFit="cover"
+          objectPosition="50% 50%"
+          fluid={content.image.fluid}
+          alt={content.image.description}
+        />
+      ) : (
+        <div
+          className={`horizontalTile__image ${
+            imagePosition === tileImagePosition.LEFT
+              ? 'horizontalTile__image--left'
+              : 'horizontalTile__image--right'
+          }`}
+        />
+      )}
       <div
         className={`horizontalTile__content ${
           imagePosition !== tileImagePosition.LEFT
@@ -28,7 +38,7 @@ const HorizontalTile = ({ imagePosition, content }) => {
         <HorizontalTileContent content={content} />
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default HorizontalTile;

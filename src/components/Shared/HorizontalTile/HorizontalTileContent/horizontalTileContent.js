@@ -7,9 +7,11 @@ const HorizontalTileContent = ({ content: { title, description, url } }) => {
   return (
     <div className="horizontalTileContent">
       {title ? <h2 className="horizontalTileContent__title">{title}</h2> : null}
-      <div className="horizontalTileContent__description">
-        {parse(description)}
-      </div>
+      {description ? (
+        <div className="horizontalTileContent__description">
+          {parse(description)}
+        </div>
+      ) : null}
       {url ? (
         <div className="horizontalTileContent__button">
           <ButtonLink url={url}>Więcej</ButtonLink>
