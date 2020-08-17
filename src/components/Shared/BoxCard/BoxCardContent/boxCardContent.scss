@@ -60,6 +60,26 @@
         margin-left: 20px;
       }
     }
+
+    ul {
+      display: grid;
+      row-gap: 15px;
+      list-style-type: '✅';
+
+      li {
+        font-size: 20px;
+      }
+    }
+
+    ol {
+      display: grid;
+      row-gap: 15px;
+      list-style: decimal;
+
+      li {
+        font-size: 20px;
+      }
+    }
   }
 
   &__buttons {

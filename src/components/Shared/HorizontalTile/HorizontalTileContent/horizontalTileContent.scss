@@ -19,6 +19,26 @@
       line-height: 24px;
       text-align: justify;
     }
+
+    ul {
+      display: grid;
+      row-gap: 15px;
+      list-style-type: '✅';
+
+      li {
+        font-size: 18px;
+      }
+    }
+
+    ol {
+      display: grid;
+      row-gap: 15px;
+      list-style: decimal;
+
+      li {
+        font-size: 18px;
+      }
+    }
   }
 
   &__button {
