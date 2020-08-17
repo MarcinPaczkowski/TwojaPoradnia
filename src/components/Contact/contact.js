@@ -84,10 +84,13 @@ const Contact = ({ contactData }) => {
           />
         ) : null}
         {showSpinner ? <Spinner /> : null}
+
         <ReCaptcha
           sitekey={process.env.GATSBY_recaptchaSiteKey}
           action="CONTACT_FORM"
-          callback={token => setRecaptchaToken(token)}
+          callback={token => {
+            setRecaptchaToken(token);
+          }}
           id="g-recaptcha_contact"
           badge="bottomright"
         />
