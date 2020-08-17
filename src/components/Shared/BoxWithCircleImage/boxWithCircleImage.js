@@ -9,13 +9,16 @@ const BoxWithCircleImage = ({ text, image }) => {
       <div className="box-with-circle-image__wrapper">
         {parse(text)}
         <div className="box-with-circle-image__circle">
-          <GatsbyImage
-            className=""
-            objectFit="cover"
-            objectPosition="50% 50%"
-            fluid={image.fluid}
-            alt={image.description}
-          ></GatsbyImage>
+          {image ? (
+            <GatsbyImage
+              objectFit="cover"
+              objectPosition="50% 50%"
+              fluid={image.fluid}
+              alt={image.description}
+            />
+          ) : (
+            <div className="gatsby-image-wrapper" />
+          )}
         </div>
       </div>
     </div>

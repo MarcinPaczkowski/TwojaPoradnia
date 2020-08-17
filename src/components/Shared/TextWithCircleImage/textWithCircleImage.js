@@ -6,15 +6,19 @@ import GatsbyImage from 'gatsby-image';
 const TextWithCircleImage = ({ text, image, isHtml }) => {
   return (
     <div className="text-with-circle-image">
-      <GatsbyImage
-        className="text-with-circle-image__image"
-        objectFit="cover"
-        objectPosition="50% 50%"
-        fluid={image.fluid}
-        alt={image.description}
-      />
+      {image ? (
+        <GatsbyImage
+          className="text-with-circle-image__image"
+          objectFit="cover"
+          objectPosition="50% 50%"
+          fluid={image.fluid}
+          alt={image.description}
+        />
+      ) : (
+        <div className="text-with-circle-image__image" />
+      )}
       <div className="text-with-circle-image__text">
-        {isHtml ? parse(text) : `<p>${text}</p>`}
+        {text ? (isHtml ? parse(text) : `<p>${text}</p>`) : null}
       </div>
     </div>
   );

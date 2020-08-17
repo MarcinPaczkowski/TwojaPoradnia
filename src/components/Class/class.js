@@ -32,7 +32,7 @@ const Class = ({ classDetails }) => {
       <Section hasColor>
         <SubTitle title={classDetails.section3.title} />
         <div className="class__boxes-with-circles">
-          {classDetails.section3.elements.map(element => (
+          {classDetails.section3?.elements?.map(element => (
             <BoxWithCircleImage
               text={element.text}
               image={element.image}
@@ -44,7 +44,7 @@ const Class = ({ classDetails }) => {
       <Section>
         <SubTitle title={classDetails.section4.title} />
         <div className="class__perks">
-          {classDetails.section4.elements.map(element => (
+          {classDetails.section4?.elements?.map(element => (
             <SmallCard
               text={element.text}
               icon={element.image}
@@ -55,29 +55,29 @@ const Class = ({ classDetails }) => {
         </div>
       </Section>
       <Section hasColor>
-        <SubTitle title={classDetails.section5.title} />
-        <DescriptionList elements={classDetails.section5.elements} />
+        <SubTitle title={classDetails.section5?.title} />
+        <DescriptionList elements={classDetails.section5?.elements} />
       </Section>
       <Section>
         <TextWithCircleImage
-          text={classDetails.section6.text}
-          image={classDetails.section6.image}
+          text={classDetails.section6?.text}
+          image={classDetails.section6?.image}
           isHtml
         />
       </Section>
       <Section hasColor>
-        <SubTitle title={classDetails.section7.title} />
+        <SubTitle title={classDetails.section7?.title} />
         <div className="class__boxes">
-          {classDetails.section7.elements.map(element => (
+          {classDetails.section7?.elements?.map(element => (
             <BoxText text={element.text} key={uuid()} isHtml />
           ))}
         </div>
       </Section>
       <Section>
-        <SubTitle title={classDetails.section8.title} />
+        <SubTitle title={classDetails.section8?.title} />
         <BlockOfTextWithButton
-          content={classDetails.section8.content}
-          link={classDetails.section8.link}
+          content={classDetails.section8?.content}
+          link={classDetails.section8?.link}
         />
       </Section>
     </div>
