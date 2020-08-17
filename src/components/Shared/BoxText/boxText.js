@@ -1,10 +1,13 @@
 import React from 'react';
 import './boxText.scss';
+import parse from 'html-react-parser';
 
-const BoxText = ({ text }) => {
+const BoxText = ({ text, isHtml }) => {
   return (
     <div className="box-text">
-      <p className="box-text__text">{text}</p>
+      <div className="box-text__text">
+        {isHtml ? parse(text) : `<div>${text}</div>`}
+      </div>
     </div>
   );
 };

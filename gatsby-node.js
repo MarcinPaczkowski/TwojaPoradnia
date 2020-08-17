@@ -31,13 +31,10 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
               title {
                 value
               }
-              slug {
-                value
-              }
               image {
                 value {
                   description
-                  fluid(maxWidth: 1920) {
+                  fluid(maxWidth: 600) {
                     aspectRatio
                     base64
                     sizes
@@ -46,7 +43,230 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                   }
                 }
               }
-              shortdescription {
+              publishdate {
+                value
+              }
+              section1 {
+                value {
+                  ... on kontent_item_section {
+                    elements {
+                      title {
+                        value
+                      }
+                      elements {
+                        value {
+                          ... on kontent_item_textwithimage {
+                            elements {
+                              text {
+                                value
+                              }
+                              image {
+                                value {
+                                  description
+                                  fluid(maxWidth: 600) {
+                                    aspectRatio
+                                    base64
+                                    sizes
+                                    src
+                                    srcSet
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              section2 {
+                value
+              }
+              section3 {
+                value {
+                  ... on kontent_item_section {
+                    elements {
+                      title {
+                        value
+                      }
+                      elements {
+                        value {
+                          ... on kontent_item_textwithimage {
+                            elements {
+                              text {
+                                value
+                              }
+                              image {
+                                value {
+                                  description
+                                  fluid(maxWidth: 170) {
+                                    aspectRatio
+                                    base64
+                                    sizes
+                                    src
+                                    srcSet
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              section4 {
+                value {
+                  ... on kontent_item_section {
+                    elements {
+                      title {
+                        value
+                      }
+                      elements {
+                        value {
+                          ... on kontent_item_textwithimage {
+                            elements {
+                              text {
+                                value
+                              }
+                              image {
+                                value {
+                                  description
+                                  fluid(maxWidth: 85) {
+                                    aspectRatio
+                                    base64
+                                    sizes
+                                    src
+                                    srcSet
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              section5 {
+                value {
+                  ... on kontent_item_section {
+                    elements {
+                      title {
+                        value
+                      }
+                      elements {
+                        value {
+                          ... on kontent_item_textwithimage {
+                            elements {
+                              text {
+                                value
+                              }
+                              image {
+                                value {
+                                  description
+                                  fluid(maxWidth: 50) {
+                                    aspectRatio
+                                    base64
+                                    sizes
+                                    src
+                                    srcSet
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              section6 {
+                value {
+                  ... on kontent_item_textwithimage {
+                    elements {
+                      text {
+                        value
+                      }
+                      image {
+                        value {
+                          description
+                          fluid(maxWidth: 250) {
+                            aspectRatio
+                            base64
+                            sizes
+                            src
+                            srcSet
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              section7 {
+                value {
+                  ... on kontent_item_section {
+                    elements {
+                      title {
+                        value
+                      }
+                      elements {
+                        value {
+                          ... on kontent_item_text {
+                            elements {
+                              text {
+                                value
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              section8 {
+                value {
+                  ... on kontent_item_section {
+                    elements {
+                      title {
+                        value
+                      }
+                      elements {
+                        value {
+                          ... on kontent_item_text {
+                            elements {
+                              text {
+                                value
+                              }
+                            }
+                          }
+                        }
+                      }
+                      action {
+                        value {
+                          ... on kontent_item_linktopage {
+                            elements {
+                              buttontext {
+                                value
+                              }
+                              link {
+                                value
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              title {
                 value
               }
             }

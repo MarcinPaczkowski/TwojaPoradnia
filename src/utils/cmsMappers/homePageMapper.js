@@ -13,7 +13,7 @@ const map = cmsHomePage => {
         actions: article.elements.actions.value.map(action => {
           return {
             buttonText: action.elements.buttontext.value,
-            link: `/${action.elements.link.value}`,
+            link: `${action.elements.link.value}`,
           };
         }),
       };

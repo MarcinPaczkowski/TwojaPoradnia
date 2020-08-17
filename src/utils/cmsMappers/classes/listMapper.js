@@ -5,6 +5,7 @@ const map = cmsClass => {
     image: cmsClass.elements.image.value[0],
     slug: cmsClass.elements.slug.value,
     urlToDetails: `/zajecia/${cmsClass.elements.slug.value}`,
+    publishDate: cmsClass.elements.publishdate.value,
   };
 };
 
@@ -12,4 +13,4 @@ const mapAll = cmsClasses => {
   return cmsClasses.map(c => map(c));
 };
 
-export { map as mapCmsClass, mapAll as mapAllCmsClasses };
+export { mapAll as mapAllCmsClasses };
