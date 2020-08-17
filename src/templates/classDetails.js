@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
-import { mapCmsClass } from '../utils/cmsMappers/classesMapper';
+import { mapCmsClass } from '../utils/cmsMappers/classes/detailsMapper';
 import Class from '../components/Class/class';
 
 const ClassDetails = pageData => {

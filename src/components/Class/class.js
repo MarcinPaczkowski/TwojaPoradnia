@@ -1,5 +1,6 @@
 import React from 'react';
 import './class.scss';
+import { v4 as uuid } from 'uuid';
 import Section from '../Layout/Section/section';
 import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 import HorizontalTile from '../Shared/HorizontalTile/horizontalTile';
@@ -14,88 +15,69 @@ import BoxText from '../Shared/BoxText/boxText';
 import BlockOfTextWithButton from '../Shared/BlockOfTextWithButton/blockOfTextWithButton';
 
 const Class = ({ classDetails }) => {
-  const content1 = {
-    title: 'Tytuł',
-    description: `<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas necessitatibus dignissimos eligendi similique amet quo harum, minus soluta libero vero doloribus iste a. Adipisci qui vel dicta veniam eius maxime!
-     Sapiente quis nisi dolores magni, ipsum minima hic expedita sit aspernatur consectetur eveniet illum beatae repellat atque facere excepturi alias sed fuga rerum aperiam eius adipisci quasi. A, labore quibusdam.
-    Molestias facilis incidunt deserunt officia itaque dignissimos repudiandae ipsum. Qui, sunt. Vel repellendus nisi dolor, excepturi eaque minus eveniet iusto aliquid doloribus ex perspiciatis assumenda, sint ratione labore facilis voluptatibus?
-    Similique itaque consectetur accusantium quasi libero. Velit laudantium asperiores harum labore molestias, totam non. Aliquam asperiores at alias, pariatur quasi aut? Sapiente nulla natus laboriosam quod pariatur? Voluptatem, adipisci id.</p>`,
-    image: classDetails.image,
-  };
-  const content2 = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, facere a autem fuga et suscipit accusamus, doloribus cum culpa maxime repellat reprehenderit nihil. Beatae illo est pariatur voluptatem quia quibusdam.Illum beatae impedit non id laudantium cum optio tenetur vel voluptatibus vitae excepturi temporibus nihil consectetur necessitatibus asperiores, velit consequatur quas? Cumque pariatur ea molestias amet facilis, dolor eligendi alias?`;
-  const content3 = [
-    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
-    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
-    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
-    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
-    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
-    { text: 'Lorem ipsum dolor sit amet.', icon: {} },
-  ];
-  const content4 = {
-    content: [
-      '<h3>Testowowowow</h3>',
-      '<p>Lorem ipsum dolor sit amet.</p>',
-      '<p>Lorem ipsum dolor sit amet.</p>',
-      '<p>Lorem ipsum dolor sit amet.</p>',
-    ],
-    link: {
-      text: 'Zapisz się',
-      url: '/kontakt',
-    },
-  };
-
   return (
     <div className="class">
-      <Section hasColor={false}>
+      <Section>
         <HeaderTitle title={classDetails.title} />
       </Section>
-      <Section hasColor={true}>
+      <Section hasColor>
         <HorizontalTile
           imagePosition={TileImagePosition.LEFT}
-          content={content1}
+          content={classDetails.section1}
         />
       </Section>
-      <Section hasColor={false}>
-        <HorizontalText text={content2} />
+      <Section>
+        <HorizontalText text={classDetails.section2.text} isHtml />
       </Section>
-      <Section hasColor={true}>
-        <SubTitle title="Testowy tytuł" />
+      <Section hasColor>
+        <SubTitle title={classDetails.section3.title} />
         <div className="class__boxes-with-circles">
-          <BoxWithCircleImage />
-          <BoxWithCircleImage />
+          {classDetails.section3.elements.map(element => (
+            <BoxWithCircleImage
+              text={element.text}
+              image={element.image}
+              key={uuid()}
+            />
+          ))}
         </div>
       </Section>
-      <Section hasColor={false}>
-        <SubTitle title="Testowy tytuł" />
+      <Section>
+        <SubTitle title={classDetails.section4.title} />
         <div className="class__perks">
-          <SmallCard text="Lorem ipsum dolor sit amet." />
-          <SmallCard text="Lorem ipsum dolor sit amet." />
-          <SmallCard text="Lorem ipsum dolor sit amet." />
-          <SmallCard text="Lorem ipsum dolor sit amet." />
-          <SmallCard text="Lorem ipsum dolor sit amet." />
-          <SmallCard text="Lorem ipsum dolor sit amet." />
+          {classDetails.section4.elements.map(element => (
+            <SmallCard
+              text={element.text}
+              icon={element.image}
+              key={uuid()}
+              isHtml
+            />
+          ))}
         </div>
       </Section>
-      <Section hasColor={true}>
-        <SubTitle title="Testowy tytuł" />
-        <DescriptionList elements={content3} />
+      <Section hasColor>
+        <SubTitle title={classDetails.section5.title} />
+        <DescriptionList elements={classDetails.section5.elements} />
       </Section>
-      <Section hasColor={false}>
-        <TextWithCircleImage text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo ex odit, quisquam veniam aperiam dolores sed deserunt labore ipsam iste? Excepturi aspernatur quibusdam recusandae quos fugit cumque debitis, repellendus ducimus?Impedit neque repellendus ea, voluptatum repellat error architecto distinctio! Ipsa, sed mollitia alias quidem magni odio obcaecati eum, hic officia, repellendus dolorem! Neque dolores quasi minima perferendis nisi numquam! Deleniti." />
+      <Section>
+        <TextWithCircleImage
+          text={classDetails.section6.text}
+          image={classDetails.section6.image}
+          isHtml
+        />
       </Section>
-      <Section hasColor={true}>
-        <SubTitle title="Testowy tytuł" />
+      <Section hasColor>
+        <SubTitle title={classDetails.section7.title} />
         <div className="class__boxes">
-          <BoxText text="Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet." />
-          <BoxText text="Lorem ipsum dolor sit amet." />
-          <BoxText text="Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet." />
+          {classDetails.section7.elements.map(element => (
+            <BoxText text={element.text} key={uuid()} isHtml />
+          ))}
         </div>
       </Section>
-      <Section hasColor={false}>
-        <SubTitle title="Testowy tytuł" />
+      <Section>
+        <SubTitle title={classDetails.section8.title} />
         <BlockOfTextWithButton
-          content={content4.content}
-          link={content4.link}
+          content={classDetails.section8.content}
+          link={classDetails.section8.link}
         />
       </Section>
     </div>

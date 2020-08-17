@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import Classes from '../components/Classes/classes';
-import { mapAllCmsClasses } from '../utils/cmsMappers/classesMapper';
+import { mapAllCmsClasses } from '../utils/cmsMappers/classes/listMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
 const ClassesPage = pageData => {
@@ -34,6 +34,9 @@ const ClassesPage = pageData => {
                 }
               }
               slug {
+                value
+              }
+              publishdate {
                 value
               }
             }

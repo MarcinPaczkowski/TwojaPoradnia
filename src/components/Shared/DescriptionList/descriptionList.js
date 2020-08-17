@@ -7,7 +7,7 @@ const DescriptionList = ({ elements }) => {
   return (
     <ul className="description-list">
       {elements.map(e => (
-        <DescriptionRow element={e} key={uuid()} />
+        <DescriptionRow element={e} isHtml key={uuid()} />
       ))}
     </ul>
   );
