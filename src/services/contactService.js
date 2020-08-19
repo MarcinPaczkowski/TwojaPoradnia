@@ -6,9 +6,6 @@ const getContactForm = () => {
       name: 'fullName',
       placeholder: 'Imię i nazwisko',
       validators: {
-        required: true,
-      },
-      errorMessages: {
         required: 'Imię i nazwisko jest wymagane!',
       },
     },
@@ -18,12 +15,11 @@ const getContactForm = () => {
       name: 'email',
       placeholder: 'Email',
       validators: {
-        required: true,
-        pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/,
-      },
-      errorMessages: {
         required: 'Email jest wymagany!',
-        pattern: 'Niepoprawny format email!',
+        pattern: {
+          value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/,
+          message: 'Niepoprawny format email!',
+        },
       },
     },
     {
@@ -31,16 +27,19 @@ const getContactForm = () => {
       type: 'phone',
       name: 'phone',
       placeholder: 'Telefon (opcjonalnie)',
-      validators: { pattern: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/ },
-      errorMessages: { pattern: 'Niewłaściwy format' },
+      validators: {
+        pattern: {
+          value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/,
+          message: 'Niewłaściwy format',
+        },
+      },
     },
     {
       tag: 'textarea',
       type: 'message',
       name: 'message',
       placeholder: 'Wiadomość',
-      validators: { required: true },
-      errorMessages: { required: 'Wiadomość jest wymagana!' },
+      validators: { required: 'Wiadomość jest wymagana!' },
     },
   ];
 };

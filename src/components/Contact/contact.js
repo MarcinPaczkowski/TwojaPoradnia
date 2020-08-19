@@ -6,33 +6,33 @@ import axios from 'axios';
 import StickyLabel from '../Shared/StickyLabel/stickyLabel';
 import stickyLabelTypes from '../Shared/StickyLabel/stickyLabelTypes';
 import Spinner from '../Shared/Spinner/spinner';
-import ReCaptcha, { Loader } from '@pittica/gatsby-plugin-recaptcha';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import Section from '../Layout/Section/section';
 
 const Contact = ({ contactData }) => {
   const LABEL_TIME = 10000;
-  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [confirmationLabel, setConfirmationLabel] = useState(null);
   const [showSpinner, setShowSpinner] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState('');
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   useEffect(() => {
-    if (!recaptchaLoaded) {
-      Loader();
-      setRecaptchaLoaded(true);
-    }
     if (confirmationLabel) {
       setTimeout(() => setConfirmationLabel(null), LABEL_TIME);
     }
-  }, [confirmationLabel, recaptchaLoaded]);
+  }, [confirmationLabel]);
 
   const submitHandler = async data => {
+    if (!executeRecaptcha) return;
+    const token = await executeRecaptcha('CONTACT_FORM');
+    setShowSpinner(true);
+
+    let response;
+
     try {
-      setShowSpinner(true);
-      const response = await sendEmail(data, recaptchaToken);
-      processResponse(response);
+      response = await sendEmail(data, token);
     } finally {
       setShowSpinner(false);
+      processResponse(response);
     }
   };
 
@@ -52,6 +52,7 @@ const Contact = ({ contactData }) => {
   };
 
   const sendEmail = async (formData, recaptchaToken) => {
+    console.log(recaptchaToken);
     const response = await axios.post(
       '/api/sendEmail',
       {
@@ -84,13 +85,16 @@ const Contact = ({ contactData }) => {
           />
         ) : null}
         {showSpinner ? <Spinner /> : null}
-        <ReCaptcha
+
+        {/* <ReCaptcha
           sitekey={process.env.GATSBY_recaptchaSiteKey}
           action="CONTACT_FORM"
-          callback={token => setRecaptchaToken(token)}
+          callback={token => {
+            setRecaptchaToken(token);
+          }}
           id="g-recaptcha_contact"
           badge="bottomright"
-        />
+        /> */}
       </div>
     </Section>
   );
