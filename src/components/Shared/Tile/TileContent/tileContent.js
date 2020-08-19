@@ -1,29 +1,24 @@
 import React from 'react';
-
 import './tileContent.scss';
-import ButtonExternalLink from '../../ButtonExternalLink/buttonExternalLink';
-import ButtonLink from '../../ButtonLink/buttonLink';
+import Button from '../../Button/button';
 import parse from 'html-react-parser';
+import { navigate } from 'gatsby';
 
 const TileContent = ({
   tile: {
     title,
     description,
-    link: { url, text, isInternal },
+    link: { url, text },
   },
 }) => {
   return (
     <div className="tile-content">
       <div className="tile-content__wrapper">
-        <h2>{title}</h2>
-        {parse(description)}
+        {title && <h2>{title}</h2>}
+        {description && parse(description)}
       </div>
       <div className="tile-content__link">
-        {isInternal ? (
-          <ButtonLink url={url}>{text}</ButtonLink>
-        ) : (
-          <ButtonExternalLink url={url}>{text}</ButtonExternalLink>
-        )}
+        <Button click={() => navigate(url)}>{text}</Button>
       </div>
     </div>
   );

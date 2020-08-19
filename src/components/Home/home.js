@@ -7,7 +7,6 @@ import Section from '../Layout/Section/section';
 import Quotation from '../Shared/Quotation/quotation';
 
 const Home = ({ homePage }) => {
-  console.log(homePage);
   return (
     <div className="home">
       <div className="home__welcome">

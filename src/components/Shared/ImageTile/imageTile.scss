@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+
+.image-tile {
+  display: grid;
+  height: 400px;
+  width: 100%;
+  box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  color: $black;
+  grid-template-rows: auto 70px;
+
+  &:hover {
+    transition: transform 0.2s ease-in-out;
+    background-color: $light-blue;
+  }
+
+  &:hover &__background {
+    opacity: 0.5;
+  }
+
+  &__background {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+
+  &__link {
+    place-self: center;
+  }
+}
