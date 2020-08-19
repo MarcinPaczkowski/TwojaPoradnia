@@ -5,7 +5,11 @@ import SubmitButton from '../SubmitButton/submitButton';
 import { v4 as uuid } from 'uuid';
 
 const Form = ({ submitted, items, submitButtonText }) => {
-  const { register, handleSubmit, errors, reset } = useForm();
+  const { register, handleSubmit, errors, reset } = useForm({
+    reValidateMode: 'onBlur',
+    shouldFocusError: true,
+    mode: 'onBlur',
+  });
 
   const submitHandler = data => {
     submitted(data);
@@ -16,7 +20,7 @@ const Form = ({ submitted, items, submitButtonText }) => {
     return items.map((item, i) => {
       const error = errors[item.name] && (
         <span className="form__row--errorMessage">
-          {item.errorMessages[errors[item.name].type]}
+          {errors[item.name].message}
         </span>
       );
 
@@ -24,7 +28,7 @@ const Form = ({ submitted, items, submitButtonText }) => {
       switch (item.tag) {
         case 'input':
           return (
-            <div className="form__row" key={uuid()}>
+            <div className="form__row" key={`${i}-${item.name}`}>
               <label className="form__row--label" htmlFor={item.name}>
                 {item.placeholder}
               </label>
