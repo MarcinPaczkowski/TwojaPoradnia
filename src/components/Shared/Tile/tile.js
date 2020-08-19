@@ -1,12 +1,11 @@
 import React from 'react';
-import GatsbyImage from 'gatsby-image/withIEPolyfill';
+import GatsbyImage from 'gatsby-image';
 import './tile.scss';
 import TileContent from './TileContent/tileContent';
 import { FaArrowCircleRight, FaCloudDownloadAlt } from 'react-icons/fa';
 import 'animate.css/animate.css';
 
 const Tile = ({ tile }) => {
-  tile.link.isInternal = /^\/(?!\/)/.test(tile.link.url);
   const isDownload = tile.link.url
     .split('/')
     .pop()
@@ -20,7 +19,7 @@ const Tile = ({ tile }) => {
         objectPosition="50% 50%"
         fluid={tile.image.src}
         alt={tile.image.alt}
-      ></GatsbyImage>
+      />
       <div
         className={`tile__image-overlay animate__animated ${
           isDownload ? 'animate__bounce' : 'animate__wobble'

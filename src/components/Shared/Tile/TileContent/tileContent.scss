@@ -1,6 +1,5 @@
 .tile-content {
   display: grid;
-  padding: 15px;
   grid-template-rows: 2fr 1fr;
   height: 100%;
 
@@ -20,7 +19,6 @@
   }
 
   &__link {
-    justify-self: center;
-    margin: 15px 0;
+    place-self: center;
   }
 }

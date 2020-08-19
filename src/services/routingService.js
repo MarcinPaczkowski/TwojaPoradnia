@@ -16,8 +16,8 @@ const getRoutingData = () => {
       isLeft: true,
     },
     {
-      name: 'Materiały',
-      link: '/materialy',
+      name: 'Szkolenia i wykłady',
+      link: '/szkolenia-i-wyklady',
       order: 3,
       isActive: true,
       isLeft: true,
@@ -45,8 +45,8 @@ const getRoutingData = () => {
       isLeft: false,
     },
     {
-      name: 'Szkolenia',
-      link: '/szkolenia',
+      name: 'Materiały',
+      link: '/materialy',
       order: 3,
       isActive: true,
       isLeft: false,

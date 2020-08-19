@@ -52,7 +52,6 @@ const Contact = ({ contactData }) => {
   };
 
   const sendEmail = async (formData, recaptchaToken) => {
-    console.log(recaptchaToken);
     const response = await axios.post(
       '/api/sendEmail',
       {

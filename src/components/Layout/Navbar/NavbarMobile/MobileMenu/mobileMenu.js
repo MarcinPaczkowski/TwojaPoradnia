@@ -95,7 +95,7 @@ const MobileMenu = ({ isActive }) => {
       </div>
       <ul className="mobile-menu__links">
         {routings.map(r => (
-          <MobileMenuLink key={uuid()} routing={r}></MobileMenuLink>
+          <MobileMenuLink key={uuid()} routing={r} />
         ))}
       </ul>
       <div className="mobile-menu__social-media">
