@@ -1,0 +1,35 @@
+@import '../../../styles/variables.scss';
+
+.quotation {
+  display: grid;
+  row-gap: 15px;
+
+  p {
+    font-style: italic;
+    text-align: center;
+    font-size: 20px;
+    line-height: 24px;
+
+    &::before {
+      content: '„';
+    }
+
+    &::after {
+      content: '“';
+    }
+  }
+
+  p:last-of-type {
+    font-style: normal;
+    color: $dark-gray;
+    font-size: 16px;
+
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+}

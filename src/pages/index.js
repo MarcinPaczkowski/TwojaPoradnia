@@ -71,6 +71,9 @@ const IndexPage = () => {
                         }
                       }
                     }
+                    quotation {
+                      value
+                    }
                   }
                 }
               }

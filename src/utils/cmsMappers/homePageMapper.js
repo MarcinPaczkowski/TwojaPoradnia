@@ -16,9 +16,16 @@ const map = cmsHomePage => {
             link: `${action.elements.link.value}`,
           };
         }),
+        quotation: mapQuotation(article.elements.quotation),
       };
     }),
   };
+};
+
+const mapQuotation = quotation => {
+  if (!quotation) return null;
+  if (quotation.value === '<p><br></p>') return null;
+  return quotation.value;
 };
 
 export { map as mapCmsHomePage };

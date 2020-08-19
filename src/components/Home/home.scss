@@ -16,7 +16,11 @@
   }
 
   &__articles {
-    grid-column: 2;
+    grid-column: -1 / 1;
     grid-row: 2;
+  }
+
+  &__quotation {
+    grid-column: -1 / 1;
   }
 }
