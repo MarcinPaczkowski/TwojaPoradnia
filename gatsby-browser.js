@@ -8,3 +8,7 @@ export const wrapRootElement = ({ element }) => {
     </GoogleReCaptchaProvider>
   );
 };
+
+export const onServiceWorkerUpdateReady = () => {
+  window.location.reload();
+};
