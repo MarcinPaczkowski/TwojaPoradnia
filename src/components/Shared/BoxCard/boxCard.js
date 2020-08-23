@@ -1,5 +1,5 @@
 import React from 'react';
-import GatsbyImage from 'gatsby-image/withIEPolyfill';
+import GatsbyImage from 'gatsby-image';
 import './boxCard.scss';
 import BoxCardContent from './BoxCardContent/boxCardContent';
 
@@ -22,7 +22,7 @@ const BoxCard = ({ content, isImageOnLeft }) => {
         objectPosition="50% 50%"
         fluid={content.image.fluid}
         alt={content.image.description}
-      ></GatsbyImage>
+      />
       <div className={contentClasses}>
         <div className="box-card__content--wrapper">
           <BoxCardContent content={content} />

@@ -18,12 +18,12 @@ const Layout = ({ children, isHome, breadcrumbs }) => {
         <div className="layout__navbar">
           <Navbar isHome={isHome} />
         </div>
+        <div className="layout__content">{children}</div>
         {breadcrumbs ? (
           <div className="layout__breadcrumbs">
             <Breadcrumbs breadcrumbs={breadcrumbs} />
           </div>
         ) : null}
-        <div className="layout__content">{children}</div>
         <div className="layout__footer">
           <Footer></Footer>
         </div>

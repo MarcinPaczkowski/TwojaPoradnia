@@ -12,7 +12,7 @@ const AboutMe = ({ articles }) => {
         <HeaderTitle title="O mnie" />
       </Section>
       <NegativeMarginWrapper>
-        <Section isWide={true}>
+        <Section isWide>
           <HorizontalTiles
             tiles={articles.map(a => {
               return {

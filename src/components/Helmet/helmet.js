@@ -26,7 +26,6 @@ const GatsbyHelmet = () => (
         <meta name="keywords" content={data.site.siteMetadata.keywords} />
         <title>{data.site.siteMetadata.title}</title>
         <html lang="pl" />
-        {/* Google / Search Engine Meta Tags */}
         <meta itemprop="name" content={data.site.siteMetadata.author} />
         <meta
           itemprop="description"

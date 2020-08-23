@@ -3,7 +3,7 @@
 .layout {
   min-height: 101vh;
   display: grid;
-  grid-template-rows: 100px 0px auto 50px;
+  grid-template-rows: 120px auto auto 50px;
   grid-template-columns: 20px 1fr 20px;
 
   @media screen and (min-width: $min-large-desktop-width) {
@@ -19,14 +19,16 @@
     grid-column: -1 / 1;
   }
 
-  &__breadcrumbs {
+  &__content {
     grid-row: 2;
-    grid-column: 2;
+    grid-column: -1 / 1;
   }
 
-  &__content {
+  &__breadcrumbs {
     grid-row: 3;
-    grid-column: -1 / 1;
+    grid-column: 2;
+    margin: 20px 0;
+    align-self: end;
   }
 
   &__footer {

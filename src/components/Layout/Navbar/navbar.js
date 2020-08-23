@@ -39,7 +39,7 @@ const Navbar = ({ isHome }) => {
     : 'navbar__background';
 
   return (
-    <nav className="navbar">
+    <div className="navbar">
       <div className={navbarBackgroundClasses}></div>
       <div className="navbar__elements">
         <NavbarElements></NavbarElements>
@@ -49,7 +49,7 @@ const Navbar = ({ isHome }) => {
           <NavbarMobile></NavbarMobile>
         </div>
       ) : null}
-    </nav>
+    </div>
   );
 };
 

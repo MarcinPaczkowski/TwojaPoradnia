@@ -12,7 +12,7 @@ const Developments = ({ developments }) => {
         <HeaderTitle title="Rozwój i wychowanie" />
       </Section>
       <NegativeMarginWrapper>
-        <Section isWide={true}>
+        <Section isWide>
           <HorizontalTiles
             tiles={developments.map(d => {
               return {

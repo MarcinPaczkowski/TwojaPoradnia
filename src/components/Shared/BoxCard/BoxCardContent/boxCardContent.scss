@@ -64,11 +64,10 @@
     ul {
       display: grid;
       row-gap: 15px;
-      list-style-type: '✅';
+      list-style-type: none;
 
       li {
         font-size: 20px;
-        margin-left: 20px;
       }
     }
 
@@ -79,7 +78,7 @@
 
       li {
         font-size: 20px;
-        margin-left: 20px;
+        margin-left: 25px;
       }
     }
   }

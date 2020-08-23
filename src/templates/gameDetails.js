@@ -2,13 +2,16 @@ import React from 'react';
 import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
+import { mapCmsGame } from '../utils/cmsMappers/gamesMappers';
+import EntryBlog from '../components/EntryBlog/entryBlog';
 
 const GameDetails = pageData => {
   const breadcrumbs = buildBreadcrumbs(pageData, 'Gry');
-
+  const gameDetails = mapCmsGame(pageData.pageContext);
+  console.log(gameDetails);
   return (
     <Layout breadcrumbs={breadcrumbs}>
-      <p>Szczegóły</p>
+      <EntryBlog blog={gameDetails} />
     </Layout>
   );
 };
