@@ -12,7 +12,7 @@ const Classes = ({ classes }) => {
         <HeaderTitle title="Zajęcia" />
       </Section>
       <NegativeMarginWrapper>
-        <Section isWide={true}>
+        <Section isWide>
           <HorizontalTiles
             tiles={classes.map(c => {
               return {

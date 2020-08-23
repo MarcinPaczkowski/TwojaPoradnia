@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+
+.headline {
+  height: 100%;
+  width: 100%;
+  display: grid;
+
+  &__background {
+    grid-row: 1;
+    grid-column: 1;
+    background-color: $light-blue;
+  }
+
+  &__details {
+    height: 100%;
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+
+    @media screen and (min-width: $min-large-desktop-width) {
+      grid-template-columns: 1fr 1180px 1fr;
+    }
+  }
+}

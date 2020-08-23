@@ -89,7 +89,11 @@ const MobileMenu = ({ isActive }) => {
   ].filter(sm => sm.link !== '');
 
   return (
-    <div className="mobile-menu">
+    <nav
+      className="mobile-menu"
+      itemScope
+      itemType="http://schema.org/SiteNavigationElement"
+    >
       <div className="mobile-menu__logo">
         <ImageLink imageData={imageData}></ImageLink>
       </div>
@@ -112,7 +116,7 @@ const MobileMenu = ({ isActive }) => {
           phone={contactData.phone}
         ></MobileMenuContact>
       </div>
-    </div>
+    </nav>
   );
 };
 

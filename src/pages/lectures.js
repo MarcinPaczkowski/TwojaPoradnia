@@ -3,14 +3,17 @@ import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
-const CoursesPage = pageData => {
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Szkolenia');
+const LecturesPage = pageData => {
+  const breadcrumbs = buildBreadcrumbs(pageData, 'Wykłady', {
+    url: '/szkolenia-i-wyklady',
+    name: 'Szkolenia i wykłady',
+  });
 
   return (
     <Layout breadcrumbs={breadcrumbs}>
-      <p>Szkolenia</p>
+      <p>Wykłady</p>
     </Layout>
   );
 };
 
-export default CoursesPage;
+export default LecturesPage;

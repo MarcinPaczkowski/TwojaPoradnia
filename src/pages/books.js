@@ -21,8 +21,8 @@ const BooksPage = pageData => {
               shortdescription {
                 value
               }
-              longdescription {
-                value
+              publishdate {
+                value(formatString: "DD.MM.YYYY")
               }
               image {
                 value {

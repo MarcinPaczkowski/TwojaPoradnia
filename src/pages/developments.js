@@ -21,7 +21,7 @@ const DevelopmentPage = pageData => {
               shortdescription {
                 value
               }
-              longdescription {
+              publishdate {
                 value
               }
               image {

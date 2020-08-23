@@ -1,17 +1,22 @@
 @import '../../../styles/variables.scss';
 
 .breadcrumbs {
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: start;
+  justify-content: start;
+
   &__link {
-    color: $white;
+    color: $dark-gray;
     font-size: 16px;
-    cursor: default;
+    cursor: pointer;
 
     &:hover {
-      color: $white;
+      color: $blue;
     }
 
     &--disabled {
-      color: $white;
+      color: $dark-blue;
       pointer-events: none;
       cursor: default;
       font-weight: 500;
@@ -19,7 +24,7 @@
   }
 
   &__separator {
-    color: $white;
+    color: $light-gray;
     padding: 0 5px;
   }
 }

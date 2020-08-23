@@ -37,7 +37,7 @@ const ClassesPage = pageData => {
                 value
               }
               publishdate {
-                value
+                value(formatString: "DD.MM.YYYY")
               }
             }
           }

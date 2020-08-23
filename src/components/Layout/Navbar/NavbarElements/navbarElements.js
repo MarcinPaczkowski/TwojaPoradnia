@@ -36,7 +36,11 @@ const NavbarElements = () => {
   };
 
   return (
-    <div className="navbar-elements">
+    <nav
+      className="navbar-elements"
+      itemScope
+      itemType="http://schema.org/SiteNavigationElement"
+    >
       <div className="navbar-elements__logo">
         <ImageLink imageData={imageData}></ImageLink>
       </div>
@@ -46,7 +50,7 @@ const NavbarElements = () => {
       <div className="navbar-elements__links navbar-elements__links--right">
         <NavbarLinks routings={rightRoutings} isLeft={false}></NavbarLinks>
       </div>
-    </div>
+    </nav>
   );
 };
 

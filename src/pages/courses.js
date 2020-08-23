@@ -4,7 +4,10 @@ import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
 const CoursesPage = pageData => {
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Szkolenia');
+  const breadcrumbs = buildBreadcrumbs(pageData, 'Szkolenia', {
+    url: '/szkolenia-i-wyklady',
+    name: 'Szkolenia i wykłady',
+  });
 
   return (
     <Layout breadcrumbs={breadcrumbs}>

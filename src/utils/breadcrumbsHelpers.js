@@ -1,4 +1,4 @@
-const buildBreadcrumbs = (pageData, pageName) => {
+const buildBreadcrumbs = (pageData, pageName, subPage) => {
   let paths = [];
   pageData.path
     .split('/')
@@ -10,11 +10,25 @@ const buildBreadcrumbs = (pageData, pageName) => {
       return path;
     }, []);
 
-  const breadcrumbs = [
+  let breadcrumbs = [
     {
       url: '/',
       name: 'Strona główna',
     },
+  ];
+
+  if (subPage) {
+    breadcrumbs = [
+      ...breadcrumbs,
+      {
+        url: subPage.url,
+        name: subPage.name,
+      },
+    ];
+  }
+
+  breadcrumbs = [
+    ...breadcrumbs,
     {
       url: paths[0],
       name: pageName,
