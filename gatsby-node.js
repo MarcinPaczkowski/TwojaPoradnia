@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 }
               }
               publishdate {
-                value
+                value(formatString: "DD.MM.YYYY")
               }
               section1 {
                 value {
@@ -283,10 +283,16 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
               title {
                 value
               }
-              slug {
+              publishdate {
+                value(formatString: "DD.MM.YYYY")
+              }
+              entry {
                 value
               }
-              image {
+              headlinetitle {
+                value
+              }
+              headlinebackgroundimage {
                 value {
                   description
                   fluid(maxWidth: 1920) {
@@ -297,12 +303,6 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                     srcSet
                   }
                 }
-              }
-              shortdescription {
-                value
-              }
-              longdescription {
-                value
               }
             }
           }
@@ -318,10 +318,16 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
               title {
                 value
               }
-              slug {
+              publishdate {
+                value(formatString: "DD.MM.YYYY")
+              }
+              entry {
                 value
               }
-              image {
+              headlinetitle {
+                value
+              }
+              headlinebackgroundimage {
                 value {
                   description
                   fluid(maxWidth: 1920) {
@@ -332,12 +338,6 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                     srcSet
                   }
                 }
-              }
-              shortdescription {
-                value
-              }
-              longdescription {
-                value
               }
             }
           }
@@ -353,10 +353,16 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
               title {
                 value
               }
-              slug {
+              publishdate {
+                value(formatString: "DD.MM.YYYY")
+              }
+              entry {
                 value
               }
-              image {
+              headlinetitle {
+                value
+              }
+              headlinebackgroundimage {
                 value {
                   description
                   fluid(maxWidth: 1920) {
@@ -367,12 +373,6 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                     srcSet
                   }
                 }
-              }
-              shortdescription {
-                value
-              }
-              longdescription {
-                value
               }
             }
           }
