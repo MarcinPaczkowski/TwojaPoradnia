@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { v4 as uuid } from 'uuid';
 import './home.scss';
 import Welcome from '../Shared/Welcome/welcome';
 import BoxCard from '../Shared/BoxCard/boxCard';
@@ -15,12 +14,12 @@ const Home = ({ homePage }) => {
       <div className="home__articles">
         {homePage.articles.map((a, i) => {
           return (
-            <Fragment key={uuid()}>
-              <Section key={uuid()}>
+            <Fragment key={`${a.title}-${i}`}>
+              <Section>
                 <BoxCard content={a} isImageOnLeft={i % 2 !== 0} />
               </Section>
               {a.quotation && (
-                <Section key={uuid()} hasColor>
+                <Section hasColor>
                   <div className="home__quotation">
                     <Quotation>{a.quotation}</Quotation>
                   </div>

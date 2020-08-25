@@ -3,6 +3,7 @@
 .mobile-menu-link {
   align-self: center;
   justify-self: center;
+  cursor: pointer;
 
   &__item {
     color: $dark-blue;
