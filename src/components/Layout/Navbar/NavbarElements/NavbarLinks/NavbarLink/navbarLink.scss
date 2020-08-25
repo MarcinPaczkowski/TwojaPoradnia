@@ -3,6 +3,7 @@
 .navbar-link {
   padding: 32px 0px;
   text-align: center;
+  cursor: pointer;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {

@@ -1,7 +1,6 @@
 import React from 'react';
 import './navbarLinks.scss';
 import NavbarLink from './NavbarLink/navbarLink';
-import { v4 as uuid } from 'uuid';
 
 const NavbarLinks = ({ routings, isLeft }) => {
   return (
@@ -11,7 +10,7 @@ const NavbarLinks = ({ routings, isLeft }) => {
       }`}
     >
       {routings.map((r, i) => (
-        <NavbarLink key={uuid()} routing={r}></NavbarLink>
+        <NavbarLink key={`${r.name}-${i}`} routing={r}></NavbarLink>
       ))}
     </ul>
   );

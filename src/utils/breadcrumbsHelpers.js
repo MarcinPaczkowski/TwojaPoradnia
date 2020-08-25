@@ -1,5 +1,6 @@
 const buildBreadcrumbs = (pageData, pageName, subPage) => {
   let paths = [];
+  console.log(pageData);
   pageData.path
     .split('/')
     .filter(p => p !== '')
@@ -10,7 +11,7 @@ const buildBreadcrumbs = (pageData, pageName, subPage) => {
       return path;
     }, []);
 
-  let breadcrumbs = [
+  const breadcrumbs = [
     {
       url: '/',
       name: 'Strona główna',
@@ -18,22 +19,16 @@ const buildBreadcrumbs = (pageData, pageName, subPage) => {
   ];
 
   if (subPage) {
-    breadcrumbs = [
-      ...breadcrumbs,
-      {
-        url: subPage.url,
-        name: subPage.name,
-      },
-    ];
+    breadcrumbs.push({
+      url: subPage.url,
+      name: subPage.name,
+    });
   }
 
-  breadcrumbs = [
-    ...breadcrumbs,
-    {
-      url: paths[0],
-      name: pageName,
-    },
-  ];
+  breadcrumbs.push({
+    url: paths[0],
+    name: pageName,
+  });
 
   if (paths.length > 1) {
     breadcrumbs.push({

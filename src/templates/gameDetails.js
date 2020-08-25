@@ -8,7 +8,6 @@ import EntryBlog from '../components/EntryBlog/entryBlog';
 const GameDetails = pageData => {
   const breadcrumbs = buildBreadcrumbs(pageData, 'Gry');
   const gameDetails = mapCmsGame(pageData.pageContext);
-  console.log(gameDetails);
   return (
     <Layout breadcrumbs={breadcrumbs}>
       <EntryBlog blog={gameDetails} />

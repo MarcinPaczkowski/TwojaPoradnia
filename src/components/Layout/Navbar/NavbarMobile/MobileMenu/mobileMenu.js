@@ -6,7 +6,6 @@ import MobileMenuSocialMedia from './MobileMenuSocialMedia/mobileMenuSocialMedia
 import MobileMenuContact from './MobileMenuContact/mobileMenuContact';
 import ImageLink from '../../../../Shared/ImageLink/imageLink';
 import getRoutingData from '../../../../../services/routingService';
-import { v4 as uuid } from 'uuid';
 import { mapCmsContactData } from '../../../../../utils/cmsMappers/contactDataMapper';
 
 const MobileMenu = ({ isActive }) => {
@@ -98,14 +97,14 @@ const MobileMenu = ({ isActive }) => {
         <ImageLink imageData={imageData}></ImageLink>
       </div>
       <ul className="mobile-menu__links">
-        {routings.map(r => (
-          <MobileMenuLink key={uuid()} routing={r} />
+        {routings.map((r, i) => (
+          <MobileMenuLink key={`${r.name}-${i}`} routing={r} />
         ))}
       </ul>
       <div className="mobile-menu__social-media">
-        {socialMedias.map(sm => (
+        {socialMedias.map((sm, i) => (
           <MobileMenuSocialMedia
-            key={uuid()}
+            key={`${sm.name}-${i}`}
             socialMedia={sm}
           ></MobileMenuSocialMedia>
         ))}

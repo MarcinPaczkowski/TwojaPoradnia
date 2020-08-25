@@ -1,6 +1,5 @@
 import React from 'react';
 import './class.scss';
-import { v4 as uuid } from 'uuid';
 import Section from '../Layout/Section/section';
 import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 import HorizontalTile from '../Shared/HorizontalTile/horizontalTile';
@@ -32,11 +31,11 @@ const Class = ({ classDetails }) => {
       <Section hasColor>
         <SubTitle title={classDetails.section3.title} />
         <div className="class__boxes-with-circles">
-          {classDetails.section3?.elements?.map(element => (
+          {classDetails.section3?.elements?.map((element, i) => (
             <BoxWithCircleImage
               text={element.text}
               image={element.image}
-              key={uuid()}
+              key={`${classDetails.section3.title}-${i}`}
             />
           ))}
         </div>
@@ -44,11 +43,11 @@ const Class = ({ classDetails }) => {
       <Section>
         <SubTitle title={classDetails.section4.title} />
         <div className="class__perks">
-          {classDetails.section4?.elements?.map(element => (
+          {classDetails.section4?.elements?.map((element, i) => (
             <SmallCard
               text={element.text}
               icon={element.image}
-              key={uuid()}
+              key={`${classDetails.section4.title}-${i}`}
               isHtml
             />
           ))}
@@ -68,8 +67,12 @@ const Class = ({ classDetails }) => {
       <Section hasColor>
         <SubTitle title={classDetails.section7?.title} />
         <div className="class__boxes">
-          {classDetails.section7?.elements?.map(element => (
-            <BoxText text={element.text} key={uuid()} isHtml />
+          {classDetails.section7?.elements?.map((element, i) => (
+            <BoxText
+              text={element.text}
+              key={`${classDetails.section7.title}-${i}`}
+              isHtml
+            />
           ))}
         </div>
       </Section>

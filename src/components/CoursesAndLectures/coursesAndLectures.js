@@ -1,7 +1,6 @@
 import React from 'react';
 import './coursesAndLectures.scss';
 import { useStaticQuery, graphql } from 'gatsby';
-import { v4 as uuid } from 'uuid';
 import Section from '../Layout/Section/section';
 import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
@@ -59,8 +58,8 @@ const CoursesAndLectures = () => {
       <NegativeMarginWrapper>
         <Section>
           <div className="courses-lectures__items">
-            <ImageTile tile={tiles[0]} key={uuid()} />
-            <ImageTile tile={tiles[1]} key={uuid()} />
+            <ImageTile tile={tiles[0]} key="courses" />
+            <ImageTile tile={tiles[1]} key="lectures" />
           </div>
         </Section>
       </NegativeMarginWrapper>
