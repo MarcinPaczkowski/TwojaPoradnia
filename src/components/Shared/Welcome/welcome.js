@@ -17,10 +17,11 @@ const Welcome = ({ welcome: { title, description, image } }) => {
         ></GatsbyImage>
       </Parallax>
       <div className="welcome__content">
-        <div className="welcome__content--title welcome__content--text">
+        <div className="welcome-content__background"></div>
+        <div className="welcome-content__title welcome-content__text">
           {parse(title)}
         </div>
-        <div className="welcome__content--desc  welcome__content--text">
+        <div className="welcome-content__desc welcome-content__text">
           {parse(description)}
         </div>
       </div>

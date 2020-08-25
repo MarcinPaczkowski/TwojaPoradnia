@@ -2,7 +2,7 @@
 
 .welcome {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 3fr;
   grid-template-rows: 80px 1fr;
   height: 100vh;
   overflow: hidden;
@@ -21,8 +21,14 @@
     }
   }
 
+  &__content-background {
+    grid-column: 1;
+    background-color: red;
+    grid-row: -1 / 1;
+  }
+
   &__content {
-    grid-column: -1 / 1;
+    grid-column: 1;
     grid-row: 2;
     margin: 20px;
     display: grid;
@@ -30,55 +36,57 @@
     row-gap: 20px;
     position: relative;
 
-    &--title {
-      align-self: end;
-      font-weight: 700;
-      color: $black;
-      -webkit-text-fill-color: $black;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: $light-blue;
-    }
-
-    &--desc {
-      align-self: start;
-      color: $black;
-      -webkit-text-fill-color: $light-gray;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: $black;
-    }
-
-    &--text {
-      h1 {
-        font-size: 30px;
-
-        @media screen and (min-width: $min-tablet-width) {
-          font-size: 42px;
-        }
-
-        @media screen and (min-width: $min-large-desktop-width) {
-          font-size: 46px;
-        }
+    .welcome-content {
+      &__title {
+        align-self: end;
+        font-weight: 700;
+        color: $black;
+        -webkit-text-fill-color: $black;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $light-blue;
       }
-      h2 {
-        font-size: 24px;
 
-        @media screen and (min-width: $min-tablet-width) {
+      &__desc {
+        align-self: start;
+        color: $black;
+        -webkit-text-fill-color: $light-gray;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $black;
+      }
+
+      &__text {
+        h1 {
           font-size: 30px;
-        }
 
-        @media screen and (min-width: $min-large-desktop-width) {
-          font-size: 34px;
-        }
-      }
-      p {
-        font-size: 18px;
+          @media screen and (min-width: $min-tablet-width) {
+            font-size: 42px;
+          }
 
-        @media screen and (min-width: $min-tablet-width) {
-          font-size: 20px;
+          @media screen and (min-width: $min-large-desktop-width) {
+            font-size: 46px;
+          }
         }
-
-        @media screen and (min-width: $min-large-desktop-width) {
+        h2 {
           font-size: 24px;
+
+          @media screen and (min-width: $min-tablet-width) {
+            font-size: 30px;
+          }
+
+          @media screen and (min-width: $min-large-desktop-width) {
+            font-size: 34px;
+          }
+        }
+        p {
+          font-size: 18px;
+
+          @media screen and (min-width: $min-tablet-width) {
+            font-size: 20px;
+          }
+
+          @media screen and (min-width: $min-large-desktop-width) {
+            font-size: 24px;
+          }
         }
       }
     }
