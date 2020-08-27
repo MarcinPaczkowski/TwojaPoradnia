@@ -2,7 +2,7 @@
 
 .welcome {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 3fr;
   grid-template-rows: 80px 1fr;
   height: 100vh;
   overflow: hidden;
@@ -21,64 +21,89 @@
     }
   }
 
+  &__content-background {
+    grid-column: 2 / -1;
+    grid-row: -1 / 1;
+    background-color: #c4c4c4;
+    z-index: 0;
+    transform: skew(-13deg, 0deg);
+    position: relative;
+    left: 5rem;
+
+    @media screen and (min-width: $min-tablet-width) {
+      left: 9rem;
+    }
+
+    @media screen and (min-width: $min-large-desktop-width) {
+      left: 17rem;
+    }
+  }
+
   &__content {
-    grid-column: -1 / 1;
+    z-index: 1;
+    grid-column: 3;
     grid-row: 2;
     margin: 20px;
     display: grid;
-    text-align: left;
+    text-align: right;
     row-gap: 20px;
     position: relative;
 
-    &--title {
-      align-self: end;
-      font-weight: 700;
-      color: $black;
-      -webkit-text-fill-color: $black;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: $light-blue;
-    }
-
-    &--desc {
-      align-self: start;
-      color: $black;
-      -webkit-text-fill-color: $light-gray;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: $black;
-    }
-
-    &--text {
-      h1 {
-        font-size: 30px;
-
-        @media screen and (min-width: $min-tablet-width) {
-          font-size: 42px;
-        }
-
-        @media screen and (min-width: $min-large-desktop-width) {
-          font-size: 46px;
-        }
+    .welcome-content {
+      &__title {
+        align-self: end;
+        font-weight: 700;
+        color: $white;
+        -webkit-text-fill-color: $white;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $black;
       }
-      h2 {
-        font-size: 24px;
 
-        @media screen and (min-width: $min-tablet-width) {
+      &__desc {
+        align-self: start;
+        color: $black;
+        -webkit-text-fill-color: $dark-blue;
+        -webkit-text-stroke-width: 0px;
+        -webkit-text-stroke-color: $black;
+      }
+
+      &__text {
+        h1 {
           font-size: 30px;
-        }
 
-        @media screen and (min-width: $min-large-desktop-width) {
-          font-size: 34px;
-        }
-      }
-      p {
-        font-size: 18px;
+          @media screen and (min-width: $min-tablet-width) {
+            font-size: 46px;
+          }
 
-        @media screen and (min-width: $min-tablet-width) {
-          font-size: 20px;
+          @media screen and (min-width: $min-large-desktop-width) {
+            font-size: 54px;
+          }
         }
-
-        @media screen and (min-width: $min-large-desktop-width) {
+        h2 {
           font-size: 24px;
+
+          @media screen and (min-width: $min-tablet-width) {
+            font-size: 36px;
+          }
+
+          @media screen and (min-width: $min-large-desktop-width) {
+            font-size: 44px;
+          }
+        }
+        p {
+          font-size: 18px;
+
+          @media screen and (min-width: $min-tablet-width) {
+            font-size: 20px;
+          }
+
+          @media screen and (min-width: $min-large-desktop-width) {
+            font-size: 24px;
+          }
+        }
+
+        strong {
+          font-weight: 600;
         }
       }
     }

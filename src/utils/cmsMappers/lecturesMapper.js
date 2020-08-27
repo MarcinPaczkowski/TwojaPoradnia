@@ -6,7 +6,7 @@ const map = cmsLecture => {
     title: cmsLecture.elements.title.value,
     address: cmsLecture.elements.address.value,
     eventDate: eventDate,
-    formattedEventDate: eventDate.format('DD:MM:YYYY HH:mm'),
+    formattedEventDate: eventDate.format('DD.MM.YYYY HH:mm'),
     description: cmsLecture.elements.description.value,
   };
 };

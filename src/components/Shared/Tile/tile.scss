@@ -2,8 +2,7 @@
 
 .tile {
   display: grid;
-  grid-template-rows: 300px auto;
-  height: 550px;
+  grid-template-rows: 300px 300px;
   width: 100%;
   box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
   border-radius: 10px;
@@ -11,24 +10,26 @@
   color: $black;
 
   &:hover {
-    transition: transform 0.2s ease-in-out;
-    background-color: $light-blue;
+    @media screen and (min-width: $min-tablet-width) {
+      transition: transform 0.2s ease-in-out;
+      background-color: $light-blue;
+    }
   }
 
   &:hover &__image {
-    opacity: 0.5;
+    @media screen and (min-width: $min-tablet-width) {
+      opacity: 0.5;
+    }
   }
 
   &:hover &__image-overlay {
-    display: grid;
-    grid-row: 1;
-    grid-column: 1;
-  }
+    display: none;
 
-  @media screen and (min-width: $min-tablet-width) {
-  }
-
-  @media screen and (min-width: $min-large-desktop-width) {
+    @media screen and (min-width: $min-tablet-width) {
+      display: grid;
+      grid-row: 1;
+      grid-column: 1;
+    }
   }
 
   &__image {

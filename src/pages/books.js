@@ -22,7 +22,7 @@ const BooksPage = pageData => {
                 value
               }
               publishdate {
-                value(formatString: "DD.MM.YYYY")
+                value
               }
               image {
                 value {

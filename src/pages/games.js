@@ -22,7 +22,7 @@ const GamesPage = pageData => {
                 value
               }
               publishdate {
-                value(formatString: "DD.MM.YYYY")
+                value
               }
               image {
                 value {

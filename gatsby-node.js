@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 }
               }
               publishdate {
-                value(formatString: "DD.MM.YYYY")
+                value
               }
               section1 {
                 value {
@@ -284,7 +284,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 value
               }
               publishdate {
-                value(formatString: "DD.MM.YYYY")
+                value
               }
               entry {
                 value
@@ -319,7 +319,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 value
               }
               publishdate {
-                value(formatString: "DD.MM.YYYY")
+                value
               }
               entry {
                 value
@@ -354,7 +354,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 value
               }
               publishdate {
-                value(formatString: "DD.MM.YYYY")
+                value
               }
               entry {
                 value
