@@ -12,7 +12,9 @@ const ClassesPage = pageData => {
   } = useStaticQuery(
     graphql`
       query {
-        allKontentItemClass {
+        allKontentItemClass(
+          sort: { order: ASC, fields: elements___order___value }
+        ) {
           nodes {
             elements {
               title {
@@ -37,7 +39,7 @@ const ClassesPage = pageData => {
                 value
               }
               publishdate {
-                value(formatString: "DD.MM.YYYY")
+                value
               }
             }
           }

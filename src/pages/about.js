@@ -15,7 +15,9 @@ const AboutPage = pageData => {
   } = useStaticQuery(
     graphql`
       query {
-        allKontentItemAboutmearticle {
+        allKontentItemAboutmearticle(
+          sort: { order: ASC, fields: elements___order___value }
+        ) {
           nodes {
             elements {
               description {
