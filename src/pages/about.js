@@ -1,5 +1,4 @@
-import React from 'react';
-import Layout from '../components/Layout/layout';
+import React, { useEffect, useContext } from 'react';
 import '../styles/style.scss';
 import AboutMe from '../components/AboutMe/aboutMe';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -7,6 +6,7 @@ import { mapAllCmsAboutMeArticles } from '../utils/cmsMappers/aboutMeArticleMapp
 import { mapCmsContactData } from '../utils/cmsMappers/contactDataMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import Contact from '../components/Contact/contact';
+import LayoutContext from '../contexts/LayoutContext';
 
 const AboutPage = pageData => {
   const {
@@ -80,13 +80,18 @@ const AboutPage = pageData => {
 
   const articles = mapAllCmsAboutMeArticles(cmsArticles);
   const contactData = mapCmsContactData(cmsContactData[0]);
-  const breadcrumbs = buildBreadcrumbs(pageData, 'O mnie');
+  const layoutContext = useContext(LayoutContext);
+
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'O mnie');
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
 
   return (
-    <Layout breadcrumbs={breadcrumbs}>
+    <>
       <AboutMe articles={articles}></AboutMe>
       <Contact contactData={contactData} />
-    </Layout>
+    </>
   );
 };
 

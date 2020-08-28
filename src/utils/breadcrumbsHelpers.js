@@ -10,6 +10,7 @@ const buildBreadcrumbs = (pageData, pageName, subPage) => {
       paths.push(path);
       return path;
     }, []);
+  console.log(paths);
 
   const breadcrumbs = [
     {

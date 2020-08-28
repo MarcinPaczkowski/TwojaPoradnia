@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
-import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import { mapCmsGames } from '../utils/cmsMappers/gamesMappers';
 import Games from '../components/Games/games';
@@ -47,13 +47,14 @@ const GamesPage = pageData => {
   );
 
   const games = mapCmsGames(cmsGames);
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Gry');
+  const layoutContext = useContext(LayoutContext);
 
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <Games games={games} />
-    </Layout>
-  );
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Gry');
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <Games games={games} />;
 };
 
 export default GamesPage;

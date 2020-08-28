@@ -1,8 +1,13 @@
 import React from 'react';
 import './mobileMenuLink.scss';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 
-const MobileMenuLink = ({ routing: { name, link } }) => {
+const MobileMenuLink = ({ routing: { name, link }, click }) => {
+  const clickHandler = e => {
+    e.preventDefault();
+    navigate(link);
+    click();
+  };
   const isActive = ({ location }) => {
     if (
       (location.pathname === link && link === '/') ||
@@ -18,7 +23,12 @@ const MobileMenuLink = ({ routing: { name, link } }) => {
 
   return (
     <li className="mobile-menu-link">
-      <Link className="mobile-menu-link__item" to={link} getProps={isActive}>
+      <Link
+        className="mobile-menu-link__item"
+        to={link}
+        getProps={isActive}
+        onClick={e => clickHandler(e)}
+      >
         {name}
       </Link>
     </li>

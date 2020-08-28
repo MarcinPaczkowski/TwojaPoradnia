@@ -1,19 +1,20 @@
-import React from 'react';
-import Layout from '../components/Layout/layout';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
 const CoursesPage = pageData => {
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Szkolenia', {
-    url: '/szkolenia-i-wyklady',
-    name: 'Szkolenia i wykłady',
-  });
+  const layoutContext = useContext(LayoutContext);
 
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <p>Szkolenia</p>
-    </Layout>
-  );
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Szkolenia', {
+      url: '/szkolenia-i-wyklady',
+      name: 'Szkolenia i wykłady',
+    });
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <p>Szkolenia</p>;
 };
 
 export default CoursesPage;

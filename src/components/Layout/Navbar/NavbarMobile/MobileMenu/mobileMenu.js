@@ -8,7 +8,7 @@ import ImageLink from '../../../../Shared/ImageLink/imageLink';
 import getRoutingData from '../../../../../services/routingService';
 import { mapCmsContactData } from '../../../../../utils/cmsMappers/contactDataMapper';
 
-const MobileMenu = ({ isActive }) => {
+const MobileMenu = ({ isActive, click }) => {
   const [routings, setRoutings] = useState([]);
 
   useEffect(() => {
@@ -87,18 +87,36 @@ const MobileMenu = ({ isActive }) => {
     { name: 'youtube', link: contactData.youtubeUrl },
   ].filter(sm => sm.link !== '');
 
+  const clickHandler = () => {
+    const nav = window.document.getElementsByClassName('mobile-menu')[0];
+    nav.classList.remove('animate__slideInRight');
+    nav.classList.add('animate__slideOutRight');
+    const icon = window.document.getElementsByClassName(
+      'mobile-menu-icon__checkbox'
+    )[0];
+    icon.style.pointerEvents = 'none';
+    setTimeout(() => {
+      icon.style.pointerEvents = 'all';
+      click();
+    }, 800);
+  };
+
   return (
     <nav
-      className="mobile-menu"
+      className="mobile-menu animate__animated animate__slideInRight"
       itemScope
       itemType="http://schema.org/SiteNavigationElement"
     >
       <div className="mobile-menu__logo">
-        <ImageLink imageData={imageData}></ImageLink>
+        <ImageLink imageData={imageData} />
       </div>
       <ul className="mobile-menu__links">
         {routings.map((r, i) => (
-          <MobileMenuLink key={`${r.name}-${i}`} routing={r} />
+          <MobileMenuLink
+            key={`${r.name}-${i}`}
+            routing={r}
+            click={() => clickHandler()}
+          />
         ))}
       </ul>
       <div className="mobile-menu__social-media">

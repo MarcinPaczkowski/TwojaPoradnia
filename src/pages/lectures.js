@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
-import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapCmsLectures } from '../utils/cmsMappers/lecturesMapper';
@@ -36,17 +36,18 @@ const LecturesPage = pageData => {
     `
   );
 
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Wykłady', {
-    url: '/szkolenia-i-wyklady',
-    name: 'Szkolenia i wykłady',
-  });
   const lectures = mapCmsLectures(cmsLectures);
+  const layoutContext = useContext(LayoutContext);
 
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <Lectures lectures={lectures} />
-    </Layout>
-  );
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Wykłady', {
+      url: '/szkolenia-i-wyklady',
+      name: 'Szkolenia i wykłady',
+    });
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <Lectures lectures={lectures} />;
 };
 
 export default LecturesPage;

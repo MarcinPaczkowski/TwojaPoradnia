@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
-import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import Books from '../components/Books/books';
 import { mapCmsBooks } from '../utils/cmsMappers/booksMapper';
@@ -47,13 +47,14 @@ const BooksPage = pageData => {
   );
 
   const books = mapCmsBooks(cmsBooks);
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Książki');
+  const layoutContext = useContext(LayoutContext);
 
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <Books books={books} />
-    </Layout>
-  );
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Książki');
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <Books books={books} />;
 };
 
 export default BooksPage;

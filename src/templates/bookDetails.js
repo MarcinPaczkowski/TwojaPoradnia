@@ -1,19 +1,20 @@
-import React from 'react';
-import Layout from '../components/Layout/layout';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapCmsBook } from '../utils/cmsMappers/booksMapper';
 import EntryBlog from '../components/EntryBlog/entryBlog';
 
 const BookDetails = pageData => {
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Książki');
   const bookDetails = mapCmsBook(pageData.pageContext);
+  const layoutContext = useContext(LayoutContext);
 
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <EntryBlog blog={bookDetails} />
-    </Layout>
-  );
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Książki');
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <EntryBlog blog={bookDetails} />;
 };
 
 export default BookDetails;
