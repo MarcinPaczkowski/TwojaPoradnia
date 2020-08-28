@@ -4,7 +4,6 @@ import Navbar from './Navbar/navbar';
 import Breadcrumbs from './Breadcrumbs/breadcrumbs';
 import './layout.scss';
 import { ParallaxProvider } from 'react-scroll-parallax';
-import GatsbyHelmet from '../Helmet/helmet';
 import LayoutContext from '../../contexts/LayoutContext';
 import 'animate.css/animate.css';
 
@@ -16,21 +15,13 @@ const Layout = props => {
     setIsHome(props.path === '/');
   }, [props.path]);
 
-  useLayoutEffect(() => {
-    if (isHome) {
-      window.document.getElementsByClassName(
-        'welcome__background--image'
-      )[0].style.height = `${window.innerHeight + 63}px`;
-    }
-  }, [isHome]);
-
   const [breadcrumbs, setBreadcrumbs] = useState(null);
 
   const layoutContextValue = { breadcrumbs, setBreadcrumbs };
 
   return (
-    <LayoutContext.Provider value={layoutContextValue}>
-      <ParallaxProvider>
+    <ParallaxProvider>
+      <LayoutContext.Provider value={layoutContextValue}>
         <LayoutContext.Consumer>
           {({ data, setData }) => {
             return (
@@ -51,8 +42,8 @@ const Layout = props => {
             );
           }}
         </LayoutContext.Consumer>
-      </ParallaxProvider>
-    </LayoutContext.Provider>
+      </LayoutContext.Provider>
+    </ParallaxProvider>
   );
 };
 
