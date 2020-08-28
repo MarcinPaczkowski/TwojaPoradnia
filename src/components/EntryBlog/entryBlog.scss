@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .entry-blog {
   display: grid;
   row-gap: 25px;
@@ -44,6 +46,10 @@
       text-align: justify;
       font-size: 20px;
       line-height: 30px;
+    }
+
+    a {
+      color: $dark-blue;
     }
 
     img {

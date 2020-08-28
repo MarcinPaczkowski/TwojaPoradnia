@@ -8,7 +8,7 @@ const BlockOfTextWithButton = ({ content, link: { url, text } }) => {
     <div className="block-of-text-with-button">
       <BlockOfTextWithButtonContent content={content} />
       <div className="block-of-text-with-button__link">
-        <ButtonLink url={url}>{text}</ButtonLink>
+        {url && <ButtonLink url={url}>{text}</ButtonLink>}
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 const buildBreadcrumbs = (pageData, pageName, subPage) => {
   let paths = [];
-  console.log(pageData);
   pageData.path
     .split('/')
     .filter(p => p !== '')
@@ -10,7 +9,6 @@ const buildBreadcrumbs = (pageData, pageName, subPage) => {
       paths.push(path);
       return path;
     }, []);
-  console.log(paths);
 
   const breadcrumbs = [
     {
