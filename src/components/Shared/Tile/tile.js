@@ -3,16 +3,20 @@ import GatsbyImage from 'gatsby-image';
 import './tile.scss';
 import TileContent from './TileContent/tileContent';
 import { FaArrowCircleRight, FaCloudDownloadAlt } from 'react-icons/fa';
-import 'animate.css/animate.css';
+import { navigate } from 'gatsby';
 
 const Tile = ({ tile }) => {
+  const clickHandler = e => {
+    e.preventDefault();
+    navigate(tile.link.url);
+  };
   const isDownload = tile.link.url
     .split('/')
     .pop()
     .includes('.');
 
   return (
-    <a href={tile.link.url} className="tile">
+    <a href={tile.link.url} className="tile" onClick={e => clickHandler(e)}>
       <GatsbyImage
         className="tile__image"
         objectFit="cover"
