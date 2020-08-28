@@ -19,70 +19,86 @@ const Class = ({ classDetails }) => {
       <Section>
         <HeaderTitle title={classDetails.title} />
       </Section>
-      <Section hasColor>
-        <HorizontalTile
-          imagePosition={TileImagePosition.LEFT}
-          content={classDetails.section1}
-        />
-      </Section>
-      <Section>
-        <HorizontalText text={classDetails.section2.text} isHtml />
-      </Section>
-      <Section hasColor>
-        <SubTitle title={classDetails.section3.title} />
-        <div className="class__boxes-with-circles">
-          {classDetails.section3?.elements?.map((element, i) => (
-            <BoxWithCircleImage
-              text={element.text}
-              image={element.image}
-              key={`${classDetails.section3.title}-${i}`}
-            />
-          ))}
-        </div>
-      </Section>
-      <Section>
-        <SubTitle title={classDetails.section4.title} />
-        <div className="class__perks">
-          {classDetails.section4?.elements?.map((element, i) => (
-            <SmallCard
-              text={element.text}
-              icon={element.image}
-              key={`${classDetails.section4.title}-${i}`}
-              isHtml
-            />
-          ))}
-        </div>
-      </Section>
-      <Section hasColor>
-        <SubTitle title={classDetails.section5?.title} />
-        <DescriptionList elements={classDetails.section5?.elements} />
-      </Section>
-      <Section>
-        <TextWithCircleImage
-          text={classDetails.section6?.text}
-          image={classDetails.section6?.image}
-          isHtml
-        />
-      </Section>
-      <Section hasColor>
-        <SubTitle title={classDetails.section7?.title} />
-        <div className="class__boxes">
-          {classDetails.section7?.elements?.map((element, i) => (
-            <BoxText
-              text={element.text}
-              key={`${classDetails.section7.title}-${i}`}
-              isHtml
-            />
-          ))}
-        </div>
-      </Section>
-      <Section>
-        <SubTitle title={classDetails.section8?.title} />
-        <BlockOfTextWithButton
-          content={classDetails.section8?.content}
-          link={classDetails.section8?.link}
-        />
-      </Section>
+      {classDetails.section1 && (
+        <Section hasColor>
+          <HorizontalTile
+            imagePosition={TileImagePosition.LEFT}
+            content={classDetails.section1}
+          />
+        </Section>
+      )}
+      {classDetails.section2 && (
+        <Section>
+          <HorizontalText text={classDetails.section2.text} isHtml />
+        </Section>
+      )}
+      {classDetails.section3 && (
+        <Section hasColor>
+          <SubTitle title={classDetails.section3.title} />
+          <div className="class__boxes-with-circles">
+            {classDetails.section3?.elements?.map((element, i) => (
+              <BoxWithCircleImage
+                text={element.text}
+                image={element.image}
+                key={`${classDetails.section3.title}-${i}`}
+              />
+            ))}
+          </div>
+        </Section>
+      )}
+      {classDetails.section4 && (
+        <Section>
+          <SubTitle title={classDetails.section4.title} />
+          <div className="class__perks">
+            {classDetails.section4?.elements?.map((element, i) => (
+              <SmallCard
+                text={element.text}
+                icon={element.image}
+                key={`${classDetails.section4.title}-${i}`}
+                isHtml
+              />
+            ))}
+          </div>
+        </Section>
+      )}
+      {classDetails.section5 && (
+        <Section hasColor>
+          <SubTitle title={classDetails.section5?.title} />
+          <DescriptionList elements={classDetails.section5?.elements} />
+        </Section>
+      )}
+      {classDetails.section6 && (
+        <Section>
+          <TextWithCircleImage
+            text={classDetails.section6?.text}
+            image={classDetails.section6?.image}
+            isHtml
+          />
+        </Section>
+      )}
+      {classDetails.section7 && (
+        <Section hasColor>
+          <SubTitle title={classDetails.section7?.title} />
+          <div className="class__boxes">
+            {classDetails.section7?.elements?.map((element, i) => (
+              <BoxText
+                text={element.text}
+                key={`${classDetails.section7.title}-${i}`}
+                isHtml
+              />
+            ))}
+          </div>
+        </Section>
+      )}
+      {classDetails.section8 && (
+        <Section>
+          <SubTitle title={classDetails.section8?.title} />
+          <BlockOfTextWithButton
+            content={classDetails.section8?.content}
+            link={classDetails.section8?.link}
+          />
+        </Section>
+      )}
     </div>
   );
 };

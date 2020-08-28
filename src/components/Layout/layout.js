@@ -13,37 +13,55 @@ const Layout = props => {
 
   useEffect(() => {
     setIsHome(props.path === '/');
-  }, [props.path]);
+
+    function handleResize() {
+      const layoutElement = window.document.getElementsByClassName('layout')[0];
+      layoutElement.style.minHeight = `${window.innerHeight}px`;
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [props]);
+
+  useLayoutEffect(() => {
+    const layoutElement = window.document.getElementsByClassName('layout')[0];
+    isHome
+      ? layoutElement.classList.add('layout--home')
+      : layoutElement.classList.remove('layout--home');
+  }, [isHome]);
 
   const [breadcrumbs, setBreadcrumbs] = useState(null);
 
   const layoutContextValue = { breadcrumbs, setBreadcrumbs };
 
   return (
-    <ParallaxProvider>
-      <LayoutContext.Provider value={layoutContextValue}>
-        <LayoutContext.Consumer>
-          {({ data, setData }) => {
-            return (
-              <div className={`layout ${isHome ? 'layout--home' : ''}`}>
-                <div className="layout__navbar">
-                  <Navbar isHome={isHome} />
-                </div>
-                <div className="layout__content">{children}</div>
-                {breadcrumbs ? (
-                  <div className="layout__breadcrumbs">
-                    <Breadcrumbs breadcrumbs={breadcrumbs} />
-                  </div>
-                ) : null}
-                <div className="layout__footer">
-                  <Footer />
-                </div>
+    <LayoutContext.Provider value={layoutContextValue}>
+      <LayoutContext.Consumer>
+        {({ data, setData }) => {
+          return (
+            <div className={`layout`}>
+              <div className="layout__navbar">
+                <Navbar isHome={isHome} />
               </div>
-            );
-          }}
-        </LayoutContext.Consumer>
-      </LayoutContext.Provider>
-    </ParallaxProvider>
+              {/* <ParallaxProvider> */}
+              <div className="layout__content">{children}</div>
+              {/* </ParallaxProvider> */}
+              {breadcrumbs ? (
+                <div className="layout__breadcrumbs">
+                  <Breadcrumbs breadcrumbs={breadcrumbs} />
+                </div>
+              ) : null}
+              <div className="layout__footer">
+                <Footer />
+              </div>
+            </div>
+          );
+        }}
+      </LayoutContext.Consumer>
+    </LayoutContext.Provider>
   );
 };
 
