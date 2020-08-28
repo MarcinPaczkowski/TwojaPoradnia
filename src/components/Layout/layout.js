@@ -8,13 +8,19 @@ import LayoutContext from '../../contexts/LayoutContext';
 import 'animate.css/animate.css';
 
 const Layout = props => {
-  console.log(props);
   const { children } = props;
   const [isHome, setIsHome] = useState(props.path === '/');
 
   useEffect(() => {
     setIsHome(props.path === '/');
-  }, [props.path]);
+  }, [props]);
+
+  useLayoutEffect(() => {
+    const layoutElement = window.document.getElementsByClassName('layout')[0];
+    isHome
+      ? layoutElement.classList.add('layout--home')
+      : layoutElement.classList.remove('layout--home');
+  }, [isHome]);
 
   const [breadcrumbs, setBreadcrumbs] = useState(null);
 
@@ -25,7 +31,7 @@ const Layout = props => {
       <LayoutContext.Consumer>
         {({ data, setData }) => {
           return (
-            <div className={`layout ${isHome ? 'layout--home' : ''}`}>
+            <div className={`layout`}>
               <div className="layout__navbar">
                 <Navbar isHome={isHome} />
               </div>
