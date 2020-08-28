@@ -13,6 +13,17 @@ const Layout = props => {
 
   useEffect(() => {
     setIsHome(props.path === '/');
+
+    function handleResize() {
+      const layoutElement = window.document.getElementsByClassName('layout')[0];
+      layoutElement.style.minHeight = `${window.innerHeight}px`;
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
   }, [props]);
 
   useLayoutEffect(() => {

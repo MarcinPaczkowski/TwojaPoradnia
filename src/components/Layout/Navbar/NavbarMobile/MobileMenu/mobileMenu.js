@@ -8,7 +8,7 @@ import ImageLink from '../../../../Shared/ImageLink/imageLink';
 import getRoutingData from '../../../../../services/routingService';
 import { mapCmsContactData } from '../../../../../utils/cmsMappers/contactDataMapper';
 
-const MobileMenu = ({ isActive, click }) => {
+const MobileMenu = ({ isActive }) => {
   const [routings, setRoutings] = useState([]);
 
   useEffect(() => {
@@ -95,9 +95,9 @@ const MobileMenu = ({ isActive, click }) => {
       'mobile-menu-icon__checkbox'
     )[0];
     icon.style.pointerEvents = 'none';
+    icon.click();
     setTimeout(() => {
       icon.style.pointerEvents = 'all';
-      click();
     }, 800);
   };
 

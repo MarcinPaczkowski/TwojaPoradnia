@@ -21,7 +21,7 @@ const Welcome = ({ welcome: { title, description, image } }) => {
 
   return (
     <div className="welcome">
-      <div className="welcome__background" y={[-30, 30]} tagOuter="figure">
+      <div className="welcome__background">
         <GatsbyImage
           className="welcome__background--image"
           objectFit="cover"
@@ -30,7 +30,7 @@ const Welcome = ({ welcome: { title, description, image } }) => {
           alt={image.description}
         ></GatsbyImage>
       </div>
-      <div className="welcome__content-background"></div>
+      <div className="welcome__content-background" />
       <div className="welcome__content">
         <div className="welcome-content__title welcome-content__text">
           {parse(title)}

@@ -34,10 +34,7 @@ const NavbarMobile = () => {
       <MobileMenuIcon
         clicked={() => toggleMobileMenuActivationHandler()}
       ></MobileMenuIcon>
-      <MobileMenu
-        isActive={isMobileMenuActive}
-        click={() => setIsMobileMenuActive(false)}
-      />
+      <MobileMenu isActive={isMobileMenuActive} />
     </div>
   );
 };
