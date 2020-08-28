@@ -8,6 +8,7 @@ import LayoutContext from '../../contexts/LayoutContext';
 import 'animate.css/animate.css';
 
 const Layout = props => {
+  console.log(props);
   const { children } = props;
   const [isHome, setIsHome] = useState(props.path === '/');
 
@@ -20,30 +21,30 @@ const Layout = props => {
   const layoutContextValue = { breadcrumbs, setBreadcrumbs };
 
   return (
-    <ParallaxProvider>
-      <LayoutContext.Provider value={layoutContextValue}>
-        <LayoutContext.Consumer>
-          {({ data, setData }) => {
-            return (
-              <div className={`layout ${isHome ? 'layout--home' : ''}`}>
-                <div className="layout__navbar">
-                  <Navbar isHome={isHome} />
-                </div>
-                <div className="layout__content">{children}</div>
-                {breadcrumbs ? (
-                  <div className="layout__breadcrumbs">
-                    <Breadcrumbs breadcrumbs={breadcrumbs} />
-                  </div>
-                ) : null}
-                <div className="layout__footer">
-                  <Footer />
-                </div>
+    <LayoutContext.Provider value={layoutContextValue}>
+      <LayoutContext.Consumer>
+        {({ data, setData }) => {
+          return (
+            <div className={`layout ${isHome ? 'layout--home' : ''}`}>
+              <div className="layout__navbar">
+                <Navbar isHome={isHome} />
               </div>
-            );
-          }}
-        </LayoutContext.Consumer>
-      </LayoutContext.Provider>
-    </ParallaxProvider>
+              <ParallaxProvider>
+                <div className="layout__content">{children}</div>
+              </ParallaxProvider>
+              {breadcrumbs ? (
+                <div className="layout__breadcrumbs">
+                  <Breadcrumbs breadcrumbs={breadcrumbs} />
+                </div>
+              ) : null}
+              <div className="layout__footer">
+                <Footer />
+              </div>
+            </div>
+          );
+        }}
+      </LayoutContext.Consumer>
+    </LayoutContext.Provider>
   );
 };
 
