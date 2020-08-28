@@ -21,7 +21,7 @@ const Welcome = ({ welcome: { title, description, image } }) => {
 
   return (
     <div className="welcome">
-      <Parallax className="welcome__background" y={[-50, 50]} tagOuter="figure">
+      <Parallax className="welcome__background" y={[-30, 30]} tagOuter="figure">
         <GatsbyImage
           className="welcome__background--image"
           objectFit="cover"
