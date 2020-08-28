@@ -1,19 +1,20 @@
-import React from 'react';
-import Layout from '../components/Layout/layout';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapCmsClass } from '../utils/cmsMappers/classes/detailsMapper';
 import Class from '../components/Class/class';
 
 const ClassDetails = pageData => {
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Zajęcia');
   const classDetails = mapCmsClass(pageData.pageContext);
+  const layoutContext = useContext(LayoutContext);
 
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <Class classDetails={classDetails} />
-    </Layout>
-  );
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Zajęcia');
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <Class classDetails={classDetails} />;
 };
 
 export default ClassDetails;

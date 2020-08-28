@@ -1,6 +1,5 @@
-import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Layout from '../components/Layout/layout';
+import React from 'react';
 import Home from '../components/Home/home';
 import '../styles/style.scss';
 import { mapCmsHomePage } from '../utils/cmsMappers/homePageMapper';
@@ -116,12 +115,11 @@ const IndexPage = () => {
 
   const homePage = mapCmsHomePage(cmsHomePage[0]);
   const contactData = mapCmsContactData(cmsContactData[0]);
-
   return (
-    <Layout isHome={true}>
+    <>
       <Home homePage={homePage} />
       <Contact contactData={contactData} />
-    </Layout>
+    </>
   );
 };
 

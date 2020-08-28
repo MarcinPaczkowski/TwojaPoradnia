@@ -1,5 +1,5 @@
-import React from 'react';
-import Layout from '../components/Layout/layout';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import '../styles/style.scss';
 import TeachingResources from '../components/TeachingResources/teachingResources';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -46,13 +46,14 @@ const TeachingResourcesPage = pageData => {
   );
 
   const teachingResources = mapCmsTeachingResources(cmsTeachingResources);
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Materiały');
+  const layoutContext = useContext(LayoutContext);
 
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <TeachingResources resources={teachingResources} />
-    </Layout>
-  );
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Materiały');
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <TeachingResources resources={teachingResources} />;
 };
 
 export default TeachingResourcesPage;

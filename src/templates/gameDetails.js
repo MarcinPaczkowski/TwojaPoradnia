@@ -1,18 +1,20 @@
-import React from 'react';
-import Layout from '../components/Layout/layout';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapCmsGame } from '../utils/cmsMappers/gamesMappers';
 import EntryBlog from '../components/EntryBlog/entryBlog';
 
 const GameDetails = pageData => {
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Gry');
   const gameDetails = mapCmsGame(pageData.pageContext);
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <EntryBlog blog={gameDetails} />
-    </Layout>
-  );
+  const layoutContext = useContext(LayoutContext);
+
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Gry');
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <EntryBlog blog={gameDetails} />;
 };
 
 export default GameDetails;

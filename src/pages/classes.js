@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
-import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import Classes from '../components/Classes/classes';
 import { mapAllCmsClasses } from '../utils/cmsMappers/classes/listMapper';
@@ -49,13 +49,14 @@ const ClassesPage = pageData => {
   );
 
   const classes = mapAllCmsClasses(cmsClasses);
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Zajęcia');
+  const layoutContext = useContext(LayoutContext);
 
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <Classes classes={classes} />
-    </Layout>
-  );
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Zajęcia');
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <Classes classes={classes} />;
 };
 
 export default ClassesPage;

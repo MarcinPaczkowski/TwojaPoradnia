@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
-import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapAllCmsDevelopments } from '../utils/cmsMappers/developmentsMapper';
@@ -47,13 +47,14 @@ const DevelopmentPage = pageData => {
   );
 
   const developments = mapAllCmsDevelopments(cmsDevelopments);
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Rozwój i wychowanie');
+  const layoutContext = useContext(LayoutContext);
 
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <Developments developments={developments} />
-    </Layout>
-  );
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Rozwój i wychowanie');
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <Developments developments={developments} />;
 };
 
 export default DevelopmentPage;

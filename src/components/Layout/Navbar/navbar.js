@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import './navbar.scss';
 import NavbarElements from './NavbarElements/navbarElements';
 import NavbarMobile from './NavbarMobile/navbarMobile';
@@ -11,7 +11,7 @@ const Navbar = ({ isHome }) => {
   const [isSticky, setIsSticky] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const isStickyHandler = () => {
       let offset = isMobile ? STICKY_MENU_MOBILE_OFFSET : STICKY_MENU_OFFSET;
       if (isHome) {
@@ -32,7 +32,7 @@ const Navbar = ({ isHome }) => {
       window.removeEventListener('scroll', isStickyHandler);
       window.removeEventListener('resize', isMobileHandler);
     };
-  }, [isHome, isMobile]);
+  }, [isMobile, isHome]);
 
   const navbarBackgroundClasses = isSticky
     ? 'navbar__background navbar__sticky'
@@ -42,11 +42,11 @@ const Navbar = ({ isHome }) => {
     <div className="navbar">
       <div className={navbarBackgroundClasses}></div>
       <div className="navbar__elements">
-        <NavbarElements></NavbarElements>
+        <NavbarElements />
       </div>
       {isMobile ? (
         <div className="navbar__mobile">
-          <NavbarMobile></NavbarMobile>
+          <NavbarMobile />
         </div>
       ) : null}
     </div>

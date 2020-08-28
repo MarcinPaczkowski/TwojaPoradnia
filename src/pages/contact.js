@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
-import Layout from '../components/Layout/layout';
 import '../styles/style.scss';
 import Contact from '../components/Contact/contact';
 import { mapCmsContactData } from '../utils/cmsMappers/contactDataMapper';
@@ -47,13 +47,14 @@ const ContactPage = pageData => {
   );
 
   const contactData = mapCmsContactData(cmsContactData[0]);
-  const breadcrumbs = buildBreadcrumbs(pageData, 'Kontakt');
+  const layoutContext = useContext(LayoutContext);
 
-  return (
-    <Layout breadcrumbs={breadcrumbs}>
-      <Contact contactData={contactData} />
-    </Layout>
-  );
+  useEffect(() => {
+    const breadcrumbs = buildBreadcrumbs(pageData, 'Kontakt');
+    layoutContext.setBreadcrumbs(breadcrumbs);
+  }, [pageData]);
+
+  return <Contact contactData={contactData} />;
 };
 
 export default ContactPage;
