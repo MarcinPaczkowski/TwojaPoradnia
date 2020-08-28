@@ -35,9 +35,9 @@ const Layout = props => {
               <div className="layout__navbar">
                 <Navbar isHome={isHome} />
               </div>
-              <ParallaxProvider>
-                <div className="layout__content">{children}</div>
-              </ParallaxProvider>
+              {/* <ParallaxProvider> */}
+              <div className="layout__content">{children}</div>
+              {/* </ParallaxProvider> */}
               {breadcrumbs ? (
                 <div className="layout__breadcrumbs">
                   <Breadcrumbs breadcrumbs={breadcrumbs} />
