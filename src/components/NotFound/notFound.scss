@@ -1,8 +1,10 @@
+@import '../../styles/variables.scss';
+
 .notFound {
   display: grid;
   place-content: center;
   place-items: center;
-  row-gap: 30px;
+  row-gap: 50px;
   min-height: 300px;
 
   h1 {
@@ -10,5 +12,10 @@
   }
   p {
     font-size: 24px;
+  }
+  svg,
+  span {
+    color: $black;
+    font-size: 100px;
   }
 }
