@@ -8,6 +8,7 @@ const DevelopmentDetails = pageData => {
   const developmentDetails = mapCmsDevelopment(pageData.pageContext);
   const layoutContext = useContext(LayoutContext);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const breadcrumbs = buildBreadcrumbs(pageData, 'Rozwój i wychowanie');
     layoutContext.setBreadcrumbs(breadcrumbs);

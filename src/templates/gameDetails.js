@@ -8,6 +8,7 @@ const GameDetails = pageData => {
   const gameDetails = mapCmsGame(pageData.pageContext);
   const layoutContext = useContext(LayoutContext);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const breadcrumbs = buildBreadcrumbs(pageData, 'Gry');
     layoutContext.setBreadcrumbs(breadcrumbs);

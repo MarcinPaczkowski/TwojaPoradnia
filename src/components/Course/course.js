@@ -17,7 +17,10 @@ const Course = ({ course }) => {
       </Section>
       {course.section7 && (
         <Section hasColor>
-          <HorizontalText text={course.section7.text} isHtml />
+          <HorizontalTile
+            imagePosition={TileImagePosition.LEFT}
+            content={course.section7}
+          />
         </Section>
       )}
       {course.section1 && (

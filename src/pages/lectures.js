@@ -38,6 +38,7 @@ const LecturesPage = pageData => {
   const lectures = mapCmsLectures(cmsLectures);
   const layoutContext = useContext(LayoutContext);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const breadcrumbs = buildBreadcrumbs(pageData, 'Wykłady', {
       url: '/szkolenia-i-wyklady',

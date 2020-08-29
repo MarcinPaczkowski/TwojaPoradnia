@@ -20,7 +20,7 @@ const NotFound = () => {
     return () => {
       if (timerHandler) clearTimeout(timerHandler);
     };
-  });
+  }, [timeCounter]);
 
   return (
     <div className="notFound">

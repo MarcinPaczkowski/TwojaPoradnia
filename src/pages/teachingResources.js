@@ -47,6 +47,7 @@ const TeachingResourcesPage = pageData => {
   const teachingResources = mapCmsTeachingResources(cmsTeachingResources);
   const layoutContext = useContext(LayoutContext);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const breadcrumbs = buildBreadcrumbs(pageData, 'Materiały');
     layoutContext.setBreadcrumbs(breadcrumbs);
