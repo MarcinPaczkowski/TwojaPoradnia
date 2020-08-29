@@ -1,8 +1,8 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 
-export default () => (
+const GatsbyHelmet = () => (
   <StaticQuery
     query={graphql`
       query helmetQuery {
@@ -10,7 +10,6 @@ export default () => (
           siteMetadata {
             title
             author
-            imageUrl
             description
             keywords
           }
@@ -26,15 +25,16 @@ export default () => (
         <meta name="description" content={data.site.siteMetadata.description} />
         <meta name="keywords" content={data.site.siteMetadata.keywords} />
         <title>{data.site.siteMetadata.title}</title>
-        <html lang="en" />
-        {/* Google / Search Engine Meta Tags */}
-        <meta itemprop="name" content={data.site.siteMetadata.author} /> />
+        <html lang="pl" />
+        <meta itemprop="name" content={data.site.siteMetadata.author} />
         <meta
           itemprop="description"
           content={data.site.siteMetadata.description}
         />
-        <meta itemprop="image" content={data.site.siteMetadata.imageUrl} /> />
+        {/* <meta itemprop="image" content={data.site.siteMetadata.imageUrl} /> */}
       </Helmet>
     )}
   />
-)
+);
+
+export default GatsbyHelmet;

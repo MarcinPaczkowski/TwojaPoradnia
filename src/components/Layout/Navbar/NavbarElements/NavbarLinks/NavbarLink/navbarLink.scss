@@ -1,14 +1,24 @@
 @import '../../../../../../styles/variables.scss';
 
 .navbar-link {
-  color: $primary-gray-blue;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 32px 21px;
-  transition: all 0.2s ease-in-out;
+  padding: 32px 0px;
   text-align: center;
+  cursor: pointer;
 
-  &:hover {
-    transform: scale(1.1);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__item {
+    transition: all 0.2s ease-in-out;
+    color: $dark-blue;
+    text-transform: uppercase;
+    font-weight: 500;
+
+    &--active {
+      color: $light-red;
+    }
   }
 }

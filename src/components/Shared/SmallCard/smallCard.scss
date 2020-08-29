@@ -1,0 +1,41 @@
+@import '../../../styles/variables.scss';
+
+.small-card {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 280px;
+  width: 100%;
+  border: 3px solid $dark-blue;
+  box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
+  background-color: $white;
+  border-radius: 10px;
+
+  @media screen and (min-width: $min-tablet-width) {
+    height: 240px;
+  }
+
+  &__icon {
+    border-radius: 50%;
+    background-color: $blue;
+    width: 85px;
+    height: 85px;
+    margin-top: 20px;
+    justify-self: center;
+    box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
+  }
+
+  &__text {
+    text-align: center;
+    margin: 10px;
+    overflow: hidden;
+
+    p {
+      line-height: 24px;
+      font-size: 24px;
+
+      @media screen and (min-width: $min-large-desktop-width) {
+        font-size: 20px;
+      }
+    }
+  }
+}

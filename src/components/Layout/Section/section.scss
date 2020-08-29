@@ -1,0 +1,32 @@
+@import '../../../styles/variables.scss';
+
+.section {
+  display: grid;
+
+  &--background {
+    background-color: $light-blue;
+  }
+
+  $this: &;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+    padding: 25px 0;
+
+    @media screen and (min-width: $min-large-desktop-width) {
+      grid-template-columns: 1fr 1180px 1fr;
+      padding: 40px 0;
+    }
+
+    #{$this}__container {
+      grid-column: 2;
+      display: grid;
+      row-gap: 40px;
+
+      &--wide {
+        grid-column: -1 / 1;
+      }
+    }
+  }
+}

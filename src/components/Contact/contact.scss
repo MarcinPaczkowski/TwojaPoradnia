@@ -1,0 +1,37 @@
+@import '../../styles/variables.scss';
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  row-gap: 50px;
+  margin-bottom: 50px;
+  justify-items: normal;
+
+  @media screen and (min-width: $min-tablet-width) {
+    grid-template-columns: 1fr 15px 1fr;
+    grid-template-rows: 1fr;
+    justify-items: normal;
+  }
+
+  @media screen and (min-width: $min-large-desktop-width) {
+    grid-template-columns: 565px 50px 565px;
+  }
+
+  &__information {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  &__form {
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: normal;
+
+    @media screen and (min-width: $min-tablet-width) {
+      grid-row: 1;
+      grid-column: 3;
+      justify-self: unset;
+    }
+  }
+}

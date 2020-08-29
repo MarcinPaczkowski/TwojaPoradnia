@@ -1,22 +1,39 @@
 @import '../../styles/variables.scss';
 
 .layout {
+  min-height: 101vh;
   display: grid;
-  grid-template-rows: 80px auto 80px;
-  grid-template-columns: 1fr;
+  grid-template-rows: 120px auto auto 50px;
+  grid-template-columns: 20px 1fr 20px;
+  overflow-x: hidden;
+
+  @media screen and (min-width: $min-large-desktop-width) {
+    grid-template-columns: 1fr 1180px 1fr;
+  }
+
+  &--home {
+    grid-template-rows: 0 auto auto 50px;
+  }
 
   &__navbar {
     grid-row: 1;
-    grid-column: 1;
+    grid-column: -1 / 1;
   }
 
   &__content {
     grid-row: 2;
-    grid-column: 1;
+    grid-column: -1 / 1;
+  }
+
+  &__breadcrumbs {
+    grid-row: 3;
+    grid-column: 2;
+    margin: 20px 0;
+    align-self: end;
   }
 
   &__footer {
-    grid-row: 3;
-    grid-column: 1;
+    grid-row: 4;
+    grid-column: -1 / 1;
   }
 }

@@ -1,0 +1,99 @@
+@import '../../../../styles/variables.scss';
+
+.box-card-content {
+  display: grid;
+  row-gap: 20px;
+  margin: 0px 20px 30px;
+
+  @media screen and (min-width: $min-large-desktop-width) {
+    margin: 0px 80px 30px 20px;
+  }
+
+  &__title {
+    place-self: center;
+    padding: 0 20px;
+    color: $dark-blue;
+    font-size: 30px;
+    background-color: $white;
+    font-style: italic;
+    font-weight: 600;
+
+    @media screen and (min-width: $min-large-desktop-width) {
+      place-self: start;
+    }
+  }
+
+  &__content {
+    display: grid;
+    row-gap: 15px;
+
+    h3 {
+      font-size: 30px;
+      font-style: italic;
+      text-align: center;
+
+      @media screen and (min-width: $min-large-desktop-width) {
+        text-align: left;
+        margin-left: 20px;
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+      font-style: italic;
+      text-align: center;
+
+      @media screen and (min-width: $min-large-desktop-width) {
+        text-align: left;
+        margin-left: 20px;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 150%;
+      text-align: center;
+      font-weight: 100;
+
+      @media screen and (min-width: $min-large-desktop-width) {
+        text-align: left;
+        margin-left: 20px;
+      }
+    }
+
+    ul {
+      display: grid;
+      row-gap: 15px;
+      list-style-type: none;
+
+      li {
+        font-size: 20px;
+      }
+    }
+
+    ol {
+      display: grid;
+      row-gap: 15px;
+      list-style: decimal;
+
+      li {
+        font-size: 20px;
+        margin-left: 25px;
+      }
+    }
+  }
+
+  &__buttons {
+    margin: 13px 0;
+    place-self: center;
+    display: grid;
+    row-gap: 15px;
+
+    @media screen and (min-width: $min-large-desktop-width) {
+      margin-left: 20px;
+      place-self: start;
+      grid-auto-flow: column;
+      column-gap: 15px;
+    }
+  }
+}

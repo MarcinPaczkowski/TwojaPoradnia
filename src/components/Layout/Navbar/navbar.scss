@@ -2,16 +2,18 @@
 
 .navbar {
   display: grid;
-  grid-template-rows: 80px;
+  grid-template-rows: 100px;
   grid-row: 1;
-  grid-template-columns: 1fr 80px;
+  grid-template-columns: 1fr 100px;
   position: fixed;
+  align-items: center;
   width: 100%;
   z-index: 12;
   transition: background 0.3s ease-in-out;
 
-  @media screen and (min-width: $min-desktop-width) {
-    grid-template-columns: 1fr 1200px 1fr;
+  @media screen and (min-width: $min-large-desktop-width) {
+    grid-template-columns: 1fr 1180px 1fr;
+    grid-template-rows: 120px;
   }
 
   $this: &;
@@ -23,16 +25,15 @@
   }
 
   &__sticky {
-    opacity: 0.2;
-    background-color: $primary-gray-blue;
-    border-bottom: 1px solid $secondary-black-blue;
+    background-color: rgba(209, 225, 255, 0.8);
+    height: 100%;
   }
 
   &__elements {
     grid-column: 1;
     grid-row: 1;
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       grid-column: 2;
     }
   }
@@ -40,10 +41,9 @@
   &__mobile {
     grid-column: 2;
     grid-row: 1;
-    align-self: center;
     justify-self: center;
 
-    @media screen and (min-width: $min-desktop-width) {
+    @media screen and (min-width: $min-large-desktop-width) {
       display: none;
       grid-column: unset;
     }

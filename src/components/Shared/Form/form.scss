@@ -1,0 +1,51 @@
+@import '../../../styles/variables.scss';
+
+.form {
+  display: grid;
+  row-gap: 20px;
+
+  &__row {
+    display: grid;
+    row-gap: 5px;
+
+    $this: &;
+
+    &--item {
+      padding: 10px;
+      border: 1px solid $dark-gray;
+      color: $dark-blue;
+      font-size: 20px;
+    }
+
+    &--text {
+      min-height: 200px;
+      max-height: 300px;
+      font-family: 'Rubik', Helvetica, Arial, Lucida, sans-serif;
+
+      @media screen and (min-width: $min-tablet-width) {
+        min-height: 240px;
+        max-height: 240px;
+      }
+
+      &::placeholder {
+        font-family: 'Rubik', Helvetica, Arial, Lucida, sans-serif;
+      }
+    }
+
+    &--error {
+      border: 1px solid $blue;
+
+      &::placeholder {
+        color: $blue;
+      }
+    }
+
+    &--errorMessage {
+      color: $blue;
+    }
+
+    &--label {
+      display: none;
+    }
+  }
+}

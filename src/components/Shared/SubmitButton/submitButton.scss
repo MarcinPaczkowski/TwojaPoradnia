@@ -1,0 +1,31 @@
+@import '../../../styles/variables.scss';
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $dark-blue;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
+  background-color: $white;
+  border: none;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      box-shadow: 0px 0px 20px 10px rgba(66, 88, 128, 0.5);
+      background-color: $dark-blue;
+      color: $white;
+    }
+
+    &:disabled,
+    &:disabled + &:hover {
+      background-color: $light-gray;
+      color: $dark-blue;
+      transition: none;
+      box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './navbarLinks.scss';
 import NavbarLink from './NavbarLink/navbarLink';
-import { getRoutingData } from '../../../../../services/routingService';
 
-const NavbarLinks = () => {
-  const [routings, setRoutings] = useState([]);
-
-  useEffect(() => {
-    const routings = getRoutingData();
-    setRoutings(routings);
-  }, []);
+const NavbarLinks = ({ routings, isLeft }) => {
   return (
-    <div className="navbar-links">
+    <ul
+      className={`navbar-links ${
+        isLeft ? 'navbar-links--left' : 'navbar-links--right'
+      }`}
+    >
       {routings.map((r, i) => (
-        <NavbarLink key={`${r.name}${i}`} routing={r}></NavbarLink>
+        <NavbarLink key={`${r.name}-${i}`} routing={r}></NavbarLink>
       ))}
-    </div>
+    </ul>
   );
 };
 

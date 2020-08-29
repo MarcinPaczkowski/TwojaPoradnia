@@ -1,22 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './aboutMe.scss';
-import { getAboutMeContent } from './aboutMeService';
-import AboutMeContent from './AboutMeContent/aboutMeContent';
+import HorizontalTiles from '../Shared/HorizontalTiles/horizontalTiles';
+import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
+import Section from '../Layout/Section/section';
+import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
 
-const AboutMe = () => {
-  const [content, setContent] = useState([]);
-
-  useEffect(() => {
-    const content = getAboutMeContent();
-    setContent(content);
-  }, []);
-
+const AboutMe = ({ articles }) => {
   return (
-    <section className="about-me">
-      <div className="about-me__content">
-        <AboutMeContent content={content}></AboutMeContent>
-      </div>
-    </section>
+    <div className="about-me">
+      <Section>
+        <HeaderTitle title="O mnie" />
+      </Section>
+      <NegativeMarginWrapper>
+        <Section isWide>
+          <HorizontalTiles
+            tiles={articles.map(a => {
+              return {
+                title: a.title,
+                description: a.shortDescription,
+                image: a.image,
+              };
+            })}
+          />
+        </Section>
+      </NegativeMarginWrapper>
+    </div>
   );
 };
 

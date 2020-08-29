@@ -1,0 +1,45 @@
+@import '../../../../styles/variables.scss';
+
+.contact-information-rows {
+  display: grid;
+  row-gap: 39px;
+
+  &__row {
+    display: grid;
+    column-gap: 5px;
+    font-size: 18px;
+    grid-auto-flow: column;
+    grid-template-columns: 45px auto;
+
+    @media screen and (min-width: $min-tablet-width) {
+      grid-template-columns: 70px auto;
+      font-size: 24px;
+    }
+
+    svg,
+    span {
+      grid-column: 1;
+      justify-self: start;
+      color: $dark-blue;
+      font-size: 30px;
+    }
+
+    &--item {
+      grid-column: 2;
+      color: $black;
+      justify-self: start;
+      align-self: center;
+    }
+
+    a {
+      &:visited {
+        color: $black;
+      }
+
+      &:hover,
+      &:focus {
+        color: $dark-blue;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import '../../../styles/variables.scss';
+
+.tiles {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  place-items: center;
+  row-gap: 25px;
+  margin-bottom: 50px;
+
+  @media screen and (min-width: $min-tablet-width) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 25px;
+  }
+
+  @media screen and (min-width: $min-large-desktop-width) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../../styles/variables.scss';
+
+.box-with-circle-image {
+  display: grid;
+  position: relative;
+  height: auto;
+  width: 100%;
+  border: 3px solid $dark-blue;
+  box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
+  border-radius: 10px;
+  background-color: $white;
+
+  &__wrapper {
+    margin-top: 85px;
+    padding: 25px;
+    display: grid;
+    align-content: start;
+
+    p {
+      font-size: 20px;
+      line-height: 24px;
+      text-align: justify;
+      max-height: 100%;
+      overflow: hidden;
+      color: $black;
+    }
+  }
+
+  &__circle {
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: -85px;
+    justify-self: center;
+
+    .gatsby-image-wrapper {
+      border-radius: 50%;
+      background-color: white;
+      width: 170px;
+      height: 170px;
+      box-shadow: 0px 0px 6px 3px rgba(66, 88, 128, 0.5);
+    }
+  }
+}

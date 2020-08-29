@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+.accordion {
+  display: grid;
+  row-gap: 2px;
+
+  &__item {
+  }
+
+  &__heading {
+  }
+
+  &__button {
+    background-color: $light-blue;
+    color: $dark-blue;
+    cursor: pointer;
+    padding: 20px;
+    text-align: left;
+    border: none;
+
+    &::before {
+      display: inline-block;
+      content: '';
+      height: 10px;
+      width: 10px;
+      margin-right: 12px;
+      border-bottom: 2px solid currentColor;
+      border-right: 2px solid currentColor;
+      transform: rotate(-45deg);
+    }
+
+    &[aria-expanded='true']::before {
+      transform: rotate(45deg);
+    }
+  }
+
+  &__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+    background-color: white;
+    border-top: 2px solid $light-gray;
+    display: grid;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+}

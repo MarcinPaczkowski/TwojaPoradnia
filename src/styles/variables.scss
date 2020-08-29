@@ -1,18 +1,26 @@
 // colors
 $black: #000000;
 $white: #ffffff;
-$blue: #66ccff;
+$blue: #85afff;
 
-$primary-black-blue: #000033;
-$secondary-black-blue: #003366;
+$light-gray: #a5b2c9;
+$dark-gray: #697180;
 
-$primary-gray-blue: #006699;
-$secondary-gray-blue: #3399cc;
+$light-blue: #d1e1ff;
+$dark-blue: #425880;
 
-$primary-white-blue: #99ffff;
-$secondary-white-blue: #ccffff;
+$light-green: #a6d687;
+$light-red: #d6878b;
 
 // dimensions
-$max-mobile-width: 768px;
-$min-tablet-width: 769px;
-$min-desktop-width: 1201px;
+$max-mobile-width: 767px;
+$min-tablet-width: 768px;
+$min-desktop-width: 992px;
+$min-large-desktop-width: 1200px;
+
+$key-font-family: 'Pattaya', 'Laila', 'IBM Plex Serif', 'Rubik', Helvetica,
+  Arial, Lucida, sans-serif;
+$normal-font-family: 'IBM Plex Serif', 'Rubik', Helvetica, Arial, Lucida,
+  sans-serif;
+$headline-font-family: 'Laila', 'IBM Plex Serif', 'Rubik', Helvetica, Arial,
+  Lucida, sans-serif;
