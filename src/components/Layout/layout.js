@@ -10,7 +10,6 @@ import './layout.scss';
 import '../../styles/style.scss';
 
 const Layout = props => {
-  console.log(process.env.NODE_ENV);
   const { children } = props;
   const [isHome, setIsHome] = useState(props.path === '/');
 

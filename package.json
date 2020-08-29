@@ -29,6 +29,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.3.24",
     "gatsby-transformer-sharp": "^2.5.13",
+    "googleapis": "^59.0.0",
     "html-react-parser": "^0.10.5",
     "minimist": "^1.2.5",
     "moment": "^2.27.0",
