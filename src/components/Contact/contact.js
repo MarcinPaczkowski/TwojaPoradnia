@@ -36,17 +36,17 @@ const Contact = ({ contactData }) => {
     }
   };
 
-  const processResponse = ({ status }) => {
-    if (status !== 200) {
+  const processResponse = response => {
+    if (response && response.status === 200) {
+      setConfirmationLabel({
+        type: stickyLabelTypes.SUCCESS,
+        message: 'Twoja wiadomość została wysłana.',
+      });
+    } else {
       setConfirmationLabel({
         type: stickyLabelTypes.ERROR,
         message:
           'Coś poszło nie tak w trakcie wysyłania wiadomości. Spróbuj ponownie.',
-      });
-    } else {
-      setConfirmationLabel({
-        type: stickyLabelTypes.SUCCESS,
-        message: 'Twoja wiadomość została wysłana.',
       });
     }
   };
