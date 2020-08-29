@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import '../styles/style.scss';
 import AboutMe from '../components/AboutMe/aboutMe';
 import { useStaticQuery, graphql } from 'gatsby';
 import { mapAllCmsAboutMeArticles } from '../utils/cmsMappers/aboutMeArticleMapper';

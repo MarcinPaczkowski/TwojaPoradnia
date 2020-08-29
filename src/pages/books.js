@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
-import '../styles/style.scss';
 import Books from '../components/Books/books';
 import { mapCmsBooks } from '../utils/cmsMappers/booksMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';

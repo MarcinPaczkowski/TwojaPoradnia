@@ -4,7 +4,7 @@ import HorizontalTileContent from './HorizontalTileContent/horizontalTileContent
 import GatsbyImage from 'gatsby-image/withIEPolyfill';
 import tileImagePosition from './tileImagePosition';
 
-const HorizontalTile = ({ imagePosition, content }) => {
+const HorizontalTile = ({ imagePosition, content, objectFit }) => {
   return content ? (
     <div className="horizontalTile">
       {content.image ? (
@@ -14,7 +14,7 @@ const HorizontalTile = ({ imagePosition, content }) => {
               ? 'horizontalTile__image--left'
               : 'horizontalTile__image--right'
           }`}
-          objectFit="cover"
+          objectFit={objectFit ?? 'cover'}
           objectPosition="50% 50%"
           fluid={content.image.fluid}
           alt={content.image.description}

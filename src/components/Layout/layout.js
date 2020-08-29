@@ -2,10 +2,11 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 import Footer from './Footer/footer';
 import Navbar from './Navbar/navbar';
 import Breadcrumbs from './Breadcrumbs/breadcrumbs';
-import './layout.scss';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import LayoutContext from '../../contexts/LayoutContext';
 import 'animate.css/animate.css';
+import './layout.scss';
+import '../../styles/style.scss';
 
 const Layout = props => {
   const { children } = props;
