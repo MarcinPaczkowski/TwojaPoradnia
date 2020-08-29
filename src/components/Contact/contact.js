@@ -52,19 +52,23 @@ const Contact = ({ contactData }) => {
   };
 
   const sendEmail = async (formData, recaptchaToken) => {
-    const response = await axios.post(
-      '/api/sendEmail',
-      {
-        formData,
-        recaptchaToken,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
+    try {
+      const response = await axios.post(
+        '/api/sendEmail',
+        {
+          formData,
+          recaptchaToken,
         },
-      }
-    );
-    return response;
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      return response;
+    } catch (error) {
+      return { status: 500 };
+    }
   };
 
   return (
@@ -84,16 +88,6 @@ const Contact = ({ contactData }) => {
           />
         ) : null}
         {showSpinner ? <Spinner /> : null}
-
-        {/* <ReCaptcha
-          sitekey={process.env.GATSBY_recaptchaSiteKey}
-          action="CONTACT_FORM"
-          callback={token => {
-            setRecaptchaToken(token);
-          }}
-          id="g-recaptcha_contact"
-          badge="bottomright"
-        /> */}
       </div>
     </Section>
   );
