@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
-import '../styles/style.scss';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapCmsGame } from '../utils/cmsMappers/gamesMappers';
 import EntryBlog from '../components/EntryBlog/entryBlog';

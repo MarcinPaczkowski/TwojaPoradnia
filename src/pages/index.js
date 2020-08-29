@@ -1,7 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import Home from '../components/Home/home';
-import '../styles/style.scss';
 import { mapCmsHomePage } from '../utils/cmsMappers/homePageMapper';
 import Contact from '../components/Contact/contact';
 import { mapCmsContactData } from '../utils/cmsMappers/contactDataMapper';
