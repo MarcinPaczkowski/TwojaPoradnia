@@ -36,35 +36,39 @@ const Contact = ({ contactData }) => {
     }
   };
 
-  const processResponse = ({ status }) => {
-    if (status !== 200) {
+  const processResponse = response => {
+    if (response && response.status === 200) {
+      setConfirmationLabel({
+        type: stickyLabelTypes.SUCCESS,
+        message: 'Twoja wiadomość została wysłana.',
+      });
+    } else {
       setConfirmationLabel({
         type: stickyLabelTypes.ERROR,
         message:
           'Coś poszło nie tak w trakcie wysyłania wiadomości. Spróbuj ponownie.',
       });
-    } else {
-      setConfirmationLabel({
-        type: stickyLabelTypes.SUCCESS,
-        message: 'Twoja wiadomość została wysłana.',
-      });
     }
   };
 
   const sendEmail = async (formData, recaptchaToken) => {
-    const response = await axios.post(
-      '/api/sendEmail',
-      {
-        formData,
-        recaptchaToken,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
+    try {
+      const response = await axios.post(
+        '/api/sendEmail',
+        {
+          formData,
+          recaptchaToken,
         },
-      }
-    );
-    return response;
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      return response;
+    } catch (error) {
+      return { status: 500 };
+    }
   };
 
   return (
@@ -84,16 +88,6 @@ const Contact = ({ contactData }) => {
           />
         ) : null}
         {showSpinner ? <Spinner /> : null}
-
-        {/* <ReCaptcha
-          sitekey={process.env.GATSBY_recaptchaSiteKey}
-          action="CONTACT_FORM"
-          callback={token => {
-            setRecaptchaToken(token);
-          }}
-          id="g-recaptcha_contact"
-          badge="bottomright"
-        /> */}
       </div>
     </Section>
   );
