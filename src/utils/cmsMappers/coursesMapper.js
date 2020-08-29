@@ -56,7 +56,13 @@ const map = cmsCourse => {
       : null,
     section7: cmsCourse.elements.section7.value.length
       ? {
-          text: cmsCourse.elements.section7?.value,
+          title: cmsCourse.elements.section7?.value[0]?.elements?.title?.value,
+          description:
+            cmsCourse.elements.section7?.value[0]?.elements?.elements?.value[0]
+              ?.elements?.text?.value,
+          image:
+            cmsCourse.elements.section7?.value[0]?.elements?.elements?.value[0]
+              ?.elements?.image?.value[0],
         }
       : null,
   };
@@ -67,8 +73,6 @@ const map = cmsCourse => {
     details.section4 = null;
   if (details.section5 && details.section5.text === '<p><br></p>')
     details.section5 = null;
-  if (details.section7 && details.section7.text === '<p><br></p>')
-    details.section7 = null;
 
   return details;
 };

@@ -50,6 +50,7 @@ const ClassesPage = pageData => {
   const classes = mapAllCmsClasses(cmsClasses);
   const layoutContext = useContext(LayoutContext);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const breadcrumbs = buildBreadcrumbs(pageData, 'Zajęcia');
     layoutContext.setBreadcrumbs(breadcrumbs);

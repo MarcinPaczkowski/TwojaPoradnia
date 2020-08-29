@@ -4,11 +4,15 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Twoja Pora Dnia - ${process.env.GATSBY_env}`,
+    title: `Twoja Pora Dnia${
+      process.env.NODE_ENV !== 'production'
+        ? ` - ${process.env.GATSBY_env}`
+        : ''
+    }`,
     author: 'Małgorzata Paczkowska',
     description: 'Twoja Pora Dnia',
-    keywords: `Nauka czytania, Korepetycje, Matematyka, Września, Poznań, Mosina`,
-    siteUrl: `https://www.example.com`,
+    keywords: `Nauka czytania, Edukacja, Pozytywna Dyscyplina, Korepetycje, Września, Poznań`,
+    siteUrl: `http://www.malgorzatapaczkowska.pl/`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -91,14 +95,25 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    // `gatsby-plugin-sitemap`,
-    // {
-    // 	resolve: `gatsby-plugin-google-analytics`,
-    // 	options: {
-    // 		trackingId: 'UA-XXXXXXXX-X',
-    // 		// Setting this parameter is optional (requried for some countries such as Germany)
-    // 		anonymize: true
-    // 	}
-    // }
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [
+          { userAgent: '*', allow: '/' },
+          { userAgent: '*', disallow: '/static/' },
+          { userAgent: '*', disallow: '/icons/' },
+          { userAgent: '*', disallow: '/page-data/' },
+          { userAgent: 'Googlebot-Image', disallow: '/' },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GATSBY_GTAG_trackingId,
+        anonymize: false,
+      },
+    },
   ],
 };

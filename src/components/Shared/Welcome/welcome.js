@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Parallax } from 'react-scroll-parallax';
+import React from 'react';
+// import { Parallax } from 'react-scroll-parallax';
 import GatsbyImage from 'gatsby-image/withIEPolyfill';
 import './welcome.scss';
 import parse from 'html-react-parser';

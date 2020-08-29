@@ -48,6 +48,7 @@ const ContactPage = pageData => {
   const contactData = mapCmsContactData(cmsContactData[0]);
   const layoutContext = useContext(LayoutContext);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const breadcrumbs = buildBreadcrumbs(pageData, 'Kontakt');
     layoutContext.setBreadcrumbs(breadcrumbs);

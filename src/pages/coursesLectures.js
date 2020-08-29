@@ -6,6 +6,7 @@ import CoursesAndLectures from '../components/CoursesAndLectures/coursesAndLectu
 const CoursesAndLecturesPage = pageData => {
   const layoutContext = useContext(LayoutContext);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const breadcrumbs = buildBreadcrumbs(pageData, 'Szkolenia i wykłady');
     layoutContext.setBreadcrumbs(breadcrumbs);

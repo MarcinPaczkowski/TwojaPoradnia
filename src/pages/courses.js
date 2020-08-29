@@ -132,7 +132,38 @@ const CoursesPage = pageData => {
                 }
               }
               section7 {
-                value
+                value {
+                  ... on kontent_item_section {
+                    elements {
+                      title {
+                        value
+                      }
+                      elements {
+                        value {
+                          ... on kontent_item_textwithimage {
+                            elements {
+                              text {
+                                value
+                              }
+                              image {
+                                value {
+                                  description
+                                  fluid(maxWidth: 600) {
+                                    aspectRatio
+                                    base64
+                                    sizes
+                                    src
+                                    srcSet
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
               slug {
                 value
@@ -145,6 +176,7 @@ const CoursesPage = pageData => {
   );
   const course = mapCmsCourse(cmsCourses[0]);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const breadcrumbs = buildBreadcrumbs(pageData, 'Szkolenia', {
       url: '/szkolenia-i-wyklady',

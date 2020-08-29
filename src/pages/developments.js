@@ -48,6 +48,7 @@ const DevelopmentPage = pageData => {
   const developments = mapAllCmsDevelopments(cmsDevelopments);
   const layoutContext = useContext(LayoutContext);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const breadcrumbs = buildBreadcrumbs(pageData, 'Rozwój i wychowanie');
     layoutContext.setBreadcrumbs(breadcrumbs);

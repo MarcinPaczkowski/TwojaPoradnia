@@ -48,6 +48,7 @@ const BooksPage = pageData => {
   const books = mapCmsBooks(cmsBooks);
   const layoutContext = useContext(LayoutContext);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const breadcrumbs = buildBreadcrumbs(pageData, 'Książki');
     layoutContext.setBreadcrumbs(breadcrumbs);
