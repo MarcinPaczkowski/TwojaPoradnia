@@ -101,9 +101,6 @@ module.exports = {
       options: {
         policy: [
           { userAgent: '*', allow: '/' },
-          { userAgent: '*', disallow: '/static/' },
-          { userAgent: '*', disallow: '/icons/' },
-          { userAgent: '*', disallow: '/page-data/' },
           { userAgent: 'Googlebot-Image', disallow: '/' },
         ],
       },
