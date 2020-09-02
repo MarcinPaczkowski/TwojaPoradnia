@@ -1,11 +1,12 @@
-import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import Home from '../components/Home/home';
-import { mapCmsHomePage } from '../utils/cmsMappers/homePageMapper';
 import Contact from '../components/Contact/contact';
+import GatsbyHelmet from '../components/Helmet/helmet';
+import { mapCmsHomePage } from '../utils/cmsMappers/homePageMapper';
 import { mapCmsContactData } from '../utils/cmsMappers/contactDataMapper';
 
-const IndexPage = () => {
+const IndexPage = pageData => {
   const {
     allKontentItemHomepage: { nodes: cmsHomePage },
     allKontentItemContactdata: { nodes: cmsContactData },
@@ -116,6 +117,7 @@ const IndexPage = () => {
   const contactData = mapCmsContactData(cmsContactData[0]);
   return (
     <>
+      <GatsbyHelmet currentSiteUrl={pageData.location.href} />
       <Home homePage={homePage} />
       <Contact contactData={contactData} />
     </>

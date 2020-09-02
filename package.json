@@ -50,11 +50,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby clean & gatsby build --verbose",
+    "build": "gatsby clean & gatsby build",
     "develop": "gatsby clean & gatsby develop --verbose",
     "start": "vercel dev",
-    "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
     "@now/node": "^1.7.4",

@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import GatsbyHelmet from '../components/Helmet/helmet';
 import AboutMe from '../components/AboutMe/aboutMe';
 import { useStaticQuery, graphql } from 'gatsby';
 import { mapAllCmsAboutMeArticles } from '../utils/cmsMappers/aboutMeArticleMapper';
@@ -89,6 +90,10 @@ const AboutPage = pageData => {
 
   return (
     <>
+      <GatsbyHelmet
+        siteMetadata={{ title: '404', description: 'Nie znaleziono strony' }}
+        currentSiteUrl={pageData.location.href}
+      />
       <AboutMe articles={articles}></AboutMe>
       <Contact contactData={contactData} />
     </>

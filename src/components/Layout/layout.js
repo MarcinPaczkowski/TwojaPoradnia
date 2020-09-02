@@ -3,7 +3,6 @@ import Footer from './Footer/footer';
 import Navbar from './Navbar/navbar';
 import Breadcrumbs from './Breadcrumbs/breadcrumbs';
 // import { ParallaxProvider } from 'react-scroll-parallax';
-import Helmet from '../Helmet/helmet';
 import LayoutContext from '../../contexts/LayoutContext';
 import 'animate.css/animate.css';
 import './layout.scss';
@@ -43,7 +42,6 @@ const Layout = props => {
 
   return (
     <LayoutContext.Provider value={layoutContextValue}>
-      <Helmet currentSiteUrl={props.location.href} />
       <LayoutContext.Consumer>
         {({ data, setData }) => {
           return (
