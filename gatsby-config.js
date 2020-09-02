@@ -11,8 +11,8 @@ module.exports = {
     }`,
     author: 'Małgorzata Paczkowska',
     description: 'Twoja Pora Dnia',
-    keywords: `Nauka czytania, Edukacja, Pozytywna Dyscyplina, Korepetycje, Września, Poznań`,
-    siteUrl: `http://www.malgorzatapaczkowska.pl/`,
+    keywords: `Nauka czytania, Pozytywna Dyscyplina, Edukacja, Korepetycje, Września, Poznań`,
+    siteUrl: `https://malgorzatapaczkowska.pl/`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
