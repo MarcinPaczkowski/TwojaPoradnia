@@ -13,7 +13,7 @@ module.exports = {
     }`,
     author: 'Małgorzata Paczkowska',
     description: 'Twoja Pora Dnia',
-    keywords: `Twoja Pora Dnia, Małgorzata Paczkowska, Nauka czytania, Pozytywna Dyscyplina, Edukacja, Korepetycje, Września, Koziegłowy`,
+    keywords: `Twoja Pora Dnia, Małgorzata Paczkowska, Września, Nauka czytania, Pozytywna Dyscyplina, Korepetycje, Czytanie ze zrozumieniem, Edukacja, Koziegłowy`,
     siteName: siteName,
     siteUrl: `https://${siteName}/`,
   },

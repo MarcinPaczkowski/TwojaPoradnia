@@ -4,9 +4,9 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 const GatsbyHelmet = ({ siteMetadata, currentSiteUrl }) => {
   const getMetaKeywords = (site, siteMetadata) => {
-    return `${site.siteMetadata.keywords}${
+    return `${
       siteMetadata && siteMetadata.keywords ? `, ${siteMetadata.keywords}` : ``
-    }`;
+    }${site.siteMetadata.keywords}`;
   };
 
   const { site, logo } = useStaticQuery(
@@ -29,8 +29,6 @@ const GatsbyHelmet = ({ siteMetadata, currentSiteUrl }) => {
     `
   );
 
-  console.log(logo);
-
   const metaKeywords = getMetaKeywords(site, siteMetadata);
   console.log(metaKeywords);
 
@@ -39,26 +37,7 @@ const GatsbyHelmet = ({ siteMetadata, currentSiteUrl }) => {
     siteMetadata?.description || site.siteMetadata.description || '';
 
   return (
-    <Helmet
-    // meta={[
-    //   {
-    //     name: `twitter:card`,
-    //     content: `summary`,
-    //   },
-    //   {
-    //     name: `twitter:creator`,
-    //     content: site.siteMetadata.author,
-    //   },
-    //   {
-    //     name: `twitter:title`,
-    //     content: metaTitle,
-    //   },
-    //   {
-    //     name: `twitter:description`,
-    //     content: metaDescription,
-    //   }
-    // ]}
-    >
+    <Helmet>
       <html lang="pl" />
       <title>{`${metaTitle} | ${site.siteMetadata.siteName}`}</title>
       <link rel="canonical" href={currentSiteUrl} />
@@ -81,6 +60,10 @@ const GatsbyHelmet = ({ siteMetadata, currentSiteUrl }) => {
         property="og:image"
         content={`${site.siteMetadata.siteUrl}${logo.publicURL}`}
       />
+      <meta name="twitter:card" content="Podsumowanie" />
+      <meta name="twitter:creator" content={site.siteMetadata.author} />
+      <meta name="twitter:title" content={metaTitle} />
+      <meta name="twitter:description" content={metaDescription} />
     </Helmet>
   );
 };
