@@ -39,9 +39,11 @@ const Layout = props => {
 
   const layoutContextValue = { breadcrumbs, setBreadcrumbs };
 
+  console.log(props.location.href);
+
   return (
     <LayoutContext.Provider value={layoutContextValue}>
-      <Helmet />
+      <Helmet currentSiteUrl={props.location.href} />
       <LayoutContext.Consumer>
         {({ data, setData }) => {
           return (
