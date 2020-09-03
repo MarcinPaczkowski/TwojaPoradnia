@@ -2,7 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 
-const GatsbyHelmet = () => (
+const GatsbyHelmet = ({ currentSiteUrl }) => (
   <StaticQuery
     query={graphql`
       query helmetQuery {
@@ -18,6 +18,12 @@ const GatsbyHelmet = () => (
     `}
     render={data => (
       <Helmet>
+        <html lang="pl" />
+        <link rel="canonical" href={currentSiteUrl} />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
@@ -31,7 +37,6 @@ const GatsbyHelmet = () => (
           itemprop="description"
           content={data.site.siteMetadata.description}
         />
-        {/* <meta itemprop="image" content={data.site.siteMetadata.imageUrl} /> */}
       </Helmet>
     )}
   />
