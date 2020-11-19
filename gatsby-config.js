@@ -13,7 +13,7 @@ module.exports = {
     }`,
     author: 'Małgorzata Paczkowska',
     description: 'Twoja Pora Dnia',
-    keywords: `Twoja Pora Dnia, Małgorzata Paczkowska, Września, Nauka czytania, Pozytywna Dyscyplina, Korepetycje, Czytanie ze zrozumieniem, Edukacja, Koziegłowy`,
+    keywords: ``,
     siteName: siteName,
     siteUrl: `https://${siteName}/`,
   },
@@ -97,8 +97,6 @@ module.exports = {
         component: require.resolve(`./src/components/Layout/layout.js`),
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
@@ -115,5 +113,7 @@ module.exports = {
         anonymize: false,
       },
     },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
   ],
 };
