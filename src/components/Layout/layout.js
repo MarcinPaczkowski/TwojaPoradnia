@@ -8,7 +8,7 @@ import 'animate.css/animate.css';
 import './layout.scss';
 import '../../styles/style.scss';
 
-const Layout = props => {
+const Layout = (props) => {
   const { children } = props;
   const [isHome, setIsHome] = useState(props.path === '/');
 
@@ -37,8 +37,6 @@ const Layout = props => {
   const [breadcrumbs, setBreadcrumbs] = useState(null);
 
   const layoutContextValue = { breadcrumbs, setBreadcrumbs };
-
-  console.log(props.location.href);
 
   return (
     <LayoutContext.Provider value={layoutContextValue}>
