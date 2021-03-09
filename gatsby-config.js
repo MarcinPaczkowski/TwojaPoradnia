@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env`,
 });
 
+const siteName = 'malgorzatapaczkowska.pl';
+
 module.exports = {
   siteMetadata: {
     title: `Twoja Pora Dnia${
@@ -11,8 +13,9 @@ module.exports = {
     }`,
     author: 'Małgorzata Paczkowska',
     description: 'Twoja Pora Dnia',
-    keywords: `Nauka czytania, Pozytywna Dyscyplina, Edukacja, Korepetycje, Września, Poznań`,
-    siteUrl: `https://malgorzatapaczkowska.pl/`,
+    keywords: ``,
+    siteName: siteName,
+    siteUrl: `https://${siteName}/`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -94,8 +97,6 @@ module.exports = {
         component: require.resolve(`./src/components/Layout/layout.js`),
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
@@ -112,5 +113,7 @@ module.exports = {
         anonymize: false,
       },
     },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
   ],
 };

@@ -1,4 +1,6 @@
-const map = cmsDevelopment => {
+import { mapCmsSeoData } from '../seoMapper';
+
+const map = (cmsDevelopment) => {
   return {
     title: cmsDevelopment.elements.title.value,
     publishDate: cmsDevelopment.elements.publishdate.value,
@@ -9,11 +11,11 @@ const map = cmsDevelopment => {
   };
 };
 
-const mapAll = cmsDevelopments => {
-  return cmsDevelopments.map(d => map(d));
+const mapAll = (cmsDevelopments) => {
+  return cmsDevelopments.map((d) => map(d));
 };
 
-const mapDetails = cmsDevelopment => {
+const mapDetails = (cmsDevelopment) => {
   return {
     title: cmsDevelopment.elements.title.value,
     headlineTitle: cmsDevelopment.elements.headlinetitle?.value,
@@ -22,6 +24,7 @@ const mapDetails = cmsDevelopment => {
     publishDate: cmsDevelopment.elements.publishdate.value,
     entry: cmsDevelopment.elements.entry.value,
     author: 'Małgorzata Paczkowska',
+    seo: mapCmsSeoData(cmsDevelopment.elements),
   };
 };
 

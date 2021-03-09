@@ -1,4 +1,6 @@
-const map = cmsGame => {
+import { mapCmsSeoData } from '../seoMapper';
+
+const map = (cmsGame) => {
   return {
     title: cmsGame.elements.title.value,
     publishDate: cmsGame.elements.publishdate.value,
@@ -9,11 +11,11 @@ const map = cmsGame => {
   };
 };
 
-const mapAll = cmsGames => {
-  return cmsGames.map(g => map(g));
+const mapAll = (cmsGames) => {
+  return cmsGames.map((g) => map(g));
 };
 
-const mapDetails = cmsGame => {
+const mapDetails = (cmsGame) => {
   return {
     title: cmsGame.elements.title.value,
     headlineTitle: cmsGame.elements.headlinetitle?.value,
@@ -21,6 +23,7 @@ const mapDetails = cmsGame => {
     publishDate: cmsGame.elements.publishdate.value,
     entry: cmsGame.elements.entry.value,
     author: 'Małgorzata Paczkowska',
+    seo: mapCmsSeoData(cmsGame.elements),
   };
 };
 

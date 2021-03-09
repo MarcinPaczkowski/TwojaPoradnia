@@ -1,4 +1,4 @@
-const map = cmsContactData => {
+const map = (cmsContactData) => {
   return {
     fullName: cmsContactData.elements.fullname.value,
     address: cmsContactData.elements.address.value,

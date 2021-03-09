@@ -1,4 +1,6 @@
-const map = cmsClass => {
+import { mapCmsSeoData } from '../seoMapper';
+
+const map = (cmsClass) => {
   const details = {
     title: cmsClass.elements.title.value,
     publishDate: cmsClass.elements.publishdate.value,
@@ -23,7 +25,7 @@ const map = cmsClass => {
       ? {
           title: cmsClass.elements.section3?.value[0]?.elements?.title?.value,
           elements: cmsClass.elements.section3?.value[0]?.elements?.elements?.value?.map(
-            element => {
+            (element) => {
               return {
                 text: element?.elements?.text?.value,
                 image: element?.elements?.image?.value[0],
@@ -36,7 +38,7 @@ const map = cmsClass => {
       ? {
           title: cmsClass.elements.section4?.value[0]?.elements?.title?.value,
           elements: cmsClass.elements.section4?.value[0]?.elements?.elements?.value?.map(
-            element => {
+            (element) => {
               return {
                 text: element?.elements?.text?.value,
                 image: element?.elements?.image?.value[0],
@@ -49,7 +51,7 @@ const map = cmsClass => {
       ? {
           title: cmsClass.elements.section5?.value[0]?.elements?.title?.value,
           elements: cmsClass.elements.section5?.value[0]?.elements?.elements?.value?.map(
-            element => {
+            (element) => {
               return {
                 text: element?.elements?.text?.value,
                 image: element?.elements?.image?.value[0],
@@ -69,7 +71,7 @@ const map = cmsClass => {
       ? {
           title: cmsClass.elements.section7?.value[0]?.elements?.title?.value,
           elements: cmsClass.elements.section7?.value[0]?.elements?.elements?.value?.map(
-            element => {
+            (element) => {
               return {
                 text: element?.elements?.text?.value,
               };
@@ -93,6 +95,7 @@ const map = cmsClass => {
           },
         }
       : null,
+    seo: mapCmsSeoData(cmsClass.elements),
   };
 
   if (details.section2 && details.section2.text === '<p><br></p>')

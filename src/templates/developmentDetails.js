@@ -1,10 +1,11 @@
 import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
-import { mapCmsDevelopment } from '../utils/cmsMappers/developmentsMapper';
+import { mapCmsDevelopment } from '../utils/cmsMappers/developments/developmentsMapper';
 import EntryBlog from '../components/EntryBlog/entryBlog';
+import GatsbyHelmet from '../components/Helmet/helmet';
 
-const DevelopmentDetails = pageData => {
+const DevelopmentDetails = (pageData) => {
   const developmentDetails = mapCmsDevelopment(pageData.pageContext);
   const layoutContext = useContext(LayoutContext);
 
@@ -14,7 +15,15 @@ const DevelopmentDetails = pageData => {
     layoutContext.setBreadcrumbs(breadcrumbs);
   }, [pageData]);
 
-  return <EntryBlog blog={developmentDetails} />;
+  return (
+    <>
+      <GatsbyHelmet
+        siteMetadata={developmentDetails.seo}
+        currentSiteUrl={pageData.location.href}
+      />
+      <EntryBlog blog={developmentDetails} />
+    </>
+  );
 };
 
 export default DevelopmentDetails;

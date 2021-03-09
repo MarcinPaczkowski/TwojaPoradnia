@@ -2,42 +2,64 @@ import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import Classes from '../components/Classes/classes';
-import { mapAllCmsClasses } from '../utils/cmsMappers/classes/listMapper';
+import { mapCmsClassesPage } from '../utils/cmsMappers/classes/listMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
+import GatsbyHelmet from '../components/Helmet/helmet';
 
-const ClassesPage = pageData => {
+const ClassesPage = (pageData) => {
   const {
-    allKontentItemClass: { nodes: cmsClasses },
+    allKontentItemClassespage: { nodes: cmsClassesPage },
   } = useStaticQuery(
     graphql`
       query {
-        allKontentItemClass(
-          sort: { order: ASC, fields: elements___order___value }
-        ) {
+        allKontentItemClassespage {
           nodes {
             elements {
               title {
                 value
               }
-              shortdescription {
-                value
-              }
-              image {
+              classes {
                 value {
-                  description
-                  fluid(maxWidth: 600) {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
+                  ... on kontent_item_class {
+                    elements {
+                      title {
+                        value
+                      }
+                      shortdescription {
+                        value
+                      }
+                      image {
+                        value {
+                          description
+                          fluid(maxWidth: 600) {
+                            aspectRatio
+                            base64
+                            sizes
+                            src
+                            srcSet
+                          }
+                        }
+                      }
+                      slug {
+                        value
+                      }
+                      publishdate {
+                        value
+                      }
+                      order {
+                        value
+                      }
+                    }
                   }
                 }
               }
-              slug {
+              seo__metatitle {
                 value
               }
-              publishdate {
+              seo__metadescription {
+                value
+              }
+              seo__metakeywords {
                 value
               }
             }
@@ -47,7 +69,7 @@ const ClassesPage = pageData => {
     `
   );
 
-  const classes = mapAllCmsClasses(cmsClasses);
+  const classesPage = mapCmsClassesPage(cmsClassesPage[0]);
   const layoutContext = useContext(LayoutContext);
 
   /* eslint-disable react-hooks/exhaustive-deps */
@@ -56,7 +78,15 @@ const ClassesPage = pageData => {
     layoutContext.setBreadcrumbs(breadcrumbs);
   }, [pageData]);
 
-  return <Classes classes={classes} />;
+  return (
+    <>
+      <GatsbyHelmet
+        siteMetadata={classesPage.seo}
+        currentSiteUrl={pageData.location.href}
+      />
+      <Classes title={classesPage.title} classes={classesPage.classes} />
+    </>
+  );
 };
 
 export default ClassesPage;

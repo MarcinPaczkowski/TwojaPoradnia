@@ -3,8 +3,9 @@ import LayoutContext from '../contexts/LayoutContext';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapCmsClass } from '../utils/cmsMappers/classes/detailsMapper';
 import Class from '../components/Class/class';
+import GatsbyHelmet from '../components/Helmet/helmet';
 
-const ClassDetails = pageData => {
+const ClassDetails = (pageData) => {
   const classDetails = mapCmsClass(pageData.pageContext);
   const layoutContext = useContext(LayoutContext);
 
@@ -14,7 +15,15 @@ const ClassDetails = pageData => {
     layoutContext.setBreadcrumbs(breadcrumbs);
   }, [pageData]);
 
-  return <Class classDetails={classDetails} />;
+  return (
+    <>
+      <GatsbyHelmet
+        siteMetadata={classDetails.seo}
+        currentSiteUrl={pageData.location.href}
+      />
+      <Class classDetails={classDetails} />
+    </>
+  );
 };
 
 export default ClassDetails;

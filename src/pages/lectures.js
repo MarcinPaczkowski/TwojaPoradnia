@@ -2,31 +2,77 @@ import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
-import { mapCmsLectures } from '../utils/cmsMappers/lecturesMapper';
+import { mapCmsLecturesPage } from '../utils/cmsMappers/lectures/lecturesPageMapper';
 import Lectures from '../components/Lectures/lectures';
+import GatsbyHelmet from '../components/Helmet/helmet';
 
-const LecturesPage = pageData => {
+const LecturesPage = (pageData) => {
   const {
-    allKontentItemLecture: { nodes: cmsLectures },
+    allKontentItemLecturespage: { nodes: cmsLecturesPage },
   } = useStaticQuery(
     graphql`
       query {
-        allKontentItemLecture(
-          sort: { order: ASC, fields: elements___eventdate___value }
-        ) {
+        allKontentItemLecturespage {
           nodes {
             elements {
               title {
                 value
               }
-              address {
+              seo__metatitle {
                 value
               }
-              eventdate {
+              seo__metakeywords {
                 value
               }
-              description {
+              seo__metadescription {
                 value
+              }
+              linktopage {
+                value {
+                  id
+                  ... on kontent_item_linktopage {
+                    elements {
+                      buttontext {
+                        value
+                      }
+                      link {
+                        value
+                      }
+                    }
+                  }
+                }
+              }
+              image {
+                value {
+                  description
+                  fluid(maxWidth: 600) {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
+              lectures {
+                value {
+                  ... on kontent_item_lecture {
+                    elements {
+                      title {
+                        value
+                      }
+                      address {
+                        value
+                      }
+                      eventdate {
+                        value
+                      }
+                      description {
+                        value
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -35,7 +81,7 @@ const LecturesPage = pageData => {
     `
   );
 
-  const lectures = mapCmsLectures(cmsLectures);
+  const lecturesPage = mapCmsLecturesPage(cmsLecturesPage[0]);
   const layoutContext = useContext(LayoutContext);
 
   /* eslint-disable react-hooks/exhaustive-deps */
@@ -47,7 +93,15 @@ const LecturesPage = pageData => {
     layoutContext.setBreadcrumbs(breadcrumbs);
   }, [pageData]);
 
-  return <Lectures lectures={lectures} />;
+  return (
+    <>
+      <GatsbyHelmet
+        siteMetadata={lecturesPage.seo}
+        currentSiteUrl={pageData.location.href}
+      />
+      <Lectures lectures={lecturesPage.lectures} />
+    </>
+  );
 };
 
 export default LecturesPage;

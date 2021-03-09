@@ -2,48 +2,96 @@ import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
-import { mapCmsCourse } from '../utils/cmsMappers/coursesMapper';
+import { mapCmsCoursesPage } from '../utils/cmsMappers/courses/coursesPageMapper';
 import Course from '../components/Course/course';
+import GatsbyHelmet from '../components/Helmet/helmet';
 
-const CoursesPage = pageData => {
+const CoursesPage = (pageData) => {
   const layoutContext = useContext(LayoutContext);
   const {
-    allKontentItemCourse: { nodes: cmsCourses },
+    allKontentItemCoursepage: { nodes: cmsCoursesPage },
   } = useStaticQuery(
     graphql`
       query {
-        allKontentItemCourse {
+        allKontentItemCoursepage {
           nodes {
             elements {
               title {
                 value
               }
-              section1 {
+              seo__metatitle {
                 value
               }
-              section2 {
+              seo__metakeywords {
+                value
+              }
+              seo__metadescription {
+                value
+              }
+              linktopage {
                 value {
-                  ... on kontent_item_section {
+                  id
+                  ... on kontent_item_linktopage {
+                    elements {
+                      buttontext {
+                        value
+                      }
+                      link {
+                        value
+                      }
+                    }
+                  }
+                }
+              }
+              image {
+                value {
+                  description
+                  fluid(maxWidth: 600) {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
+              course {
+                value {
+                  ... on kontent_item_course {
                     elements {
                       title {
                         value
                       }
-                      elements {
+                      section1 {
+                        value
+                      }
+                      section2 {
                         value {
-                          ... on kontent_item_textwithimage {
+                          ... on kontent_item_section {
                             elements {
-                              text {
+                              title {
                                 value
                               }
-                              image {
+                              elements {
                                 value {
-                                  description
-                                  fluid(maxWidth: 600) {
-                                    aspectRatio
-                                    base64
-                                    sizes
-                                    src
-                                    srcSet
+                                  ... on kontent_item_textwithimage {
+                                    elements {
+                                      text {
+                                        value
+                                      }
+                                      image {
+                                        value {
+                                          description
+                                          fluid(maxWidth: 600) {
+                                            aspectRatio
+                                            base64
+                                            sizes
+                                            src
+                                            srcSet
+                                          }
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               }
@@ -51,33 +99,33 @@ const CoursesPage = pageData => {
                           }
                         }
                       }
-                    }
-                  }
-                }
-              }
-              section3 {
-                value {
-                  ... on kontent_item_section {
-                    elements {
-                      title {
-                        value
-                      }
-                      elements {
+                      section3 {
                         value {
-                          ... on kontent_item_textwithimage {
+                          ... on kontent_item_section {
                             elements {
-                              text {
+                              title {
                                 value
                               }
-                              image {
+                              elements {
                                 value {
-                                  description
-                                  fluid(maxWidth: 600) {
-                                    aspectRatio
-                                    base64
-                                    sizes
-                                    src
-                                    srcSet
+                                  ... on kontent_item_textwithimage {
+                                    elements {
+                                      text {
+                                        value
+                                      }
+                                      image {
+                                        value {
+                                          description
+                                          fluid(maxWidth: 600) {
+                                            aspectRatio
+                                            base64
+                                            sizes
+                                            src
+                                            srcSet
+                                          }
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               }
@@ -85,75 +133,41 @@ const CoursesPage = pageData => {
                           }
                         }
                       }
-                    }
-                  }
-                }
-              }
-              section4 {
-                value
-              }
-              section5 {
-                value
-              }
-              section6 {
-                value {
-                  ... on kontent_item_section {
-                    elements {
-                      title {
+                      section4 {
                         value
                       }
-                      elements {
-                        value {
-                          ... on kontent_item_text {
-                            elements {
-                              text {
-                                value
-                              }
-                            }
-                          }
-                        }
-                      }
-                      action {
-                        value {
-                          ... on kontent_item_linktopage {
-                            elements {
-                              buttontext {
-                                value
-                              }
-                              link {
-                                value
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-              section7 {
-                value {
-                  ... on kontent_item_section {
-                    elements {
-                      title {
+                      section5 {
                         value
                       }
-                      elements {
+                      section6 {
                         value {
-                          ... on kontent_item_textwithimage {
+                          ... on kontent_item_section {
                             elements {
-                              text {
+                              title {
                                 value
                               }
-                              image {
+                              elements {
                                 value {
-                                  description
-                                  fluid(maxWidth: 600) {
-                                    aspectRatio
-                                    base64
-                                    sizes
-                                    src
-                                    srcSet
+                                  ... on kontent_item_text {
+                                    elements {
+                                      text {
+                                        value
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                              action {
+                                value {
+                                  ... on kontent_item_linktopage {
+                                    elements {
+                                      buttontext {
+                                        value
+                                      }
+                                      link {
+                                        value
+                                      }
+                                    }
                                   }
                                 }
                               }
@@ -161,12 +175,46 @@ const CoursesPage = pageData => {
                           }
                         }
                       }
+                      section7 {
+                        value {
+                          ... on kontent_item_section {
+                            elements {
+                              title {
+                                value
+                              }
+                              elements {
+                                value {
+                                  ... on kontent_item_textwithimage {
+                                    elements {
+                                      text {
+                                        value
+                                      }
+                                      image {
+                                        value {
+                                          description
+                                          fluid(maxWidth: 600) {
+                                            aspectRatio
+                                            base64
+                                            sizes
+                                            src
+                                            srcSet
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                      slug {
+                        value
+                      }
                     }
                   }
                 }
-              }
-              slug {
-                value
               }
             }
           }
@@ -174,7 +222,7 @@ const CoursesPage = pageData => {
       }
     `
   );
-  const course = mapCmsCourse(cmsCourses[0]);
+  const coursePage = mapCmsCoursesPage(cmsCoursesPage[0]);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
@@ -185,7 +233,15 @@ const CoursesPage = pageData => {
     layoutContext.setBreadcrumbs(breadcrumbs);
   }, [pageData]);
 
-  return <Course course={course} />;
+  return (
+    <>
+      <GatsbyHelmet
+        siteMetadata={coursePage.seo}
+        currentSiteUrl={pageData.location.href}
+      />
+      <Course title={coursePage.title} course={coursePage.course} />
+    </>
+  );
 };
 
 export default CoursesPage;
