@@ -6,7 +6,8 @@
   justify-content: center !important;
 
   &__content {
-    flex: none !important;
+    flex: inherit !important;
+    text-align: center;
   }
 
   &__confirm {

@@ -122,7 +122,7 @@ module.exports = {
           anonymize: true,
           allowAdFeatures: false,
         },
-        environments: ['production', Z],
+        environments: ['production'],
       },
     },
     `gatsby-plugin-offline`,
