@@ -7,6 +7,8 @@ import LayoutContext from '../../contexts/LayoutContext';
 import 'animate.css/animate.css';
 import './layout.scss';
 import '../../styles/style.scss';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import CookieBanner from '../Shared/CookieBanner/cookieBanner';
 
 const Layout = (props) => {
   const { children } = props;
@@ -43,22 +45,27 @@ const Layout = (props) => {
       <LayoutContext.Consumer>
         {({ data, setData }) => {
           return (
-            <div className={`layout`}>
-              <div className="layout__navbar">
-                <Navbar isHome={isHome} />
-              </div>
-              {/* <ParallaxProvider> */}
-              <div className="layout__content">{children}</div>
-              {/* </ParallaxProvider> */}
-              {breadcrumbs ? (
-                <div className="layout__breadcrumbs">
-                  <Breadcrumbs breadcrumbs={breadcrumbs} />
+            <GoogleReCaptchaProvider
+              reCaptchaKey={process.env.GATSBY_recaptchaSiteKey}
+            >
+              <div className="layout">
+                <div className="layout__navbar">
+                  <Navbar isHome={isHome} />
                 </div>
-              ) : null}
-              <div className="layout__footer">
-                <Footer />
+                {/* <ParallaxProvider> */}
+                <div className="layout__content">{children}</div>
+                {/* </ParallaxProvider> */}
+                {breadcrumbs ? (
+                  <div className="layout__breadcrumbs">
+                    <Breadcrumbs breadcrumbs={breadcrumbs} />
+                  </div>
+                ) : null}
+                <div className="layout__footer">
+                  <Footer />
+                </div>
               </div>
-            </div>
+              <CookieBanner />
+            </GoogleReCaptchaProvider>
           );
         }}
       </LayoutContext.Consumer>
