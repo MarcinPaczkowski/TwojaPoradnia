@@ -1,41 +1,62 @@
 import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import TeachingResources from '../components/TeachingResources/teachingResources';
+import GatsbyHelmet from '../components/Helmet/helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import { mapCmsTeachingResources } from '../utils/cmsMappers/teachingResourcesMapper';
+import { mapCmsTeachingResourcesPage } from '../utils/cmsMappers/teachingResources/teachingResourcesPageMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
-const TeachingResourcesPage = pageData => {
+const TeachingResourcesPage = (pageData) => {
   const {
-    allKontentItemTeachingresource: { nodes: cmsTeachingResources },
+    allKontentItemTeachingresourcespage: { nodes: cmsTeachingResourcesPage },
   } = useStaticQuery(
     graphql`
       query {
-        allKontentItemTeachingresource {
+        allKontentItemTeachingresourcespage {
           nodes {
             elements {
               title {
                 value
               }
-              description {
-                value
-              }
-              image {
+              teachingresources {
                 value {
-                  description
-                  fluid(maxWidth: 720) {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
+                  ... on kontent_item_teachingresource {
+                    elements {
+                      title {
+                        value
+                      }
+                      description {
+                        value
+                      }
+                      image {
+                        value {
+                          description
+                          fluid(maxWidth: 720) {
+                            aspectRatio
+                            base64
+                            sizes
+                            src
+                            srcSet
+                          }
+                        }
+                      }
+                      resource {
+                        value {
+                          url
+                        }
+                      }
+                    }
                   }
                 }
               }
-              resource {
-                value {
-                  url
-                }
+              seo__metatitle {
+                value
+              }
+              seo__metadescription {
+                value
+              }
+              seo__metakeywords {
+                value
               }
             }
           }
@@ -44,7 +65,9 @@ const TeachingResourcesPage = pageData => {
     `
   );
 
-  const teachingResources = mapCmsTeachingResources(cmsTeachingResources);
+  const teachingResourcesPage = mapCmsTeachingResourcesPage(
+    cmsTeachingResourcesPage[0]
+  );
   const layoutContext = useContext(LayoutContext);
 
   /* eslint-disable react-hooks/exhaustive-deps */
@@ -53,7 +76,18 @@ const TeachingResourcesPage = pageData => {
     layoutContext.setBreadcrumbs(breadcrumbs);
   }, [pageData]);
 
-  return <TeachingResources resources={teachingResources} />;
+  return (
+    <>
+      <GatsbyHelmet
+        siteMetadata={teachingResourcesPage.seo}
+        currentSiteUrl={pageData.location.href}
+      />
+      <TeachingResources
+        title={teachingResourcesPage.title}
+        resources={teachingResourcesPage.teachingResources}
+      />
+    </>
+  );
 };
 
 export default TeachingResourcesPage;

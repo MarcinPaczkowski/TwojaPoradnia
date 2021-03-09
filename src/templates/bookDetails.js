@@ -1,10 +1,11 @@
 import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
-import { mapCmsBook } from '../utils/cmsMappers/booksMapper';
+import { mapCmsBook } from '../utils/cmsMappers/books/booksMapper';
 import EntryBlog from '../components/EntryBlog/entryBlog';
+import GatsbyHelmet from '../components/Helmet/helmet';
 
-const BookDetails = pageData => {
+const BookDetails = (pageData) => {
   const bookDetails = mapCmsBook(pageData.pageContext);
   const layoutContext = useContext(LayoutContext);
 
@@ -14,7 +15,15 @@ const BookDetails = pageData => {
     layoutContext.setBreadcrumbs(breadcrumbs);
   }, [pageData]);
 
-  return <EntryBlog blog={bookDetails} />;
+  return (
+    <>
+      <GatsbyHelmet
+        siteMetadata={bookDetails.seo}
+        currentSiteUrl={pageData.location.href}
+      />
+      <EntryBlog blog={bookDetails} />
+    </>
+  );
 };
 
 export default BookDetails;

@@ -1,11 +1,14 @@
+import React, { useEffect, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
-import React from 'react';
+import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import Home from '../components/Home/home';
-import { mapCmsHomePage } from '../utils/cmsMappers/homePageMapper';
 import Contact from '../components/Contact/contact';
-import { mapCmsContactData } from '../utils/cmsMappers/contactDataMapper';
+import GatsbyHelmet from '../components/Helmet/helmet';
+import { mapCmsHomePage } from '../utils/cmsMappers/homePageMapper';
+import { mapCmsContactData } from '../utils/cmsMappers/contact/contactDataMapper';
 
-const IndexPage = () => {
+const IndexPage = (pageData) => {
   const {
     allKontentItemHomepage: { nodes: cmsHomePage },
     allKontentItemContactdata: { nodes: cmsContactData },
@@ -76,6 +79,15 @@ const IndexPage = () => {
                 }
               }
             }
+            seo__metatitle {
+              value
+            }
+            seo__metadescription {
+              value
+            }
+            seo__metakeywords {
+              value
+            }
           }
         }
       }
@@ -111,11 +123,22 @@ const IndexPage = () => {
       }
     }
   `);
+  const layoutContext = useContext(LayoutContext);
 
   const homePage = mapCmsHomePage(cmsHomePage[0]);
   const contactData = mapCmsContactData(cmsContactData[0]);
+
+  /* eslint-disable react-hooks/exhaustive-deps */
+  useEffect(() => {
+    layoutContext.setBreadcrumbs(null);
+  }, [pageData]);
+
   return (
     <>
+      <GatsbyHelmet
+        siteMetadata={homePage.seo}
+        currentSiteUrl={pageData.location.href}
+      />
       <Home homePage={homePage} />
       <Contact contactData={contactData} />
     </>

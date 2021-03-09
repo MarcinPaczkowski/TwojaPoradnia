@@ -5,8 +5,8 @@ import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 import Section from '../Layout/Section/section';
 import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
 
-const TeachingResources = ({ resources }) => {
-  const tiles = resources.map(r => {
+const TeachingResources = ({ title, resources }) => {
+  const tiles = resources.map((r) => {
     return {
       image: {
         src: r.image.fluid,
@@ -23,7 +23,7 @@ const TeachingResources = ({ resources }) => {
   return (
     <div className="teaching-resources">
       <Section>
-        <HeaderTitle title="Materiały" />
+        <HeaderTitle title={title} />
       </Section>
       <NegativeMarginWrapper>
         <Section>

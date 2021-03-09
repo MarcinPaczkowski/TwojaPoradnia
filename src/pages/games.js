@@ -1,41 +1,62 @@
 import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
-import { mapCmsGames } from '../utils/cmsMappers/gamesMappers';
+import { mapCmsGamesPage } from '../utils/cmsMappers/games/gamesPageMapper';
 import Games from '../components/Games/games';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
+import GatsbyHelmet from '../components/Helmet/helmet';
 
-const GamesPage = pageData => {
+const GamesPage = (pageData) => {
   const {
-    allKontentItemGame: { nodes: cmsGames },
+    allKontentItemGamespage: { nodes: cmsGamesPage },
   } = useStaticQuery(
     graphql`
       query {
-        allKontentItemGame {
+        allKontentItemGamespage {
           nodes {
             elements {
               title {
                 value
               }
-              shortdescription {
-                value
-              }
-              publishdate {
-                value
-              }
-              image {
+              games {
                 value {
-                  description
-                  fluid(maxWidth: 720) {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
+                  ... on kontent_item_game {
+                    elements {
+                      title {
+                        value
+                      }
+                      shortdescription {
+                        value
+                      }
+                      publishdate {
+                        value
+                      }
+                      image {
+                        value {
+                          description
+                          fluid(maxWidth: 720) {
+                            aspectRatio
+                            base64
+                            sizes
+                            src
+                            srcSet
+                          }
+                        }
+                      }
+                      slug {
+                        value
+                      }
+                    }
                   }
                 }
               }
-              slug {
+              seo__metatitle {
+                value
+              }
+              seo__metadescription {
+                value
+              }
+              seo__metakeywords {
                 value
               }
             }
@@ -45,7 +66,7 @@ const GamesPage = pageData => {
     `
   );
 
-  const games = mapCmsGames(cmsGames);
+  const gamesPage = mapCmsGamesPage(cmsGamesPage[0]);
   const layoutContext = useContext(LayoutContext);
 
   /* eslint-disable react-hooks/exhaustive-deps */
@@ -54,7 +75,15 @@ const GamesPage = pageData => {
     layoutContext.setBreadcrumbs(breadcrumbs);
   }, [pageData]);
 
-  return <Games games={games} />;
+  return (
+    <>
+      <GatsbyHelmet
+        siteMetadata={gamesPage.seo}
+        currentSiteUrl={pageData.location.href}
+      />
+      <Games title={gamesPage.title} games={gamesPage.games} />
+    </>
+  );
 };
 
 export default GamesPage;
