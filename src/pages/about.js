@@ -2,44 +2,62 @@ import React, { useEffect, useContext } from 'react';
 import GatsbyHelmet from '../components/Helmet/helmet';
 import AboutMe from '../components/AboutMe/aboutMe';
 import { useStaticQuery, graphql } from 'gatsby';
-import { mapAllCmsAboutMeArticles } from '../utils/cmsMappers/aboutMeArticleMapper';
-import { mapCmsContactData } from '../utils/cmsMappers/contactDataMapper';
+import { mapCmsAboutMePage } from '../utils/cmsMappers/aboutMe/aboutMePageMapper';
+import { mapCmsContactData } from '../utils/cmsMappers/contact/contactDataMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import Contact from '../components/Contact/contact';
 import LayoutContext from '../contexts/LayoutContext';
 
-const AboutPage = pageData => {
+const AboutPage = (pageData) => {
   const {
-    allKontentItemAboutmearticle: { nodes: cmsArticles },
+    allKontentItemAboutmepage: { nodes: cmsAboutMePage },
     allKontentItemContactdata: { nodes: cmsContactData },
   } = useStaticQuery(
     graphql`
       query {
-        allKontentItemAboutmearticle(
-          sort: { order: ASC, fields: elements___order___value }
-        ) {
+        allKontentItemAboutmepage {
           nodes {
             elements {
-              description {
-                value
-              }
-              image {
-                value {
-                  description
-                  fluid(maxWidth: 600) {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
-                  }
-                }
-              }
               title {
                 value
               }
-              order {
+              seo__metatitle {
                 value
+              }
+              seo__metakeywords {
+                value
+              }
+              seo__metadescription {
+                value
+              }
+              articles {
+                value {
+                  ... on kontent_item_aboutmearticle {
+                    elements {
+                      description {
+                        value
+                      }
+                      image {
+                        value {
+                          description
+                          fluid(maxWidth: 600) {
+                            aspectRatio
+                            base64
+                            sizes
+                            src
+                            srcSet
+                          }
+                        }
+                      }
+                      title {
+                        value
+                      }
+                      order {
+                        value
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -78,7 +96,7 @@ const AboutPage = pageData => {
     `
   );
 
-  const articles = mapAllCmsAboutMeArticles(cmsArticles);
+  const aboutMePage = mapCmsAboutMePage(cmsAboutMePage[0]);
   const contactData = mapCmsContactData(cmsContactData[0]);
   const layoutContext = useContext(LayoutContext);
 
@@ -91,10 +109,10 @@ const AboutPage = pageData => {
   return (
     <>
       <GatsbyHelmet
-        siteMetadata={{ title: '404', description: 'Nie znaleziono strony' }}
+        siteMetadata={aboutMePage.seo}
         currentSiteUrl={pageData.location.href}
       />
-      <AboutMe articles={articles}></AboutMe>
+      <AboutMe title={aboutMePage.title} articles={aboutMePage.articles} />
       <Contact contactData={contactData} />
     </>
   );

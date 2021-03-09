@@ -269,6 +269,15 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
               title {
                 value
               }
+              seo__metatitle {
+                value
+              }
+              seo__metadescription {
+                value
+              }
+              seo__metakeywords {
+                value
+              }
             }
           }
         }
@@ -303,6 +312,15 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                     srcSet
                   }
                 }
+              }
+              seo__metatitle {
+                value
+              }
+              seo__metadescription {
+                value
+              }
+              seo__metakeywords {
+                value
               }
             }
           }
@@ -339,6 +357,15 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                   }
                 }
               }
+              seo__metatitle {
+                value
+              }
+              seo__metadescription {
+                value
+              }
+              seo__metakeywords {
+                value
+              }
             }
           }
         }
@@ -373,6 +400,15 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                     srcSet
                   }
                 }
+              }
+              seo__metatitle {
+                value
+              }
+              seo__metadescription {
+                value
+              }
+              seo__metakeywords {
+                value
               }
             }
           }

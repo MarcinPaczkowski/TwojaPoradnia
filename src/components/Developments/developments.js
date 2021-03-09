@@ -5,16 +5,16 @@ import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 import Section from '../Layout/Section/section';
 import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
 
-const Developments = ({ developments }) => {
+const Developments = ({ title, developments }) => {
   return (
     <div className="developments">
       <Section>
-        <HeaderTitle title="Rozwój i wychowanie" />
+        <HeaderTitle title={title} />
       </Section>
       <NegativeMarginWrapper>
         <Section isWide>
           <HorizontalTiles
-            tiles={developments.map(d => {
+            tiles={developments.map((d) => {
               return {
                 title: d.title,
                 description: d.shortDescription,

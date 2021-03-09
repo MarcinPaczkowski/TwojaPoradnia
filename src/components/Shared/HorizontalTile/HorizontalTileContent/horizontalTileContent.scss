@@ -40,6 +40,12 @@
         margin-left: 25px;
       }
     }
+    a {
+      color: $dark-blue;
+      &:hover {
+        color: $light-red;
+      }
+    }
   }
 
   &__button {

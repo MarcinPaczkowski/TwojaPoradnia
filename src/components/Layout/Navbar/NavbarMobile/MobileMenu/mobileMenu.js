@@ -6,7 +6,7 @@ import MobileMenuSocialMedia from './MobileMenuSocialMedia/mobileMenuSocialMedia
 import MobileMenuContact from './MobileMenuContact/mobileMenuContact';
 import ImageLink from '../../../../Shared/ImageLink/imageLink';
 import getRoutingData from '../../../../../services/routingService';
-import { mapCmsContactData } from '../../../../../utils/cmsMappers/contactDataMapper';
+import { mapCmsContactData } from '../../../../../utils/cmsMappers/contact/contactDataMapper';
 
 const MobileMenu = ({ isActive }) => {
   const [routings, setRoutings] = useState([]);
@@ -85,7 +85,7 @@ const MobileMenu = ({ isActive }) => {
     { name: 'facebook', link: contactData.facebookUrl },
     { name: 'instagram', link: contactData.instagramUrl },
     { name: 'youtube', link: contactData.youtubeUrl },
-  ].filter(sm => sm.link !== '');
+  ].filter((sm) => sm.link !== '');
 
   const clickHandler = () => {
     const nav = window.document.getElementsByClassName('mobile-menu')[0];

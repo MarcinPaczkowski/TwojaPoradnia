@@ -5,8 +5,8 @@ import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 import Section from '../Layout/Section/section';
 import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
 
-const Books = ({ books }) => {
-  const tiles = books.map(b => {
+const Books = ({ title, books }) => {
+  const tiles = books.map((b) => {
     return {
       image: {
         src: b.image.fluid,
@@ -23,7 +23,7 @@ const Books = ({ books }) => {
   return (
     <div className="books">
       <Section>
-        <HeaderTitle title="Książki" />
+        <HeaderTitle title={title} />
       </Section>
       <NegativeMarginWrapper>
         <Section>

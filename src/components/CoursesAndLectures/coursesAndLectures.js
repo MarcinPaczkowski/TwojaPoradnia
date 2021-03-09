@@ -1,65 +1,33 @@
 import React from 'react';
 import './coursesAndLectures.scss';
-import { useStaticQuery, graphql } from 'gatsby';
 import Section from '../Layout/Section/section';
 import HeaderTitle from '../Shared/HeaderTitle/headerTitle';
 import NegativeMarginWrapper from '../Layout/NegativeMarginWrapper/negativeMarginWrapper';
 import ImageTile from '../Shared/ImageTile/imageTile';
 
-const CoursesAndLectures = () => {
-  const { courseImage, lectureImage } = useStaticQuery(
-    graphql`
-      query {
-        courseImage: file(relativePath: { eq: "szkolenie1.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 700) {
-              ...GatsbyImageSharpFluid_noBase64
-            }
-          }
-        }
-        lectureImage: file(relativePath: { eq: "wyklad1.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 700) {
-              ...GatsbyImageSharpFluid_noBase64
-            }
-          }
-        }
-      }
-    `
-  );
-
-  const tiles = [
-    {
+const CoursesAndLectures = ({ title, subPages }) => {
+  const tiles = subPages.map((p) => {
+    return {
       link: {
-        url: '/szkolenia',
-        text: 'Szkolenia',
+        url: p.action.link,
+        text: p.action.buttonText,
       },
       image: {
-        src: courseImage.childImageSharp.fluid,
-        alt: 'Szkolenia',
+        src: p.image.fluid,
+        alt: p.image.description,
       },
-    },
-    {
-      link: {
-        url: '/wyklady',
-        text: 'Wykłady',
-      },
-      image: {
-        src: lectureImage.childImageSharp.fluid,
-        alt: 'Wykład',
-      },
-    },
-  ];
+    };
+  });
   return (
     <div className="courses-lectures">
       <Section>
-        <HeaderTitle title="Szkolenia i wykłady" />
+        <HeaderTitle title={title} />
       </Section>
       <NegativeMarginWrapper>
         <Section>
           <div className="courses-lectures__items">
-            <ImageTile tile={tiles[0]} key="courses" />
-            <ImageTile tile={tiles[1]} key="lectures" />
+            <ImageTile tile={tiles[0]} key={tiles[0].title} />
+            <ImageTile tile={tiles[1]} key={tiles[1].title} />
           </div>
         </Section>
       </NegativeMarginWrapper>

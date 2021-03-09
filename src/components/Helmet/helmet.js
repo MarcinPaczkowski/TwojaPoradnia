@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 const GatsbyHelmet = ({ siteMetadata, currentSiteUrl }) => {
   const getMetaKeywords = (site, siteMetadata) => {
     return `${
-      siteMetadata && siteMetadata.keywords ? `, ${siteMetadata.keywords}` : ``
+      siteMetadata && siteMetadata.keywords ? `${siteMetadata.keywords}` : ``
     }${site.siteMetadata.keywords}`;
   };
 
@@ -30,7 +30,6 @@ const GatsbyHelmet = ({ siteMetadata, currentSiteUrl }) => {
   );
 
   const metaKeywords = getMetaKeywords(site, siteMetadata);
-  console.log(metaKeywords);
 
   const metaTitle = siteMetadata?.title || site.siteMetadata.title || '';
   const metaDescription =

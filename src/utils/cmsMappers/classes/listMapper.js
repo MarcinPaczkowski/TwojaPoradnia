@@ -1,6 +1,7 @@
 import moment from 'moment';
+import { mapCmsSeoData } from '../seoMapper';
 
-const map = cmsClass => {
+const mapClass = (cmsClass) => {
   const publishDate = moment(cmsClass.elements.publishdate.value).utc();
   return {
     title: cmsClass.elements.title.value,
@@ -10,11 +11,20 @@ const map = cmsClass => {
     urlToDetails: `/zajecia/${cmsClass.elements.slug.value}`,
     publishDate: publishDate,
     formattedPublishDate: publishDate.format('DD.MM.YYYY HH:mm'),
+    order: cmsClass.elements.order.value,
   };
 };
 
-const mapAll = cmsClasses => {
-  return cmsClasses.map(c => map(c));
+const map = (cmsClassesPage) => {
+  return {
+    title: cmsClassesPage.elements.title.value,
+    classes: cmsClassesPage.elements.classes.value
+      .map((c) => mapClass(c))
+      .sort((a, b) => {
+        return a.order - b.order;
+      }),
+    seo: mapCmsSeoData(cmsClassesPage.elements),
+  };
 };
 
-export { mapAll as mapAllCmsClasses };
+export { map as mapCmsClassesPage };

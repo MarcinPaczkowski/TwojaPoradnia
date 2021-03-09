@@ -3,12 +3,12 @@ import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import Contact from '../components/Contact/contact';
 import GatsbyHelmet from '../components/Helmet/helmet';
-import { mapCmsContactPageData } from '../utils/cmsMappers/contact/contactPageDataMapper';
+import { mapCmsContactPage } from '../utils/cmsMappers/contact/contactPageMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
 const ContactPage = (pageData) => {
   const {
-    allKontentItemContactpage: { nodes: cmsContactPageData },
+    allKontentItemContactpage: { nodes: cmsContactPage },
   } = useStaticQuery(
     graphql`
       {
@@ -63,7 +63,7 @@ const ContactPage = (pageData) => {
     `
   );
 
-  const contactPageData = mapCmsContactPageData(cmsContactPageData[0]);
+  const contactPage = mapCmsContactPage(cmsContactPage[0]);
   const layoutContext = useContext(LayoutContext);
 
   /* eslint-disable react-hooks/exhaustive-deps */
@@ -75,10 +75,10 @@ const ContactPage = (pageData) => {
   return (
     <>
       <GatsbyHelmet
-        siteMetadata={contactPageData.seo}
+        siteMetadata={contactPage.seo}
         currentSiteUrl={pageData.location.href}
       />
-      <Contact contactData={contactPageData.contactData} />
+      <Contact contactData={contactPage.contactData} />
     </>
   );
 };

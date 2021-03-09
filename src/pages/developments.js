@@ -2,40 +2,61 @@ import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
-import { mapAllCmsDevelopments } from '../utils/cmsMappers/developmentsMapper';
+import { mapCmsDevelopmentsPage } from '../utils/cmsMappers/developments/developmentsPageMapper';
 import Developments from '../components/Developments/developments';
+import GatsbyHelmet from '../components/Helmet/helmet';
 
-const DevelopmentPage = pageData => {
+const DevelopmentPage = (pageData) => {
   const {
-    allKontentItemDevelopment: { nodes: cmsDevelopments },
+    allKontentItemDevelopmentspage: { nodes: cmsDevelopmentsPage },
   } = useStaticQuery(
     graphql`
       query {
-        allKontentItemDevelopment {
+        allKontentItemDevelopmentspage {
           nodes {
             elements {
               title {
                 value
               }
-              shortdescription {
-                value
-              }
-              publishdate {
-                value
-              }
-              image {
+              developments {
                 value {
-                  description
-                  fluid(maxWidth: 600) {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
+                  ... on kontent_item_development {
+                    elements {
+                      title {
+                        value
+                      }
+                      shortdescription {
+                        value
+                      }
+                      publishdate {
+                        value
+                      }
+                      image {
+                        value {
+                          description
+                          fluid(maxWidth: 600) {
+                            aspectRatio
+                            base64
+                            sizes
+                            src
+                            srcSet
+                          }
+                        }
+                      }
+                      slug {
+                        value
+                      }
+                    }
                   }
                 }
               }
-              slug {
+              seo__metatitle {
+                value
+              }
+              seo__metadescription {
+                value
+              }
+              seo__metakeywords {
                 value
               }
             }
@@ -45,7 +66,7 @@ const DevelopmentPage = pageData => {
     `
   );
 
-  const developments = mapAllCmsDevelopments(cmsDevelopments);
+  const developmentsPage = mapCmsDevelopmentsPage(cmsDevelopmentsPage[0]);
   const layoutContext = useContext(LayoutContext);
 
   /* eslint-disable react-hooks/exhaustive-deps */
@@ -54,7 +75,18 @@ const DevelopmentPage = pageData => {
     layoutContext.setBreadcrumbs(breadcrumbs);
   }, [pageData]);
 
-  return <Developments developments={developments} />;
+  return (
+    <>
+      <GatsbyHelmet
+        siteMetadata={developmentsPage.seo}
+        currentSiteUrl={pageData.location.href}
+      />
+      <Developments
+        title={developmentsPage.title}
+        developments={developmentsPage.developments}
+      />
+    </>
+  );
 };
 
 export default DevelopmentPage;
