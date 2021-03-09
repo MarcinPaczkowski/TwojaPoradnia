@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
-import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import Home from '../components/Home/home';
 import Contact from '../components/Contact/contact';
 import GatsbyHelmet from '../components/Helmet/helmet';
