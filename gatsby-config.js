@@ -110,7 +110,19 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GATSBY_GTAG_trackingId,
-        anonymize: false,
+        anonymize: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleAnalytics: {
+          trackingId: process.env.GATSBY_GTAG_trackingId,
+          cookieName: 'policyConsent',
+          anonymize: true,
+          allowAdFeatures: false,
+        },
+        environments: ['production'],
       },
     },
     `gatsby-plugin-offline`,
