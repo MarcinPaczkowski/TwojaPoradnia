@@ -1,8 +1,7 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import Contact from '../components/Contact/contact';
-import GatsbyHelmet from '../components/Helmet/helmet';
 import { mapCmsContactPage } from '../utils/cmsMappers/contact/contactPageMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 
@@ -63,22 +62,25 @@ const ContactPage = (pageData) => {
     `
   );
 
-  const contactPage = mapCmsContactPage(cmsContactPage[0]);
   const layoutContext = useContext(LayoutContext);
+  const [contactPage, setContactPage] = useState(null);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
+    const contactPage = mapCmsContactPage(cmsContactPage[0]);
     const breadcrumbs = buildBreadcrumbs(pageData, 'Kontakt');
+    setContactPage(contactPage);
     layoutContext.setBreadcrumbs(breadcrumbs);
+    layoutContext.setSeo(contactPage.seo);
   }, [pageData]);
 
   return (
     <>
-      <GatsbyHelmet
-        siteMetadata={contactPage.seo}
-        currentSiteUrl={pageData.location.href}
-      />
-      <Contact contactData={contactPage.contactData} />
+      {contactPage && (
+        <>
+          <Contact contactData={contactPage.contactData} />
+        </>
+      )}
     </>
   );
 };

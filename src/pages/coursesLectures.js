@@ -1,9 +1,8 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import LayoutContext from '../contexts/LayoutContext';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import CoursesAndLectures from '../components/CoursesAndLectures/coursesAndLectures';
-import GatsbyHelmet from '../components/Helmet/helmet';
 import { mapCmsCoursesAndLecturesPage } from '../utils/cmsMappers/coursesAndLecturesPageMapper';
 
 const CoursesAndLecturesPage = (pageData) => {
@@ -106,27 +105,33 @@ const CoursesAndLecturesPage = (pageData) => {
     `
   );
 
-  const coursesAndLecturesPage = mapCmsCoursesAndLecturesPage(
-    cmsCoursesAndLecturesPage[0]
-  );
   const layoutContext = useContext(LayoutContext);
+  const [coursesAndLecturesPage, setCoursesAndLecturesPage] = useState(null);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    const breadcrumbs = buildBreadcrumbs(pageData, 'Szkolenia i wykłady');
+    const coursesAndLecturesPage = mapCmsCoursesAndLecturesPage(
+      cmsCoursesAndLecturesPage[0]
+    );
+    const breadcrumbs = buildBreadcrumbs(
+      pageData,
+      coursesAndLecturesPage.title
+    );
+    setCoursesAndLecturesPage(coursesAndLecturesPage);
     layoutContext.setBreadcrumbs(breadcrumbs);
+    layoutContext.setSeo(coursesAndLecturesPage.seo);
   }, [pageData]);
 
   return (
     <>
-      <GatsbyHelmet
-        siteMetadata={coursesAndLecturesPage.seo}
-        currentSiteUrl={pageData.location.href}
-      />
-      <CoursesAndLectures
-        title={coursesAndLecturesPage.title}
-        subPages={coursesAndLecturesPage.subPages}
-      />
+      {coursesAndLecturesPage && (
+        <>
+          <CoursesAndLectures
+            title={coursesAndLecturesPage.title}
+            subPages={coursesAndLecturesPage.subPages}
+          />
+        </>
+      )}
     </>
   );
 };

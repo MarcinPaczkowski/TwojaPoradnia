@@ -1,10 +1,9 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapCmsDevelopmentsPage } from '../utils/cmsMappers/developments/developmentsPageMapper';
 import Developments from '../components/Developments/developments';
-import GatsbyHelmet from '../components/Helmet/helmet';
 
 const DevelopmentPage = (pageData) => {
   const {
@@ -66,25 +65,28 @@ const DevelopmentPage = (pageData) => {
     `
   );
 
-  const developmentsPage = mapCmsDevelopmentsPage(cmsDevelopmentsPage[0]);
   const layoutContext = useContext(LayoutContext);
+  const [developmentsPage, setDevelopmentsPage] = useState(null);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    const breadcrumbs = buildBreadcrumbs(pageData, 'Rozwój i wychowanie');
+    const developmentsPage = mapCmsDevelopmentsPage(cmsDevelopmentsPage[0]);
+    const breadcrumbs = buildBreadcrumbs(pageData, developmentsPage.title);
+    setDevelopmentsPage(developmentsPage);
     layoutContext.setBreadcrumbs(breadcrumbs);
+    layoutContext.setSeo(developmentsPage.seo);
   }, [pageData]);
 
   return (
     <>
-      <GatsbyHelmet
-        siteMetadata={developmentsPage.seo}
-        currentSiteUrl={pageData.location.href}
-      />
-      <Developments
-        title={developmentsPage.title}
-        developments={developmentsPage.developments}
-      />
+      {developmentsPage && (
+        <>
+          <Developments
+            title={developmentsPage.title}
+            developments={developmentsPage.developments}
+          />
+        </>
+      )}
     </>
   );
 };

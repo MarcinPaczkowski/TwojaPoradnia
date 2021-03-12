@@ -1,7 +1,6 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import TeachingResources from '../components/TeachingResources/teachingResources';
-import GatsbyHelmet from '../components/Helmet/helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { mapCmsTeachingResourcesPage } from '../utils/cmsMappers/teachingResources/teachingResourcesPageMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
@@ -65,27 +64,30 @@ const TeachingResourcesPage = (pageData) => {
     `
   );
 
-  const teachingResourcesPage = mapCmsTeachingResourcesPage(
-    cmsTeachingResourcesPage[0]
-  );
   const layoutContext = useContext(LayoutContext);
+  const [teachingResourcesPage, setTeachingResourcesPage] = useState(null);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    const breadcrumbs = buildBreadcrumbs(pageData, 'Materiały');
+    const teachingResourcesPage = mapCmsTeachingResourcesPage(
+      cmsTeachingResourcesPage[0]
+    );
+    const breadcrumbs = buildBreadcrumbs(pageData, teachingResourcesPage.title);
+    setTeachingResourcesPage(teachingResourcesPage);
     layoutContext.setBreadcrumbs(breadcrumbs);
+    layoutContext.setSeo(teachingResourcesPage.seo);
   }, [pageData]);
 
   return (
     <>
-      <GatsbyHelmet
-        siteMetadata={teachingResourcesPage.seo}
-        currentSiteUrl={pageData.location.href}
-      />
-      <TeachingResources
-        title={teachingResourcesPage.title}
-        resources={teachingResourcesPage.teachingResources}
-      />
+      {teachingResourcesPage && (
+        <>
+          <TeachingResources
+            title={teachingResourcesPage.title}
+            resources={teachingResourcesPage.teachingResources}
+          />
+        </>
+      )}
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import favicon from '../../images/favicon.ico';
 
 const GatsbyHelmet = ({ siteMetadata, currentSiteUrl }) => {
   const getMetaKeywords = (site, siteMetadata) => {
@@ -40,15 +41,16 @@ const GatsbyHelmet = ({ siteMetadata, currentSiteUrl }) => {
       <html lang="pl" />
       <title>{`${metaTitle} | ${site.siteMetadata.siteName}`}</title>
       <link rel="canonical" href={currentSiteUrl} />
+      <link rel="shortcut icon" type="image/x-icon" href={favicon} />
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
       />
-      <meta itemprop="name" content={site.siteMetadata.author} />
-      <meta itemprop="description" content={metaDescription} />
-      <meta itemprop="keywords" content={metaKeywords} />
+      <meta name="name" content={site.siteMetadata.author} />
+      <meta name="description" content={metaDescription} />
+      <meta name="keywords" content={metaKeywords} />
       <meta
-        itemprop="image"
+        name="image"
         content={`${site.siteMetadata.siteUrl}${logo.publicURL}`}
       />
       <meta property="og:title" content={metaTitle} />

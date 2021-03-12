@@ -1,10 +1,9 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import Classes from '../components/Classes/classes';
 import { mapCmsClassesPage } from '../utils/cmsMappers/classes/listMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
-import GatsbyHelmet from '../components/Helmet/helmet';
 
 const ClassesPage = (pageData) => {
   const {
@@ -69,22 +68,25 @@ const ClassesPage = (pageData) => {
     `
   );
 
-  const classesPage = mapCmsClassesPage(cmsClassesPage[0]);
   const layoutContext = useContext(LayoutContext);
+  const [classesPage, setClassesPage] = useState(null);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    const breadcrumbs = buildBreadcrumbs(pageData, 'Zajęcia');
+    const classesPage = mapCmsClassesPage(cmsClassesPage[0]);
+    const breadcrumbs = buildBreadcrumbs(pageData, classesPage.title);
+    setClassesPage(classesPage);
     layoutContext.setBreadcrumbs(breadcrumbs);
+    layoutContext.setSeo(classesPage.seo);
   }, [pageData]);
 
   return (
     <>
-      <GatsbyHelmet
-        siteMetadata={classesPage.seo}
-        currentSiteUrl={pageData.location.href}
-      />
-      <Classes title={classesPage.title} classes={classesPage.classes} />
+      {classesPage && (
+        <>
+          <Classes title={classesPage.title} classes={classesPage.classes} />
+        </>
+      )}
     </>
   );
 };

@@ -1,12 +1,11 @@
-import React, { useEffect, useContext } from 'react';
-import GatsbyHelmet from '../components/Helmet/helmet';
+import React, { useEffect, useState, useContext } from 'react';
+import LayoutContext from '../contexts/LayoutContext';
 import AboutMe from '../components/AboutMe/aboutMe';
 import { useStaticQuery, graphql } from 'gatsby';
 import { mapCmsAboutMePage } from '../utils/cmsMappers/aboutMe/aboutMePageMapper';
 import { mapCmsContactData } from '../utils/cmsMappers/contact/contactDataMapper';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import Contact from '../components/Contact/contact';
-import LayoutContext from '../contexts/LayoutContext';
 
 const AboutPage = (pageData) => {
   const {
@@ -96,24 +95,30 @@ const AboutPage = (pageData) => {
     `
   );
 
-  const aboutMePage = mapCmsAboutMePage(cmsAboutMePage[0]);
-  const contactData = mapCmsContactData(cmsContactData[0]);
   const layoutContext = useContext(LayoutContext);
+  const [aboutMePage, setAboutMePage] = useState(null);
+  const [contactData, setContactData] = useState(null);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    const breadcrumbs = buildBreadcrumbs(pageData, 'O mnie');
+    const aboutMePage = mapCmsAboutMePage(cmsAboutMePage[0]);
+    const contactData = mapCmsContactData(cmsContactData[0]);
+    setAboutMePage(aboutMePage);
+    setContactData(contactData);
+
+    const breadcrumbs = buildBreadcrumbs(pageData, aboutMePage.title);
     layoutContext.setBreadcrumbs(breadcrumbs);
+    layoutContext.setSeo(aboutMePage.seo);
   }, [pageData]);
 
   return (
     <>
-      <GatsbyHelmet
-        siteMetadata={aboutMePage.seo}
-        currentSiteUrl={pageData.location.href}
-      />
-      <AboutMe title={aboutMePage.title} articles={aboutMePage.articles} />
-      <Contact contactData={contactData} />
+      {aboutMePage && contactData && (
+        <>
+          <AboutMe title={aboutMePage.title} articles={aboutMePage.articles} />
+          <Contact contactData={contactData} />
+        </>
+      )}
     </>
   );
 };
