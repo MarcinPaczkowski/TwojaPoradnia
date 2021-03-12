@@ -1,27 +1,29 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapCmsBook } from '../utils/cmsMappers/books/booksMapper';
 import EntryBlog from '../components/EntryBlog/entryBlog';
-import GatsbyHelmet from '../components/Helmet/helmet';
 
 const BookDetails = (pageData) => {
-  const bookDetails = mapCmsBook(pageData.pageContext);
   const layoutContext = useContext(LayoutContext);
+  const [bookDetails, setBookDetails] = useState(null);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
+    const bookDetails = mapCmsBook(pageData.pageContext);
     const breadcrumbs = buildBreadcrumbs(pageData, 'Książki');
+    setBookDetails(bookDetails);
     layoutContext.setBreadcrumbs(breadcrumbs);
+    layoutContext.setSeo(bookDetails.seo);
   }, [pageData]);
 
   return (
     <>
-      <GatsbyHelmet
-        siteMetadata={bookDetails.seo}
-        currentSiteUrl={pageData.location.href}
-      />
-      <EntryBlog blog={bookDetails} />
+      {bookDetails && (
+        <>
+          <EntryBlog blog={bookDetails} />
+        </>
+      )}
     </>
   );
 };

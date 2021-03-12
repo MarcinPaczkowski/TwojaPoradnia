@@ -1,10 +1,9 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import { mapCmsGamesPage } from '../utils/cmsMappers/games/gamesPageMapper';
 import Games from '../components/Games/games';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
-import GatsbyHelmet from '../components/Helmet/helmet';
 
 const GamesPage = (pageData) => {
   const {
@@ -66,22 +65,25 @@ const GamesPage = (pageData) => {
     `
   );
 
-  const gamesPage = mapCmsGamesPage(cmsGamesPage[0]);
   const layoutContext = useContext(LayoutContext);
+  const [gamesPage, setGamesPage] = useState(null);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    const breadcrumbs = buildBreadcrumbs(pageData, 'Gry');
+    const gamesPage = mapCmsGamesPage(cmsGamesPage[0]);
+    const breadcrumbs = buildBreadcrumbs(pageData, gamesPage.title);
+    setGamesPage(gamesPage);
     layoutContext.setBreadcrumbs(breadcrumbs);
+    layoutContext.setSeo(gamesPage.seo);
   }, [pageData]);
 
   return (
     <>
-      <GatsbyHelmet
-        siteMetadata={gamesPage.seo}
-        currentSiteUrl={pageData.location.href}
-      />
-      <Games title={gamesPage.title} games={gamesPage.games} />
+      {gamesPage && (
+        <>
+          <Games title={gamesPage.title} games={gamesPage.games} />
+        </>
+      )}
     </>
   );
 };
