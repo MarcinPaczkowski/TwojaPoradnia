@@ -51,7 +51,7 @@ const Layout = (props) => {
             <GoogleReCaptchaProvider
               reCaptchaKey={process.env.GATSBY_recaptchaSiteKey}
             >
-              <GatsbyHelmet siteMetadata={seo} currentSiteUrl={''} />
+              <GatsbyHelmet siteMetadata={seo} currentSiteUrl={props.path} />
               <div className="layout">
                 <div className="layout__navbar">
                   <Navbar isHome={isHome} />

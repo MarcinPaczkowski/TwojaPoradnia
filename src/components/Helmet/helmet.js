@@ -40,7 +40,10 @@ const GatsbyHelmet = ({ siteMetadata, currentSiteUrl }) => {
     <Helmet>
       <html lang="pl" />
       <title>{`${metaTitle} | ${site.siteMetadata.siteName}`}</title>
-      <link rel="canonical" href={currentSiteUrl} />
+      <link
+        rel="canonical"
+        href={`${site.siteMetadata.siteUrl}${currentSiteUrl}`}
+      />
       <link rel="shortcut icon" type="image/x-icon" href={favicon} />
       <meta
         name="viewport"
