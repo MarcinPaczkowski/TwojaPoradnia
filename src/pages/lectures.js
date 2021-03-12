@@ -1,10 +1,9 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapCmsLecturesPage } from '../utils/cmsMappers/lectures/lecturesPageMapper';
 import Lectures from '../components/Lectures/lectures';
-import GatsbyHelmet from '../components/Helmet/helmet';
 
 const LecturesPage = (pageData) => {
   const {
@@ -81,25 +80,28 @@ const LecturesPage = (pageData) => {
     `
   );
 
-  const lecturesPage = mapCmsLecturesPage(cmsLecturesPage[0]);
   const layoutContext = useContext(LayoutContext);
+  const [lecturesPage, setLecturesPage] = useState(null);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    const breadcrumbs = buildBreadcrumbs(pageData, 'Wykłady', {
+    const lecturesPage = mapCmsLecturesPage(cmsLecturesPage[0]);
+    const breadcrumbs = buildBreadcrumbs(pageData, lecturesPage.title, {
       url: '/szkolenia-i-wyklady',
       name: 'Szkolenia i wykłady',
     });
+    setLecturesPage(lecturesPage);
     layoutContext.setBreadcrumbs(breadcrumbs);
+    layoutContext.setSeo(lecturesPage.seo);
   }, [pageData]);
 
   return (
     <>
-      <GatsbyHelmet
-        siteMetadata={lecturesPage.seo}
-        currentSiteUrl={pageData.location.href}
-      />
-      <Lectures lectures={lecturesPage.lectures} />
+      {lecturesPage && (
+        <>
+          <Lectures lectures={lecturesPage.lectures} />
+        </>
+      )}
     </>
   );
 };

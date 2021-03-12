@@ -1,13 +1,11 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import LayoutContext from '../contexts/LayoutContext';
 import { useStaticQuery, graphql } from 'gatsby';
 import { buildBreadcrumbs } from '../utils/breadcrumbsHelpers';
 import { mapCmsCoursesPage } from '../utils/cmsMappers/courses/coursesPageMapper';
 import Course from '../components/Course/course';
-import GatsbyHelmet from '../components/Helmet/helmet';
 
 const CoursesPage = (pageData) => {
-  const layoutContext = useContext(LayoutContext);
   const {
     allKontentItemCoursepage: { nodes: cmsCoursesPage },
   } = useStaticQuery(
@@ -222,24 +220,29 @@ const CoursesPage = (pageData) => {
       }
     `
   );
-  const coursePage = mapCmsCoursesPage(cmsCoursesPage[0]);
+
+  const layoutContext = useContext(LayoutContext);
+  const [coursePage, setCoursePage] = useState(null);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
+    const coursePage = mapCmsCoursesPage(cmsCoursesPage[0]);
     const breadcrumbs = buildBreadcrumbs(pageData, 'Szkolenia', {
       url: '/szkolenia-i-wyklady',
       name: 'Szkolenia i wykłady',
     });
+    setCoursePage(coursePage);
     layoutContext.setBreadcrumbs(breadcrumbs);
+    layoutContext.setSeo(coursePage.seo);
   }, [pageData]);
 
   return (
     <>
-      <GatsbyHelmet
-        siteMetadata={coursePage.seo}
-        currentSiteUrl={pageData.location.href}
-      />
-      <Course title={coursePage.title} course={coursePage.course} />
+      {coursePage && (
+        <>
+          <Course title={coursePage.title} course={coursePage.course} />
+        </>
+      )}
     </>
   );
 };

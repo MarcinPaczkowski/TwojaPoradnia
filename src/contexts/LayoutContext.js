@@ -2,7 +2,9 @@ import { createContext } from 'react';
 
 const LayoutContext = createContext({
   breadcrumbs: null,
-  setBreadcrumbs: breadcrumbs => {},
+  seo: null,
+  setBreadcrumbs: (breadcrumbs) => {},
+  setSeo: (seo) => {},
 });
 
 export default LayoutContext;
