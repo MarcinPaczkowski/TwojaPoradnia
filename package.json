@@ -58,7 +58,7 @@
     "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
-    "@vercel/node": "^1.8.5",
+    "@vercel/node": "^1.9.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.13.0",
     "eslint-loader": "^4.0.2",

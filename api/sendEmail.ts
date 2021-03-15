@@ -1,4 +1,4 @@
-import { NowRequest, NowResponse } from '@now/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 import { EmailService } from './Services/_emailService';
 import { verifyRecaptcha } from './Services/_reCaptchaService';
 
@@ -26,7 +26,7 @@ const sendEmial = async formData => {
   return response;
 };
 
-export default async (req: NowRequest, res: NowResponse) => {
+export default async (req: VercelRequest, res: VercelResponse) => {
   try {
     const { body } = req;
     const { formData, recaptchaToken } = body;
