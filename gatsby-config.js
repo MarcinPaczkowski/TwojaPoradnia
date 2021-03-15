@@ -15,7 +15,7 @@ module.exports = {
     description: 'Twoja Pora Dnia',
     keywords: ``,
     siteName: siteName,
-    siteUrl: `https://${siteName}/`,
+    siteUrl: `https://www.${siteName}/`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
