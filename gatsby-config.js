@@ -100,10 +100,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [
-          { userAgent: '*', allow: '/' },
-          { userAgent: 'Googlebot-Image', disallow: '/' },
-        ],
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
