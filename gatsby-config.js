@@ -15,7 +15,7 @@ module.exports = {
     description: 'Twoja Pora Dnia',
     keywords: ``,
     siteName: siteName,
-    siteUrl: `https://www.${siteName}/`,
+    siteUrl: `https://${siteName}/`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -100,6 +100,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
+        host: `https://${siteName}/`,
+        sitemap: `https://${siteName}/sitemap.xml`,
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
