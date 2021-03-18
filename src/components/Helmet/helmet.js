@@ -33,41 +33,35 @@ const GatsbyHelmet = ({ siteMetadata, currentSiteUrl }) => {
   const metaKeywords = getMetaKeywords(site, siteMetadata);
 
   const metaTitle = siteMetadata?.title || site.siteMetadata.title || '';
+  const fullMetaTitle = metaTitle
+    ? `${metaTitle} | ${site.siteMetadata.siteName}`
+    : site.siteMetadata.siteName;
   const metaDescription =
     siteMetadata?.description || site.siteMetadata.description || '';
+  const metaImage = `${site.siteMetadata.siteUrl}${logo.publicURL}`;
 
   return (
     <Helmet>
       <html lang="pl" />
-      <title>{`${metaTitle} | ${site.siteMetadata.siteName}`}</title>
-      <link
-        rel="canonical"
-        href={`${site.siteMetadata.siteUrl}${currentSiteUrl}`}
-      />
+      <title>{fullMetaTitle}</title>
       <link rel="shortcut icon" type="image/x-icon" href={favicon} />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-      />
       <meta name="name" content={site.siteMetadata.author} />
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={metaKeywords} />
-      <meta
-        name="image"
-        content={`${site.siteMetadata.siteUrl}${logo.publicURL}`}
-      />
+      <meta name="image" content={metaImage} />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="pl" />
-      <meta
-        property="og:image"
-        content={`${site.siteMetadata.siteUrl}${logo.publicURL}`}
-      />
+      <meta property="og:url" content={currentSiteUrl} />
+      <meta property="og:image" content={metaImage} />
+      <meta property="og:image:alt" content="Logo Twoja Poradnia" />
       <meta name="twitter:card" content="Podsumowanie" />
       <meta name="twitter:creator" content={site.siteMetadata.author} />
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={metaImage} />
+      <meta name="twitter:image:alt" content="Logo Twoja Poradnia" />
     </Helmet>
   );
 };
